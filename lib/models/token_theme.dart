@@ -11,6 +11,9 @@ class TokenTheme {
 
   @visibleForTesting
   final Map<String, Token> tokens = {};
+  
+  /// Original document structure for JSON Pointer resolution
+  Map<String, dynamic>? originalDocument;
 
   TokenTheme(this.name, this.sets);
 
@@ -37,7 +40,7 @@ class TokenTheme {
     if (token == null) return null;
 
     try {
-      return token.resolveAllReferences(tokens);
+      return token.resolveAllReferences(tokens, originalDocument);
     } catch (e, stacktrace) {
       print('Originating exception stacktrace:\n$stacktrace');
       throw ResolveTokenException(
@@ -48,5 +51,9 @@ class TokenTheme {
 
   void addTokens(Map<String, Token> tokens) {
     this.tokens.addAll(tokens);
+  }
+  
+  void setOriginalDocument(Map<String, dynamic> document) {
+    this.originalDocument = document;
   }
 }

@@ -4,6 +4,7 @@ import 'package:figma2flutter/exceptions/resolve_token_exception.dart';
 import 'package:figma2flutter/extensions/string.dart';
 import 'package:figma2flutter/models/color_value.dart';
 import 'package:figma2flutter/models/dimension_value.dart';
+import 'package:figma2flutter/utils/json_pointer.dart';
 import 'package:recase/recase.dart';
 
 /// A [Token] represents a single token in the json file.
@@ -71,6 +72,12 @@ class Token {
   bool get _hasTokenReferences =>
       value is String && (value as String).hasTokenReferences;
 
+  /// Check if the token uses JSON Pointer reference ($ref)
+  bool get _hasJsonPointerReference =>
+      value is Map<String, dynamic> &&
+      (value as Map<String, dynamic>).containsKey('\$ref') &&
+      (value as Map<String, dynamic>)['\$ref'] is String;
+
   /// Check if the token has an inner reference to a color
   bool get _hasColorReference =>
       type != null &&
@@ -112,8 +119,16 @@ class Token {
     );
   }
 
-  Token resolveAllReferences(Map<String, Token> tokenMap) {
+  Token resolveAllReferences(
+    Map<String, Token> tokenMap, [
+    Map<String, dynamic>? originalDocument,
+  ]) {
     Token? token = this;
+
+    // Handle JSON Pointer references first
+    if (token._hasJsonPointerReference && originalDocument != null) {
+      token = token._resolveJsonPointerReference(originalDocument, tokenMap);
+    }
 
     if (_hasColorReference) {
       token = token._resolveColorReferences(tokenMap);
@@ -126,7 +141,7 @@ class Token {
     if (token._hasTokenReferences == true) {
       if (token.valueAsString?.isTokenReference == true) {
         final reference =
-            tokenMap[token.valueByRef]?.resolveAllReferences(tokenMap);
+            tokenMap[token.valueByRef]?.resolveAllReferences(tokenMap, originalDocument);
         if (reference == null) {
           throw ResolveTokenException(
             'Reference not found for `${token.valueByRef}`',
@@ -143,7 +158,7 @@ class Token {
         String? type = this.type;
         while (match != null) {
           final reference =
-              tokenMap[match.group(1)]?.resolveAllReferences(tokenMap);
+              tokenMap[match.group(1)]?.resolveAllReferences(tokenMap, originalDocument);
           if (reference == null) {
             throw ResolveTokenException(
               'Reference not found for `${match.group(1)}`',
@@ -169,7 +184,50 @@ class Token {
       }
     }
 
-    return token._resolveValueReferences(tokenMap);
+    return token._resolveValueReferences(tokenMap, originalDocument);
+  }
+
+  /// Resolves a JSON Pointer reference ($ref).
+  Token _resolveJsonPointerReference(
+    Map<String, dynamic> originalDocument,
+    Map<String, Token> tokenMap,
+  ) {
+    final valueMap = value as Map<String, dynamic>;
+    final ref = valueMap['\$ref'] as String;
+    
+    if (!JsonPointer.isValid(ref)) {
+      throw ResolveTokenException(
+        'Invalid JSON Pointer: $ref',
+      );
+    }
+
+    try {
+      final resolvedValue = JsonPointer.resolve(ref, originalDocument);
+      
+      // If the resolved value is a token reference path, resolve it
+      if (resolvedValue is String && resolvedValue.startsWith('{') && resolvedValue.endsWith('}')) {
+        final tokenPath = resolvedValue.substring(1, resolvedValue.length - 1);
+        final referencedToken = tokenMap[tokenPath]?.resolveAllReferences(tokenMap, originalDocument);
+        if (referencedToken == null) {
+          throw ResolveTokenException(
+            'Token reference not found for JSON Pointer: $ref -> $tokenPath',
+          );
+        }
+        return copyWith(
+          value: referencedToken.value,
+          type: type ?? referencedToken.type,
+        );
+      }
+      
+      return copyWith(value: resolvedValue);
+    } catch (e) {
+      if (e is ResolveTokenException) {
+        rethrow;
+      }
+      throw ResolveTokenException(
+        'Failed to resolve JSON Pointer $ref: $e',
+      );
+    }
   }
 
   /// Resolves all references in the value of this token.
@@ -193,10 +251,13 @@ class Token {
   ///   }
   /// }
   /// ```
-  Token _resolveValueReferences(Map<String, Token> tokenMap) {
+  Token _resolveValueReferences(
+    Map<String, Token> tokenMap, [
+    Map<String, dynamic>? originalDocument,
+  ]) {
     // Loop through all values and resolve references recursively
     if (value is Map<String, dynamic>) {
-      final resolved = _resolvedValue(value as Map<String, dynamic>, tokenMap);
+      final resolved = _resolvedValue(value as Map<String, dynamic>, tokenMap, originalDocument);
       return copyWith(value: resolved);
     }
 
@@ -205,7 +266,7 @@ class Token {
       final resolvedList = <dynamic>[];
       for (final element in (value as List)) {
         if (element is Map<String, dynamic>) {
-          final resolved = _resolvedValue(element, tokenMap);
+          final resolved = _resolvedValue(element, tokenMap, originalDocument);
           resolvedList.add(resolved);
         } else {
           resolvedList.add(element);
@@ -221,6 +282,7 @@ class Token {
   Map<String, dynamic> _resolvedValue(
     Map<String, dynamic> value,
     Map<String, Token> tokenMap,
+    Map<String, dynamic>? originalDocument,
   ) {
     final resolved = <String, dynamic>{};
 
@@ -229,7 +291,22 @@ class Token {
       final value = entry.value;
 
       if (value is Map<String, dynamic>) {
-        resolved[key] = _resolvedValue(value, tokenMap);
+        // Check for JSON Pointer reference
+        if (value.containsKey('\$ref') && value['\$ref'] is String && originalDocument != null) {
+          try {
+            final ref = value['\$ref'] as String;
+            resolved[key] = JsonPointer.resolve(ref, originalDocument);
+          } catch (e) {
+            if (e is ResolveTokenException) {
+              rethrow;
+            }
+            throw ResolveTokenException(
+              'Failed to resolve JSON Pointer in value: $e',
+            );
+          }
+        } else {
+          resolved[key] = _resolvedValue(value, tokenMap, originalDocument);
+        }
       } else if (value is String && value.isColorReference) {
         final color = _resolveColorValue(value, tokenMap);
         if (color != null) {
@@ -237,7 +314,7 @@ class Token {
         }
       } else if (value is String && value.isTokenReference) {
         final refKey = value.valueByRef;
-        resolved[key] = tokenMap[refKey]?.resolveAllReferences(tokenMap).value;
+        resolved[key] = tokenMap[refKey]?.resolveAllReferences(tokenMap, originalDocument).value;
       } else {
         resolved[key] = value;
       }
