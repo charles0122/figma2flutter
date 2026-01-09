@@ -83,19 +83,33 @@ class TokenParser {
   ]) {
     final tokens = <String, Token>{};
 
-    if (input.containsKey('value')) {
+    // Check for value with $ prefix (W3C DTCG standard) or without prefix
+    final hasValue = input.containsKey('\$value') || input.containsKey('value');
+    
+    if (hasValue) {
       final cleaned =
           parent.substring(0, parent.length - 1); // remove the trailing dot
       final name = cleaned.split('.').last;
 
       final end = cleaned.length - name.length - 1;
       final path = end > 0 ? cleaned.substring(1, end) : '';
+      
+      // Get value, preferring $value over value (W3C DTCG standard)
+      final value = input['\$value'] ?? input['value'];
+      
+      // Get type, preferring $type over type (W3C DTCG standard)
+      final type = _getValue(input, 'type') as String? ?? groupType;
+      
+      // Get description, preferring $description over description (W3C DTCG standard)
+      final description = _getValue(input, 'description') as String?;
+      
       final token = Token(
-        value: input['value'],
-        type: input['type'] as String? ?? groupType,
+        value: value,
+        type: type,
         path: path,
         name: name,
         extensions: input['\$extensions'] as Map<String, dynamic>?,
+        description: description,
       );
 
       return {
@@ -108,13 +122,24 @@ class TokenParser {
       final value = entry.value;
 
       if (value is Map<String, dynamic>) {
+        // Get group type, preferring $type over type (W3C DTCG standard)
+        final groupTypeValue = _getValue(input, 'type') as String?;
         tokens.addAll(
-          findTokens('$parent$key.', value, input['type'] as String?),
+          findTokens('$parent$key.', value, groupTypeValue),
         );
       }
     }
 
     return tokens;
+  }
+
+  // Helper method to get value with $ prefix preference (W3C DTCG standard)
+  // Returns $key if exists, otherwise returns key, or null if neither exists
+  dynamic _getValue(Map<String, dynamic> input, String key) {
+    if (input.containsKey('\$$key')) {
+      return input['\$$key'];
+    }
+    return input[key];
   }
 
   /// Returns a list of all tokens that have been parsed and all references resolved.

@@ -20,6 +20,7 @@ class Token {
     required this.path,
     required this.name,
     this.extensions,
+    this.description,
     String? variableName,
   }) : variableName = variableName ?? _getVariableName(path, name);
 
@@ -41,6 +42,9 @@ class Token {
 
   /// The extensions of the token
   final Map<String, dynamic>? extensions;
+
+  /// The description of the token
+  final String? description;
 
   bool get hasExtensions => extensions != null && extensions!.isNotEmpty;
 
@@ -79,6 +83,7 @@ class Token {
     String? type,
     dynamic value,
     Map<String, dynamic>? extensions,
+    String? description,
   }) {
     if (path != null && variableName == null) {
       variableName = _getVariableName(path, name);
@@ -90,6 +95,7 @@ class Token {
       value: value ?? this.value,
       path: path ?? this.path,
       extensions: extensions ?? this.extensions,
+      description: description ?? this.description,
       variableName: variableName ?? this.variableName,
     );
   }

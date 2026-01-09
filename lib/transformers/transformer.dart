@@ -41,7 +41,12 @@ class ${theme.pascalCase}$className extends $className {
   }
 
   String _toInterfaceDeclaration(String input) {
-    return '${input.substring(0, input.indexOf('=>')).replaceAll('@override\n', '').trim()};';
+    // Remove comment lines (lines starting with ///)
+    final lines = input.split('\n');
+    final codeLines = lines.where((line) => !line.trim().startsWith('///')).toList();
+    final codeOnly = codeLines.join('\n');
+    
+    return '${codeOnly.substring(0, codeOnly.indexOf('=>')).replaceAll('@override\n', '').trim()};';
   }
 
   String? extraDeclaration() => null;
@@ -59,9 +64,26 @@ abstract class SingleTokenTransformer extends Transformer {
   @override
   void process(Token token) {
     if (matcher(token)) {
-      lines.add(
-        '@override\n  $type get ${token.variableName} => ${transform(token)};',
-      );
+      final codeLine = '@override\n  $type get ${token.variableName} => ${transform(token)};';
+      
+      // Add description as comment if available
+      if (token.description != null && token.description!.isNotEmpty) {
+        final comment = _formatDescription(token.description!);
+        lines.add('$comment\n  $codeLine');
+      } else {
+        lines.add(codeLine);
+      }
+    }
+  }
+
+  // Formats the description as a Dart documentation comment
+  String _formatDescription(String description) {
+    // Split description into lines and format each line as a comment
+    final lines = description.split('\n');
+    if (lines.length == 1) {
+      return '/// ${lines[0]}';
+    } else {
+      return lines.map((line) => '/// $line').join('\n  ');
     }
   }
 }
