@@ -41,9 +41,14 @@ class ${theme.pascalCase}$className extends $className {
   }
 
   String _toInterfaceDeclaration(String input) {
-    // Remove comment lines (lines starting with ///)
+    // Remove comment lines (lines starting with ///) and deprecated annotations
     final lines = input.split('\n');
-    final codeLines = lines.where((line) => !line.trim().startsWith('///')).toList();
+    final codeLines = lines.where((line) {
+      final trimmed = line.trim();
+      return !trimmed.startsWith('///') && 
+             !trimmed.startsWith('@Deprecated') && 
+             !trimmed.startsWith('@deprecated');
+    }).toList();
     final codeOnly = codeLines.join('\n');
     
     return '${codeOnly.substring(0, codeOnly.indexOf('=>')).replaceAll('@override\n', '').trim()};';
@@ -66,10 +71,27 @@ abstract class SingleTokenTransformer extends Transformer {
     if (matcher(token)) {
       final codeLine = '@override\n  $type get ${token.variableName} => ${transform(token)};';
       
+      final parts = <String>[];
+      
+      // Add deprecated annotation if available
+      if (token.isDeprecated) {
+        if (token.deprecated?.isNotEmpty == true) {
+          // Use @Deprecated with message when message is provided
+          parts.add("@Deprecated('${token.deprecated}')");
+        } else {
+          // Use @deprecated without message when deprecated is true
+          parts.add('@deprecated');
+        }
+      }
+      
       // Add description as comment if available
       if (token.description != null && token.description!.isNotEmpty) {
-        final comment = _formatDescription(token.description!);
-        lines.add('$comment\n  $codeLine');
+        parts.add(_formatDescription(token.description!));
+      }
+      
+      // Combine all parts with the code line
+      if (parts.isNotEmpty) {
+        lines.add('${parts.join('\n  ')}\n  $codeLine');
       } else {
         lines.add(codeLine);
       }

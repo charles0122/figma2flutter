@@ -103,6 +103,17 @@ class TokenParser {
       // Get description, preferring $description over description (W3C DTCG standard)
       final description = _getValue(input, 'description') as String?;
       
+      // Get deprecated, preferring $deprecated over deprecated (W3C DTCG standard)
+      final deprecatedValue = _getValue(input, 'deprecated');
+      final String? deprecated;
+      if (deprecatedValue == true) {
+        deprecated = '';
+      } else if (deprecatedValue is String) {
+        deprecated = deprecatedValue;
+      } else {
+        deprecated = null;
+      }
+      
       final token = Token(
         value: value,
         type: type,
@@ -110,6 +121,7 @@ class TokenParser {
         name: name,
         extensions: input['\$extensions'] as Map<String, dynamic>?,
         description: description,
+        deprecated: deprecated,
       );
 
       return {

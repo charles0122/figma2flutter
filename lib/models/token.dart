@@ -21,6 +21,7 @@ class Token {
     required this.name,
     this.extensions,
     this.description,
+    this.deprecated,
     String? variableName,
   }) : variableName = variableName ?? _getVariableName(path, name);
 
@@ -45,6 +46,15 @@ class Token {
 
   /// The description of the token
   final String? description;
+
+  /// The deprecated message of the token.
+  /// If null, the token is not deprecated.
+  /// If an empty string, the token is deprecated without a message.
+  /// If a non-empty string, the token is deprecated with the given message.
+  final String? deprecated;
+
+  /// Returns true if the token is deprecated
+  bool get isDeprecated => deprecated != null;
 
   bool get hasExtensions => extensions != null && extensions!.isNotEmpty;
 
@@ -84,6 +94,7 @@ class Token {
     dynamic value,
     Map<String, dynamic>? extensions,
     String? description,
+    String? deprecated,
   }) {
     if (path != null && variableName == null) {
       variableName = _getVariableName(path, name);
@@ -96,6 +107,7 @@ class Token {
       path: path ?? this.path,
       extensions: extensions ?? this.extensions,
       description: description ?? this.description,
+      deprecated: deprecated ?? this.deprecated,
       variableName: variableName ?? this.variableName,
     );
   }
