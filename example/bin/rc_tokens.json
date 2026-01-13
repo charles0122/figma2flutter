@@ -1,0 +1,2709 @@
+{
+  "global": {
+    "global": {
+      "color": {
+        "black": {
+          "value": "#0c0c0e",
+          "type": "color"
+        },
+        "white": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "#00000000",
+          "type": "color"
+        },
+        "bluegray": {
+          "100": {
+            "value": "#efeff0",
+            "type": "color",
+            "description": "已用作页面背景"
+          },
+          "200": {
+            "value": "#ecedee",
+            "type": "color",
+            "description": "已用作页面背景"
+          },
+          "300": {
+            "value": "#dfe0e2",
+            "type": "color"
+          },
+          "400": {
+            "value": "#d4d5d8",
+            "type": "color"
+          },
+          "500": {
+            "value": "#b7b9be",
+            "type": "color"
+          },
+          "600": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "700": {
+            "value": "#000000",
+            "type": "color",
+            "description": "已当作品牌色"
+          },
+          "800": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "900": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#ff4848",
+            "type": "color"
+          }
+        },
+        "pureblue": {
+          "100": {
+            "value": "#f4f4f5",
+            "type": "color",
+            "description": "已用作页面背景"
+          },
+          "200": {
+            "value": "#d4ddff",
+            "type": "color"
+          },
+          "300": {
+            "value": "#b4cbfe",
+            "type": "color"
+          },
+          "400": {
+            "value": "#88a4fc",
+            "type": "color"
+          },
+          "500": {
+            "value": "#6389fa",
+            "type": "color"
+          },
+          "600": {
+            "value": "#3f70f8",
+            "type": "color",
+            "description": "已当作品牌色"
+          },
+          "700": {
+            "value": "#164af3",
+            "type": "color"
+          },
+          "800": {
+            "value": "#0d35ce",
+            "type": "color"
+          },
+          "900": {
+            "value": "#0d27a1",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#000000",
+            "type": "color"
+          }
+        },
+        "purple": {
+          "100": {
+            "value": "#f6f6f8",
+            "type": "color",
+            "description": "已用作睡眠页背景"
+          },
+          "200": {
+            "value": "#e6e0ff",
+            "type": "color"
+          },
+          "300": {
+            "value": "#cbbffd",
+            "type": "color"
+          },
+          "400": {
+            "value": "#bbacfb",
+            "type": "color"
+          },
+          "500": {
+            "value": "#9c86f4",
+            "type": "color"
+          },
+          "600": {
+            "value": "#8265f6",
+            "type": "color"
+          },
+          "700": {
+            "value": "#693cf1",
+            "type": "color"
+          },
+          "800": {
+            "value": "#5314eb",
+            "type": "color"
+          },
+          "900": {
+            "value": "#4d12bf",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#431094",
+            "type": "color"
+          }
+        },
+        "pinkred": {
+          "100": {
+            "value": "#f8f7f7",
+            "type": "color"
+          },
+          "200": {
+            "value": "#ffb8cf",
+            "type": "color"
+          },
+          "300": {
+            "value": "#fe8bb0",
+            "type": "color"
+          },
+          "400": {
+            "value": "#fc5f91",
+            "type": "color"
+          },
+          "500": {
+            "value": "#fa3372",
+            "type": "color"
+          },
+          "600": {
+            "value": "#fa3372",
+            "type": "color"
+          },
+          "700": {
+            "value": "#cc0525",
+            "type": "color"
+          },
+          "800": {
+            "value": "#a00304",
+            "type": "color"
+          },
+          "900": {
+            "value": "#741301",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#471600",
+            "type": "color"
+          }
+        },
+        "cyanblue": {
+          "100": {
+            "value": "#f7f9fa",
+            "type": "color"
+          },
+          "200": {
+            "value": "#e5f3ff",
+            "type": "color"
+          },
+          "300": {
+            "value": "#d8ebfe",
+            "type": "color"
+          },
+          "400": {
+            "value": "#c9e4ff",
+            "type": "color"
+          },
+          "500": {
+            "value": "#7ebdfc",
+            "type": "color"
+          },
+          "600": {
+            "value": "#51a6fa",
+            "type": "color"
+          },
+          "700": {
+            "value": "#1e8dfa",
+            "type": "color"
+          },
+          "800": {
+            "value": "#046fd9",
+            "type": "color"
+          },
+          "900": {
+            "value": "#024a92",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#002c57",
+            "type": "color"
+          }
+        },
+        "orange": {
+          "100": {
+            "value": "#f8f7f7",
+            "type": "color"
+          },
+          "200": {
+            "value": "#f8f7f7",
+            "type": "color"
+          },
+          "300": {
+            "value": "#f8f7f7",
+            "type": "color"
+          },
+          "400": {
+            "value": "#fbc250",
+            "type": "color"
+          },
+          "500": {
+            "value": "#fa9852",
+            "type": "color"
+          },
+          "600": {
+            "value": "#f66c51",
+            "type": "color"
+          },
+          "700": {
+            "value": "#fb7d23",
+            "type": "color"
+          },
+          "800": {
+            "value": "#f8f7f7",
+            "type": "color"
+          },
+          "900": {
+            "value": "#f8f7f7",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#f8f7f7",
+            "type": "color"
+          }
+        },
+        "bluegray_alpha": {
+          "100": {
+            "value": "#1e222e08",
+            "type": "color"
+          },
+          "200": {
+            "value": "#1e222e12",
+            "type": "color"
+          },
+          "300": {
+            "value": "#1e222e1a",
+            "type": "color"
+          },
+          "400": {
+            "value": "#1e222e2e",
+            "type": "color"
+          },
+          "500": {
+            "value": "#1e222e38",
+            "type": "color"
+          },
+          "600": {
+            "value": "#1e222e4d",
+            "type": "color",
+            "description": "已用在text_quaternary"
+          },
+          "700": {
+            "value": "#1e222e80",
+            "type": "color",
+            "description": "已用在text_tertiary"
+          },
+          "800": {
+            "value": "#1e222e99",
+            "type": "color"
+          },
+          "900": {
+            "value": "#1e222ebf",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#1e222ee6",
+            "type": "color",
+            "description": "已用在text_secondary"
+          }
+        },
+        "black_alpha": {
+          "100": {
+            "value": "#0000001a",
+            "type": "color"
+          },
+          "200": {
+            "value": "#00000033",
+            "type": "color"
+          },
+          "300": {
+            "value": "#0000004d",
+            "type": "color"
+          },
+          "400": {
+            "value": "#00000066",
+            "type": "color"
+          },
+          "500": {
+            "value": "#00000073",
+            "type": "color"
+          },
+          "600": {
+            "value": "#00000099",
+            "type": "color"
+          },
+          "700": {
+            "value": "#00000099",
+            "type": "color"
+          },
+          "800": {
+            "value": "#000000b3",
+            "type": "color"
+          },
+          "900": {
+            "value": "#000000cc",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#000000e6",
+            "type": "color"
+          }
+        }
+      },
+      "spacing": {
+        "25": {
+          "value": "{global.spacing.base}*.25",
+          "type": "spacing"
+        },
+        "50": {
+          "value": "{global.spacing.base}*.5",
+          "type": "spacing"
+        },
+        "100": {
+          "value": "{global.spacing.base}*1",
+          "type": "spacing"
+        },
+        "150": {
+          "value": "{global.spacing.base}*1.5",
+          "type": "spacing"
+        },
+        "200": {
+          "value": "{global.spacing.base}*2",
+          "type": "spacing"
+        },
+        "250": {
+          "value": "{global.spacing.base}*2.5",
+          "type": "spacing"
+        },
+        "300": {
+          "value": "{global.spacing.base}*3",
+          "type": "spacing"
+        },
+        "350": {
+          "value": "{global.spacing.base}*3.5",
+          "type": "spacing"
+        },
+        "400": {
+          "value": "{global.spacing.base}*4",
+          "type": "spacing"
+        },
+        "500": {
+          "value": "{global.spacing.base}*5",
+          "type": "spacing"
+        },
+        "600": {
+          "value": "{global.spacing.base}*6",
+          "type": "spacing"
+        },
+        "base": {
+          "value": "8",
+          "type": "spacing"
+        }
+      },
+      "boderRadii": {
+        "25": {
+          "value": "{global.boderRadii.base}*.25",
+          "type": "borderRadius"
+        },
+        "50": {
+          "value": "{global.boderRadii.base}*.5",
+          "type": "borderRadius"
+        },
+        "75": {
+          "value": "{global.boderRadii.base}*.75",
+          "type": "borderRadius"
+        },
+        "100": {
+          "value": "{global.boderRadii.base}*1",
+          "type": "borderRadius"
+        },
+        "125": {
+          "value": "{global.boderRadii.base}*1.25",
+          "type": "borderRadius"
+        },
+        "150": {
+          "value": "{global.boderRadii.base}*1.5",
+          "type": "borderRadius"
+        },
+        "200": {
+          "value": "{global.boderRadii.base}*2",
+          "type": "borderRadius"
+        },
+        "250": {
+          "value": "{global.boderRadii.base}*2.5",
+          "type": "borderRadius"
+        },
+        "300": {
+          "value": "{global.boderRadii.base}*3",
+          "type": "borderRadius"
+        },
+        "base": {
+          "value": "8",
+          "type": "borderRadius"
+        },
+        "none": {
+          "value": "0",
+          "type": "borderRadius"
+        },
+        "round": {
+          "value": "9999",
+          "type": "borderRadius"
+        }
+      },
+      "fontfamily": {
+        "PingFang_SC": {
+          "value": "PingFang SC",
+          "type": "fontFamilies"
+        },
+        "SF_Pro": {
+          "value": "SF Pro",
+          "type": "fontFamilies"
+        },
+        "Inter": {
+          "value": "Inter",
+          "type": "fontFamilies"
+        },
+        "HarmonyOS_Sans_SC": {
+          "value": "HarmonyOS Sans SC",
+          "type": "fontFamilies"
+        }
+      },
+      "fontweight": {
+        "regular": {
+          "value": "Regular",
+          "type": "fontWeights"
+        },
+        "medium": {
+          "value": "Medium",
+          "type": "fontWeights"
+        },
+        "semibold": {
+          "value": "Semibold",
+          "type": "fontWeights"
+        }
+      },
+      "lineheight": {
+        "xxs": {
+          "value": "110%",
+          "type": "lineHeights"
+        },
+        "xs": {
+          "value": "120%",
+          "type": "lineHeights"
+        },
+        "s": {
+          "value": "125%",
+          "type": "lineHeights"
+        },
+        "sm": {
+          "value": "140%",
+          "type": "lineHeights"
+        },
+        "m": {
+          "value": "150%",
+          "type": "lineHeights"
+        },
+        "md": {
+          "value": "160%",
+          "type": "lineHeights"
+        },
+        "l": {
+          "value": "170%",
+          "type": "lineHeights"
+        }
+      },
+      "fontsize": {
+        "10": {
+          "value": "10",
+          "type": "fontSizes"
+        },
+        "12": {
+          "value": "12",
+          "type": "fontSizes"
+        },
+        "14": {
+          "value": "14",
+          "type": "fontSizes"
+        },
+        "16": {
+          "value": "16",
+          "type": "fontSizes"
+        },
+        "18": {
+          "value": "18",
+          "type": "fontSizes"
+        },
+        "20": {
+          "value": "20",
+          "type": "fontSizes"
+        },
+        "22": {
+          "value": "22",
+          "type": "fontSizes"
+        },
+        "24": {
+          "value": "24",
+          "type": "fontSizes"
+        },
+        "28": {
+          "value": "28",
+          "type": "fontSizes"
+        },
+        "32": {
+          "value": "32",
+          "type": "fontSizes"
+        },
+        "56": {
+          "value": "56",
+          "type": "fontSizes"
+        }
+      }
+    }
+  },
+  "semantic_color/light": {
+    "semantic": {
+      "color": {
+        "grey": {
+          "text": {
+            "primary": {
+              "value": "{global.color.black}",
+              "type": "color",
+              "description": "1级文本色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray_alpha.900}",
+              "type": "color",
+              "description": "2级文本色"
+            },
+            "tertiary": {
+              "value": "{global.color.bluegray_alpha.700}",
+              "type": "color",
+              "description": "3级文本色"
+            },
+            "quaternary": {
+              "value": "{global.color.bluegray_alpha.600}",
+              "type": "color",
+              "description": "4级文本色"
+            },
+            "inverse": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "文本反色"
+            },
+            "brand": {
+              "value": "{global.color.pureblue.600}",
+              "type": "color",
+              "description": "文本品牌色"
+            },
+            "link": {
+              "value": "{global.color.pureblue.600}",
+              "type": "color",
+              "description": "文本链接色"
+            }
+          },
+          "background": {
+            "layout": {
+              "value": "{global.color.pureblue.100}",
+              "type": "color",
+              "description": "常规背景色"
+            },
+            "container": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "背景容器层填充色"
+            },
+            "elevated": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "背景弹出层填充色"
+            },
+            "mask": {
+              "value": "{global.color.black_alpha.500}",
+              "type": "color",
+              "description": "遮罩填充色"
+            },
+            "spotlight": {
+              "value": "{global.color.black_alpha.1000}",
+              "type": "color",
+              "description": "toast填充色"
+            },
+            "layoutsleep": {
+              "value": "{global.color.purple.100}",
+              "type": "color",
+              "description": "睡眠页背景色"
+            },
+            "layoutstress": {
+              "value": "{global.color.cyanblue.100}",
+              "type": "color",
+              "description": "压力页背景色"
+            },
+            "layoutactivity": {
+              "value": "{global.color.orange.100}",
+              "type": "color",
+              "description": "活动页背景色"
+            },
+            "layoutvital": {
+              "value": "{global.color.pinkred.100}",
+              "type": "color",
+              "description": "体征页背景色"
+            }
+          },
+          "fill": {
+            "primary": {
+              "value": "{global.color.bluegray_alpha.400}",
+              "type": "color",
+              "description": "1级填充灰色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray_alpha.300}",
+              "type": "color",
+              "description": "2级填充灰色"
+            },
+            "tertiary": {
+              "value": "{global.color.bluegray_alpha.200}",
+              "type": "color",
+              "description": "3级填充灰色"
+            },
+            "quaternary": {
+              "value": "{global.color.bluegray_alpha.100}",
+              "type": "color",
+              "description": "4级填充灰色"
+            },
+            "window": {
+              "value": "{global.color.bluegray.100}",
+              "type": "color",
+              "description": "图表点按填充色"
+            },
+            "inverse": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "填充反色"
+            }
+          },
+          "border": {
+            "primary": {
+              "value": "{global.color.bluegray.500}",
+              "type": "color",
+              "description": "1级线条色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray.400}",
+              "type": "color",
+              "description": "2级线条色"
+            },
+            "tertiary": {
+              "value": "{global.color.bluegray.300}",
+              "type": "color",
+              "description": "3级线条色"
+            },
+            "quaternary": {
+              "value": "{global.color.bluegray.200}",
+              "type": "color",
+              "description": "4级线条色"
+            },
+            "black": {
+              "value": "{global.color.black}",
+              "type": "color",
+              "description": "黑色线条色"
+            }
+          },
+          "icon": {
+            "primary": {
+              "value": "{global.color.black}",
+              "type": "color",
+              "description": "1级图标色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray_alpha.700}",
+              "type": "color",
+              "description": "2级图标色"
+            },
+            "inverse": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "图标反色"
+            }
+          }
+        },
+        "brand": {
+          "primary": {
+            "value": "{global.color.pureblue.600}",
+            "type": "color",
+            "description": "品牌主色"
+          }
+        },
+        "tag": {
+          "good": {
+            "value": "#20C7B1",
+            "type": "color",
+            "description": "优秀标签色"
+          },
+          "normal": {
+            "value": "#7F94E0",
+            "type": "color",
+            "description": "正常标签色"
+          },
+          "improvable": {
+            "value": "#F6994C",
+            "type": "color",
+            "description": "可提升标签色"
+          }
+        },
+        "sleep": {
+          "primary": {
+            "value": "{global.color.purple.900}",
+            "type": "color",
+            "description": "睡眠主色"
+          },
+          "awake": {
+            "value": "#FAB979",
+            "type": "color",
+            "description": "睡眠分期_清醒色"
+          },
+          "remsleep": {
+            "value": "{global.color.purple.400}",
+            "type": "color",
+            "description": "睡眠分期_REM色"
+          },
+          "lightsleep": {
+            "value": "{global.color.purple.600}",
+            "type": "color",
+            "description": "睡眠分期_浅睡色"
+          },
+          "deepsleep": {
+            "value": "{global.color.purple.900}",
+            "type": "color",
+            "description": "睡眠分期_深睡色"
+          }
+        },
+        "acitivity": {
+          "primary": {
+            "value": "{global.color.orange.700}",
+            "type": "color",
+            "description": "活动主色"
+          },
+          "step": {
+            "value": "{global.color.orange.400}",
+            "type": "color",
+            "description": "活动_步数主色、低强度主色"
+          },
+          "calories": {
+            "value": "{global.color.orange.500}",
+            "type": "color",
+            "description": "活动_卡路里主色、中强度主色"
+          },
+          "acitivity_time": {
+            "value": "{global.color.orange.600}",
+            "type": "color",
+            "description": "活动_活动时长主色、高强度主色"
+          },
+          "Inactive": {
+            "value": "{global.color.pureblue.300}",
+            "type": "color",
+            "description": "不活跃主色"
+          }
+        },
+        "stress": {
+          "primary": {
+            "value": "{global.color.cyanblue.600}",
+            "type": "color",
+            "description": "压力主色"
+          },
+          "relaxed": {
+            "value": "{global.color.cyanblue.400}",
+            "type": "color",
+            "description": "压力分级_轻松"
+          },
+          "normal": {
+            "value": "{global.color.cyanblue.600}",
+            "type": "color",
+            "description": "压力分级_正常"
+          },
+          "medium": {
+            "value": "{global.color.cyanblue.800}",
+            "type": "color",
+            "description": "压力分级_中等"
+          },
+          "high": {
+            "value": "#FF6B54",
+            "type": "color",
+            "description": "压力分级_高压"
+          }
+        },
+        "vital": {
+          "primary": {
+            "value": "{global.color.pinkred.600}",
+            "type": "color",
+            "description": "生命体征主色"
+          }
+        },
+        "female": {
+          "menstrual": {
+            "value": "#FF5190",
+            "type": "color"
+          },
+          "follicular": {
+            "value": "#BB8EC2",
+            "type": "color"
+          },
+          "ovulation": {
+            "value": "#846CE5",
+            "type": "color"
+          },
+          "luteal": {
+            "value": "#FFA852",
+            "type": "color"
+          }
+        }
+      }
+    }
+  },
+  "semantic_color/dark": {
+    "semantic": {
+      "color": {
+        "grey": {
+          "text": {
+            "primary": {
+              "value": "{global.color.black}",
+              "type": "color",
+              "description": "1级文本色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray_alpha.900}",
+              "type": "color",
+              "description": "2级文本色"
+            },
+            "tertiary": {
+              "value": "{global.color.bluegray_alpha.700}",
+              "type": "color",
+              "description": "3级文本色"
+            },
+            "quaternary": {
+              "value": "{global.color.bluegray_alpha.600}",
+              "type": "color",
+              "description": "4级文本色"
+            },
+            "inverse": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "文本反色"
+            },
+            "brand": {
+              "value": "{global.color.pureblue.600}",
+              "type": "color",
+              "description": "文本品牌色"
+            },
+            "link": {
+              "value": "{global.color.pureblue.600}",
+              "type": "color",
+              "description": "文本链接色"
+            }
+          },
+          "background": {
+            "layout": {
+              "value": "{global.color.pureblue.100}",
+              "type": "color",
+              "description": "常规背景色"
+            },
+            "container": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "背景容器层填充色"
+            },
+            "elevated": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "背景弹出层填充色"
+            },
+            "mask": {
+              "value": "{global.color.black_alpha.500}",
+              "type": "color",
+              "description": "遮罩填充色"
+            },
+            "spotlight": {
+              "value": "{global.color.black_alpha.1000}",
+              "type": "color",
+              "description": "toast填充色"
+            },
+            "layoutsleep": {
+              "value": "{global.color.purple.100}",
+              "type": "color",
+              "description": "睡眠页背景色"
+            },
+            "layoutstress": {
+              "value": "{global.color.cyanblue.100}",
+              "type": "color",
+              "description": "压力页背景色"
+            },
+            "layoutactivity": {
+              "value": "{global.color.orange.100}",
+              "type": "color",
+              "description": "活动页背景色"
+            },
+            "layoutvital": {
+              "value": "{global.color.pinkred.100}",
+              "type": "color",
+              "description": "体征页背景色"
+            }
+          },
+          "fill": {
+            "primary": {
+              "value": "{global.color.bluegray_alpha.400}",
+              "type": "color",
+              "description": "1级填充灰色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray_alpha.300}",
+              "type": "color",
+              "description": "2级填充灰色"
+            },
+            "tertiary": {
+              "value": "{global.color.bluegray_alpha.200}",
+              "type": "color",
+              "description": "3级填充灰色"
+            },
+            "quaternary": {
+              "value": "{global.color.bluegray_alpha.100}",
+              "type": "color",
+              "description": "4级填充灰色"
+            },
+            "window": {
+              "value": "{global.color.bluegray.100}",
+              "type": "color",
+              "description": "图表点按填充色"
+            },
+            "inverse": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "填充反色"
+            }
+          },
+          "border": {
+            "primary": {
+              "value": "{global.color.bluegray.500}",
+              "type": "color",
+              "description": "1级线条色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray.400}",
+              "type": "color",
+              "description": "2级线条色"
+            },
+            "tertiary": {
+              "value": "{global.color.bluegray.300}",
+              "type": "color",
+              "description": "3级线条色"
+            },
+            "quaternary": {
+              "value": "{global.color.bluegray.200}",
+              "type": "color",
+              "description": "4级线条色"
+            },
+            "black": {
+              "value": "{global.color.black}",
+              "type": "color",
+              "description": "黑色线条色"
+            }
+          },
+          "icon": {
+            "primary": {
+              "value": "{global.color.black}",
+              "type": "color",
+              "description": "1级图标色"
+            },
+            "secondary": {
+              "value": "{global.color.bluegray_alpha.700}",
+              "type": "color",
+              "description": "2级图标色"
+            },
+            "inverse": {
+              "value": "{global.color.white}",
+              "type": "color",
+              "description": "图标反色"
+            }
+          }
+        },
+        "brand": {
+          "primary": {
+            "value": "{global.color.pureblue.600}",
+            "type": "color",
+            "description": "品牌主色"
+          }
+        },
+        "tag": {
+          "good": {
+            "value": "#20C7B1",
+            "type": "color",
+            "description": "优秀标签色"
+          },
+          "normal": {
+            "value": "#7F94E0",
+            "type": "color",
+            "description": "正常标签色"
+          },
+          "improvable": {
+            "value": "#F6994C",
+            "type": "color",
+            "description": "可提升标签色"
+          }
+        },
+        "sleep": {
+          "primary": {
+            "value": "{global.color.purple.900}",
+            "type": "color",
+            "description": "睡眠主色"
+          },
+          "awake": {
+            "value": "#FAB979",
+            "type": "color",
+            "description": "睡眠分期_清醒色"
+          },
+          "remsleep": {
+            "value": "{global.color.purple.400}",
+            "type": "color",
+            "description": "睡眠分期_REM色"
+          },
+          "lightsleep": {
+            "value": "{global.color.purple.600}",
+            "type": "color",
+            "description": "睡眠分期_浅睡色"
+          },
+          "deepsleep": {
+            "value": "{global.color.purple.900}",
+            "type": "color",
+            "description": "睡眠分期_深睡色"
+          }
+        },
+        "acitivity": {
+          "primary": {
+            "value": "{global.color.orange.700}",
+            "type": "color",
+            "description": "活动主色"
+          },
+          "step": {
+            "value": "{global.color.orange.400}",
+            "type": "color",
+            "description": "活动_步数主色、低强度主色"
+          },
+          "calories": {
+            "value": "{global.color.orange.500}",
+            "type": "color",
+            "description": "活动_卡路里主色、中强度主色"
+          },
+          "acitivity_time": {
+            "value": "{global.color.orange.600}",
+            "type": "color",
+            "description": "活动_活动时长主色、高强度主色"
+          },
+          "Inactive": {
+            "value": "{global.color.pureblue.300}",
+            "type": "color",
+            "description": "不活跃主色"
+          }
+        },
+        "stress": {
+          "primary": {
+            "value": "{global.color.cyanblue.600}",
+            "type": "color",
+            "description": "压力主色"
+          },
+          "relaxed": {
+            "value": "{global.color.cyanblue.400}",
+            "type": "color",
+            "description": "压力分级_轻松"
+          },
+          "normal": {
+            "value": "{global.color.cyanblue.600}",
+            "type": "color",
+            "description": "压力分级_正常"
+          },
+          "medium": {
+            "value": "{global.color.cyanblue.800}",
+            "type": "color",
+            "description": "压力分级_中等"
+          },
+          "high": {
+            "value": "#FF6B54",
+            "type": "color",
+            "description": "压力分级_高压"
+          }
+        },
+        "vital": {
+          "primary": {
+            "value": "{global.color.pinkred.600}",
+            "type": "color",
+            "description": "生命体征主色"
+          }
+        },
+        "female": {
+          "menstrual": {
+            "value": "#FF5190",
+            "type": "color"
+          },
+          "follicular": {
+            "value": "#BB8EC2",
+            "type": "color"
+          },
+          "ovulation": {
+            "value": "#846CE5",
+            "type": "color"
+          },
+          "luteal": {
+            "value": "#FFA852",
+            "type": "color"
+          }
+        }
+      }
+    }
+  },
+  "semantic_spacing": {
+    "semantic": {
+      "spacing_gap": {
+        "comp": {
+          "xs": {
+            "value": "{global.spacing.25}",
+            "type": "spacing"
+          },
+          "s": {
+            "value": "{global.spacing.50}",
+            "type": "spacing"
+          },
+          "sm": {
+            "value": "{global.spacing.100}",
+            "type": "spacing"
+          },
+          "m": {
+            "value": "{global.spacing.150}",
+            "type": "spacing"
+          },
+          "l": {
+            "value": "{global.spacing.200}",
+            "type": "spacing"
+          }
+        },
+        "pattern": {
+          "xxs": {
+            "value": "{global.spacing.50}",
+            "type": "spacing"
+          },
+          "xs": {
+            "value": "{global.spacing.100}",
+            "type": "spacing"
+          },
+          "s": {
+            "value": "{global.spacing.150}",
+            "type": "spacing"
+          },
+          "m": {
+            "value": "{global.spacing.200}",
+            "type": "spacing"
+          },
+          "md": {
+            "value": "{global.spacing.250}",
+            "type": "spacing"
+          },
+          "l": {
+            "value": "{global.spacing.300}",
+            "type": "spacing"
+          },
+          "xl": {
+            "value": "{global.spacing.400}",
+            "type": "spacing"
+          },
+          "xxl": {
+            "value": "{global.spacing.500}",
+            "type": "spacing"
+          }
+        }
+      },
+      "spacing_around": {
+        "comp": {
+          "xxs": {
+            "value": "{global.spacing.25}",
+            "type": "spacing"
+          },
+          "xs": {
+            "value": "{global.spacing.50}",
+            "type": "spacing"
+          },
+          "s": {
+            "value": "{global.spacing.100}",
+            "type": "spacing"
+          },
+          "m": {
+            "value": "{global.spacing.150}",
+            "type": "spacing"
+          },
+          "l": {
+            "value": "{global.spacing.200}",
+            "type": "spacing"
+          }
+        },
+        "pattern": {
+          "xs": {
+            "value": "{global.spacing.50}",
+            "type": "spacing"
+          },
+          "s": {
+            "value": "{global.spacing.100}",
+            "type": "spacing"
+          },
+          "sm": {
+            "value": "{global.spacing.150}",
+            "type": "spacing"
+          },
+          "m": {
+            "value": "{global.spacing.200}",
+            "type": "spacing"
+          },
+          "l": {
+            "value": "{global.spacing.250}",
+            "type": "spacing"
+          },
+          "xl": {
+            "value": "{global.spacing.400}",
+            "type": "spacing"
+          }
+        },
+        "section": {
+          "s": {
+            "value": "{global.spacing.100}",
+            "type": "spacing"
+          },
+          "m": {
+            "value": "{global.spacing.250}",
+            "type": "spacing"
+          },
+          "l": {
+            "value": "{global.spacing.400}",
+            "type": "spacing"
+          },
+          "xl": {
+            "value": "{global.spacing.500}",
+            "type": "spacing"
+          },
+          "xxl": {
+            "value": "{global.spacing.600}",
+            "type": "spacing"
+          }
+        }
+      }
+    }
+  },
+  "semantic_boderRadii": {
+    "semantic": {
+      "boderRadii": {
+        "xxs": {
+          "value": "{global.boderRadii.25}",
+          "type": "borderRadius"
+        },
+        "xs": {
+          "value": "{global.boderRadii.50}",
+          "type": "borderRadius"
+        },
+        "s": {
+          "value": "{global.boderRadii.75}",
+          "type": "borderRadius"
+        },
+        "sm": {
+          "value": "{global.boderRadii.100}",
+          "type": "borderRadius"
+        },
+        "m": {
+          "value": "{global.boderRadii.125}",
+          "type": "borderRadius"
+        },
+        "md": {
+          "value": "{global.boderRadii.150}",
+          "type": "borderRadius"
+        },
+        "l": {
+          "value": "{global.boderRadii.200}",
+          "type": "borderRadius"
+        },
+        "xl": {
+          "value": "{global.boderRadii.250}",
+          "type": "borderRadius"
+        },
+        "xxl": {
+          "value": "{global.boderRadii.300}",
+          "type": "borderRadius",
+          "description": "大卡片圆角"
+        },
+        "round": {
+          "value": "{global.boderRadii.round}",
+          "type": "borderRadius"
+        }
+      }
+    }
+  },
+  "semanric_typography/ios_ch": {
+    "semantic": {
+      "typography": {
+        "label": {
+          "10": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.10}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "body": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "title": {
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "18": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.18}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "22": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.22}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          }
+        },
+        "display": {
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          }
+        },
+        "number_text": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          }
+        },
+        "number": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.s}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "32": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.32}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "56": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.56}",
+              "lineHeight": "{global.lineheight.xxs}"
+            },
+            "type": "typography"
+          }
+        }
+      },
+      "fontfamily": {
+        "text": {
+          "value": "{global.fontfamily.PingFang_SC}",
+          "type": "fontFamilies"
+        },
+        "number": {
+          "value": "{global.fontfamily.SF_Pro}",
+          "type": "fontFamilies"
+        }
+      },
+      "lineheight": {
+        "number_text": {
+          "value": "{global.lineheight.l}",
+          "type": "lineHeights"
+        }
+      }
+    }
+  },
+  "semanric_typography/ios_eng": {
+    "semantic": {
+      "typography": {
+        "label": {
+          "10": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.10}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "body": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "title": {
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "18": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.18}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "22": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.22}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          }
+        },
+        "display": {
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          }
+        },
+        "number_text": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          }
+        },
+        "number": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.s}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "32": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.32}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "56": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.56}",
+              "lineHeight": "{global.lineheight.xxs}"
+            },
+            "type": "typography"
+          }
+        }
+      },
+      "fontfamily": {
+        "text": {
+          "value": "{global.fontfamily.SF_Pro}",
+          "type": "fontFamilies"
+        },
+        "number": {
+          "value": "{global.fontfamily.SF_Pro}",
+          "type": "fontFamilies"
+        }
+      },
+      "lineheight": {
+        "number_text": {
+          "value": "{global.lineheight.md}",
+          "type": "lineHeights"
+        }
+      }
+    }
+  },
+  "semanric_typography/android_ch": {
+    "semantic": {
+      "typography": {
+        "label": {
+          "10": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.10}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "body": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "title": {
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "18": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.18}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "22": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.22}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          }
+        },
+        "display": {
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          }
+        },
+        "number_text": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          }
+        },
+        "number": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.s}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "32": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.32}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "56": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.56}",
+              "lineHeight": "{global.lineheight.xxs}"
+            },
+            "type": "typography"
+          }
+        }
+      },
+      "fontfamily": {
+        "text": {
+          "value": "{global.fontfamily.HarmonyOS_Sans_SC}",
+          "type": "fontFamilies"
+        },
+        "number": {
+          "value": "{global.fontfamily.Inter}",
+          "type": "fontFamilies"
+        }
+      },
+      "lineheight": {
+        "number_text": {
+          "value": "{global.lineheight.l}",
+          "type": "lineHeights"
+        }
+      }
+    }
+  },
+  "semanric_typography/android_eng": {
+    "semantic": {
+      "typography": {
+        "label": {
+          "10": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.10}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "body": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.md}"
+            },
+            "type": "typography"
+          }
+        },
+        "title": {
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{global.lineheight.m}"
+            },
+            "type": "typography"
+          },
+          "18": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.18}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          },
+          "22": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.22}",
+              "lineHeight": "{global.lineheight.sm}"
+            },
+            "type": "typography"
+          }
+        },
+        "display": {
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          }
+        },
+        "number_text": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "14": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.14}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          },
+          "16": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.text}",
+              "fontWeight": "{global.fontweight.medium}",
+              "fontSize": "{global.fontsize.16}",
+              "lineHeight": "{semantic.lineheight.number_text}"
+            },
+            "type": "typography"
+          }
+        },
+        "number": {
+          "12": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.regular}",
+              "fontSize": "{global.fontsize.12}",
+              "lineHeight": "{global.lineheight.s}"
+            },
+            "type": "typography"
+          },
+          "20": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.20}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "24": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.24}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "28": {
+            "value": {
+              "fontFamily": "{semantic.fontfamily.number}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.28}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "32": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.32}",
+              "lineHeight": "{global.lineheight.xs}"
+            },
+            "type": "typography"
+          },
+          "56": {
+            "value": {
+              "fontFamily": "{global.fontfamily.SF_Pro}",
+              "fontWeight": "{global.fontweight.semibold}",
+              "fontSize": "{global.fontsize.56}",
+              "lineHeight": "{global.lineheight.xxs}"
+            },
+            "type": "typography"
+          }
+        }
+      },
+      "fontfamily": {
+        "text": {
+          "value": "{global.fontfamily.Inter}",
+          "type": "fontFamilies"
+        },
+        "number": {
+          "value": "{global.fontfamily.SF_Pro}",
+          "type": "fontFamilies"
+        }
+      },
+      "lineheight": {
+        "number_text": {
+          "value": "{global.lineheight.md}",
+          "type": "lineHeights"
+        }
+      }
+    }
+  },
+  "$themes": [
+    {
+      "id": "b6b832bdd1640ffe6b180fa9b378123b1422d6dc",
+      "name": "light",
+      "$figmaStyleReferences": {},
+      "selectedTokenSets": {
+        "semantic_color/light": "enabled",
+        "global": "source",
+        "semantic_spacing": "enabled",
+        "semantic_boderRadii": "enabled"
+      },
+      "$figmaCollectionId": "VariableCollectionId:1199:1035",
+      "$figmaModeId": "1199:7",
+      "$figmaVariableReferences": {
+        "semantic.color.grey.text.primary": "dff465c00e404a167793333299275f418f12ac3b",
+        "semantic.color.grey.text.secondary": "2a94884a4ba3138f205b2422ecf24515376d3718",
+        "semantic.color.grey.text.tertiary": "5bc709c2a2ad62794d8bf9016f7a064ca22cf786",
+        "semantic.color.grey.text.quaternary": "bf4aaabf6dd079405135e84393fb22f46a7313c8",
+        "semantic.color.grey.text.inverse": "d7e38651970c0051f2da389771daa3257d931386",
+        "semantic.color.grey.text.brand": "356aedca3f33feef1e525d6c37d0c8a1b5238df0",
+        "semantic.color.grey.text.link": "e795118b1459c654d8506e0e9b7542bf9b40154d",
+        "semantic.color.grey.background.layout": "65e6ab05975310b75fcb5220aab1397f33cb6a24",
+        "semantic.color.grey.background.container": "081506f5ebe3e9fa9889e94ccc142507900fe674",
+        "semantic.color.grey.background.elevated": "8da61e64f2f5ae4d690acc979fc4c6360cfeb122",
+        "semantic.color.grey.background.mask": "2d0cddfcea30dbecb5db09977c5daf2641c6316e",
+        "semantic.color.grey.background.spotlight": "48b030a9b7a1b85ccc9b95ff3824b0d5516c8631",
+        "semantic.color.grey.background.layoutsleep": "1c009cdf42e4f2dd5e3d1d8d69ec96d36fb5c83b",
+        "semantic.color.grey.background.layoutstress": "45ff31948286802a843ad8584c6675d1dffe04f4",
+        "semantic.color.grey.background.layoutactivity": "9d2bbe5ef6a071bc5f994a496c3af5d042d836c2",
+        "semantic.color.grey.background.layoutvital": "d27b4cdab7ae8646772330c3b31d53f0329e36de",
+        "semantic.color.grey.fill.primary": "71f13f4c2d48717076ae998f4781f4ba29f2757c",
+        "semantic.color.grey.fill.secondary": "ec99c7b9c78f7c3c8dc33eeec13a6c42fef8f2b9",
+        "semantic.color.grey.fill.tertiary": "260a6ff429122ac60fd36e7abc6d72453ac4eeba",
+        "semantic.color.grey.fill.quaternary": "26748940dbfe65848e87b7bf0ea0c067ec2e42ad",
+        "semantic.color.grey.fill.window": "dbccf99a933f94ce4e3f2fd022006952c4a91f90",
+        "semantic.color.grey.fill.inverse": "58a7bcf0ef7e7e41fd4a3fec08b799f718ab9535",
+        "semantic.color.grey.border.primary": "8886e430e028cc7ab54fd7edc8c48cc5856ab920",
+        "semantic.color.grey.border.secondary": "08e8bc3b2afd07ab1fcd1c16bbb34dda02f7f4e0",
+        "semantic.color.grey.border.tertiary": "101dbafcefc97d73eb9e2897428793945dc6df0d",
+        "semantic.color.grey.border.quaternary": "917207744e18dd5cc0c66bfacc6158813060efb8",
+        "semantic.color.grey.border.black": "8d327144104d4ac6b094c467a52331936062c499",
+        "semantic.color.grey.icon.primary": "530d58198654e25585174b81c68d792cd8c02837",
+        "semantic.color.grey.icon.secondary": "93edc97da501b3460d7def8c3eecdc229fe4c500",
+        "semantic.color.grey.icon.inverse": "aa7d505ed5756a0734b299cd1f0039954be307b2",
+        "semantic.color.brand.primary": "b84dc0c93d97d49222f7b14164e8dcd43334ba7b",
+        "semantic.color.tag.good": "68648651f1130a6214aa3af32dca3aff53b9cce4",
+        "semantic.color.tag.normal": "9e00e4c7b1f4a018868b8143aaa453650a8fdba2",
+        "semantic.color.tag.improvable": "588087fc396e32d35b3edd6d21650ea08c9f0f47",
+        "semantic.color.sleep.primary": "f28798733c86941d6d62bb2fcb4cb8e714b5b745",
+        "semantic.color.sleep.awake": "b9dae2a2a9f2838007482210371460617f865a0c",
+        "semantic.color.sleep.remsleep": "db6ac24824ff51c0f9e375b5d6fac76217ebbf82",
+        "semantic.color.sleep.lightsleep": "32e2607bf1bb16942cc382bcac92bd638a3ecc15",
+        "semantic.color.sleep.deepsleep": "96284d8d78e169bce54171c477fe9363a9e573e4",
+        "semantic.color.acitivity.primary": "ff95cfba3ca2b70c3794a515852259f5c6e9bce9",
+        "semantic.color.acitivity.step": "080f05f07479ed9a2a9af6b4fe66dae06074d772",
+        "semantic.color.acitivity.calories": "690e27d4cb51ad67c68a904000dd76bc267c7b76",
+        "semantic.color.acitivity.acitivity_time": "cf4d5cde578ed5dbe18d5ff19c75bc295edbe8eb",
+        "semantic.color.acitivity.Inactive": "0a14903aa3781b03621f26325ec0337d1ceaeca3",
+        "semantic.color.stress.primary": "d7f478c516995af487d079f0d436354fc5c5f843",
+        "semantic.color.stress.relaxed": "dbd7894c0274860bdbd0a635110c93f0984d284b",
+        "semantic.color.stress.normal": "c0b9d13c95f01fb74191d606b4e6d1a2fd1a19ef",
+        "semantic.color.stress.medium": "bb5b7a5664a773037c11f49aa5f4c5d253cced15",
+        "semantic.color.stress.high": "ba99d4d7eac534565f833b6172506cfa0bf3b9e1",
+        "semantic.color.vital.primary": "6d659f1915e2f07297e8f7a32bbb2586dd4555d4",
+        "semantic.color.female.menstrual": "1e3364ef78e17028d00255c1134682b91f8d0ad2",
+        "semantic.color.female.follicular": "a38a2a1cc9b66497188afa947278f41323793c08",
+        "semantic.color.female.ovulation": "c271eefb34abae94a44eb76e27e3278ac772bccf",
+        "semantic.color.female.luteal": "dfcd53b25e039c8757890abb76b250cac09aaf75"
+      },
+      "group": "colorTheme"
+    },
+    {
+      "id": "cd694b9f7cededbf7238ef02b419bde62deaa587",
+      "name": "dark",
+      "$figmaStyleReferences": {},
+      "selectedTokenSets": {
+        "semantic_color/dark": "enabled",
+        "global": "source",
+        "semantic_spacing": "enabled",
+        "semantic_boderRadii": "enabled"
+      },
+      "$figmaVariableReferences": {
+        "semantic.color.grey.text.primary": "dff465c00e404a167793333299275f418f12ac3b",
+        "semantic.color.grey.text.secondary": "2a94884a4ba3138f205b2422ecf24515376d3718",
+        "semantic.color.grey.text.tertiary": "5bc709c2a2ad62794d8bf9016f7a064ca22cf786",
+        "semantic.color.grey.text.quaternary": "bf4aaabf6dd079405135e84393fb22f46a7313c8",
+        "semantic.color.grey.text.inverse": "d7e38651970c0051f2da389771daa3257d931386",
+        "semantic.color.grey.text.brand": "356aedca3f33feef1e525d6c37d0c8a1b5238df0",
+        "semantic.color.grey.text.link": "e795118b1459c654d8506e0e9b7542bf9b40154d",
+        "semantic.color.grey.background.layout": "65e6ab05975310b75fcb5220aab1397f33cb6a24",
+        "semantic.color.grey.background.container": "081506f5ebe3e9fa9889e94ccc142507900fe674",
+        "semantic.color.grey.background.elevated": "8da61e64f2f5ae4d690acc979fc4c6360cfeb122",
+        "semantic.color.grey.background.mask": "2d0cddfcea30dbecb5db09977c5daf2641c6316e",
+        "semantic.color.grey.background.spotlight": "48b030a9b7a1b85ccc9b95ff3824b0d5516c8631",
+        "semantic.color.grey.background.layoutsleep": "1c009cdf42e4f2dd5e3d1d8d69ec96d36fb5c83b",
+        "semantic.color.grey.background.layoutstress": "45ff31948286802a843ad8584c6675d1dffe04f4",
+        "semantic.color.grey.background.layoutactivity": "9d2bbe5ef6a071bc5f994a496c3af5d042d836c2",
+        "semantic.color.grey.background.layoutvital": "d27b4cdab7ae8646772330c3b31d53f0329e36de",
+        "semantic.color.grey.fill.primary": "71f13f4c2d48717076ae998f4781f4ba29f2757c",
+        "semantic.color.grey.fill.secondary": "ec99c7b9c78f7c3c8dc33eeec13a6c42fef8f2b9",
+        "semantic.color.grey.fill.tertiary": "260a6ff429122ac60fd36e7abc6d72453ac4eeba",
+        "semantic.color.grey.fill.quaternary": "26748940dbfe65848e87b7bf0ea0c067ec2e42ad",
+        "semantic.color.grey.fill.window": "dbccf99a933f94ce4e3f2fd022006952c4a91f90",
+        "semantic.color.grey.fill.inverse": "58a7bcf0ef7e7e41fd4a3fec08b799f718ab9535",
+        "semantic.color.grey.border.primary": "8886e430e028cc7ab54fd7edc8c48cc5856ab920",
+        "semantic.color.grey.border.secondary": "08e8bc3b2afd07ab1fcd1c16bbb34dda02f7f4e0",
+        "semantic.color.grey.border.tertiary": "101dbafcefc97d73eb9e2897428793945dc6df0d",
+        "semantic.color.grey.border.quaternary": "917207744e18dd5cc0c66bfacc6158813060efb8",
+        "semantic.color.grey.border.black": "8d327144104d4ac6b094c467a52331936062c499",
+        "semantic.color.grey.icon.primary": "530d58198654e25585174b81c68d792cd8c02837",
+        "semantic.color.grey.icon.secondary": "93edc97da501b3460d7def8c3eecdc229fe4c500",
+        "semantic.color.grey.icon.inverse": "aa7d505ed5756a0734b299cd1f0039954be307b2",
+        "semantic.color.brand.primary": "b84dc0c93d97d49222f7b14164e8dcd43334ba7b",
+        "semantic.color.tag.good": "68648651f1130a6214aa3af32dca3aff53b9cce4",
+        "semantic.color.tag.normal": "9e00e4c7b1f4a018868b8143aaa453650a8fdba2",
+        "semantic.color.tag.improvable": "588087fc396e32d35b3edd6d21650ea08c9f0f47",
+        "semantic.color.sleep.primary": "f28798733c86941d6d62bb2fcb4cb8e714b5b745",
+        "semantic.color.sleep.awake": "b9dae2a2a9f2838007482210371460617f865a0c",
+        "semantic.color.sleep.remsleep": "db6ac24824ff51c0f9e375b5d6fac76217ebbf82",
+        "semantic.color.sleep.lightsleep": "32e2607bf1bb16942cc382bcac92bd638a3ecc15",
+        "semantic.color.sleep.deepsleep": "96284d8d78e169bce54171c477fe9363a9e573e4",
+        "semantic.color.acitivity.primary": "ff95cfba3ca2b70c3794a515852259f5c6e9bce9",
+        "semantic.color.acitivity.step": "080f05f07479ed9a2a9af6b4fe66dae06074d772",
+        "semantic.color.acitivity.calories": "690e27d4cb51ad67c68a904000dd76bc267c7b76",
+        "semantic.color.acitivity.acitivity_time": "cf4d5cde578ed5dbe18d5ff19c75bc295edbe8eb",
+        "semantic.color.acitivity.Inactive": "0a14903aa3781b03621f26325ec0337d1ceaeca3",
+        "semantic.color.stress.primary": "d7f478c516995af487d079f0d436354fc5c5f843",
+        "semantic.color.stress.relaxed": "dbd7894c0274860bdbd0a635110c93f0984d284b",
+        "semantic.color.stress.normal": "c0b9d13c95f01fb74191d606b4e6d1a2fd1a19ef",
+        "semantic.color.stress.medium": "bb5b7a5664a773037c11f49aa5f4c5d253cced15",
+        "semantic.color.stress.high": "ba99d4d7eac534565f833b6172506cfa0bf3b9e1",
+        "semantic.color.vital.primary": "6d659f1915e2f07297e8f7a32bbb2586dd4555d4"
+      },
+      "$figmaCollectionId": "VariableCollectionId:1199:1035",
+      "$figmaModeId": "1778:0",
+      "group": "colorTheme"
+    },
+    {
+      "id": "c9f25aaa37ad1b9c6beb142ae97e70ff0ce2cb70",
+      "name": "ios_ch",
+      "$figmaStyleReferences": {
+        "semantic.typography.label.10": "S:3845461bd4f7259753f1ef912b402b1bf164b417,",
+        "semantic.typography.label.12": "S:ffe92429e016690a3c0b193ad794e1dff2d5749a,",
+        "semantic.typography.label.14": "S:e097b0aa4a99ac749cede2fa7f92fa7aa3ec9e9b,",
+        "semantic.typography.body.12": "S:872ee8463a450413b6f07d28126e59f547563e0b,",
+        "semantic.typography.body.14": "S:5d7f8ab66ecfb141d58f4b67bfb7865778091d9e,",
+        "semantic.typography.body.16": "S:710ccbe00d4fed67892310680bc944f97e098622,",
+        "semantic.typography.title.16": "S:035f3c6425cb0c96f1a3621f062b8559e5b4555c,",
+        "semantic.typography.title.18": "S:7af896d5a367b5848f78c0fbf0448c61f7762bff,",
+        "semantic.typography.title.22": "S:d1e5915cc784da9e30668c9bed1eeeefd12a38fe,",
+        "semantic.typography.display.24": "S:ffd9ddc558c1646db15bb07d3a151297798966b2,",
+        "semantic.typography.display.28": "S:147c11788db4886a66b5ab4636d30414da928e84,",
+        "semantic.typography.number_text.12": "S:44c663f0a08bc1d499bed232cc7ccb87857dd0c5,",
+        "semantic.typography.number_text.14": "S:bbe0f303d8cee0f7d526aa35da7529c479e37466,",
+        "semantic.typography.number_text.16": "S:33a26d2808c5133c1caa85d7b83bd023d696fd97,",
+        "semantic.typography.number.12": "S:f6a8072037d777cca5659a26c14683ea7fcbf7d0,",
+        "semantic.typography.number.20": "S:55b6721f62623f4224ae404cd38db7e7691c8cae,",
+        "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
+        "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
+        "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
+        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+      },
+      "selectedTokenSets": {
+        "semanric_typography/ios_ch": "enabled",
+        "global": "source"
+      },
+      "$figmaVariableReferences": {
+        "semantic.fontfamily.text": "11495ebf4f04a3c34b3efd75d8b3d3051bae366f",
+        "semantic.fontfamily.number": "2a9a2ed710ed7bca66a92980148beaca6c947c77",
+        "global.spacing.base": "a9dfd51daf1c0843dc46e1410e39d0c30e3204d5",
+        "global.spacing.25": "5eeb70e2df96be9bdb13bfa897ff1e2839eaa074",
+        "global.spacing.50": "c8c21c01d78335b0027b42c16bec375e090a5a11",
+        "global.spacing.100": "b85e7d3d32be0dc7dd2f4c3cc104d03f08ec5456",
+        "global.spacing.150": "89e229051fb26f1164951a1002ed92061f58bcf1",
+        "global.spacing.200": "08536a5b537d9b9c070da701f4f7b02f77800bab",
+        "global.spacing.250": "00bdf4e3fbd9798910da51f690bf3a57b7baaa93",
+        "global.spacing.300": "d2957987523db77a45b61d02623e9ad8ef2b957e",
+        "global.spacing.350": "d63cc8c7792d3eb1a8fe8e628d008e5b5a9fc582",
+        "global.spacing.400": "da4a31ba506646389d6edae1a48cac524de89e73",
+        "global.spacing.500": "ea9f8c0933e9704ac96307d92dd67773b39e1803",
+        "global.spacing.600": "f1cc423952cd540d87c86dc6bdf4dc4b5e050a66",
+        "global.boderRadii.base": "f4940c8d8d461bbe6bc875dc98dcacea0f429d9f",
+        "global.boderRadii.25": "16d393fd0cea6b4b2f5ca9a181336d2e962621be",
+        "global.boderRadii.50": "a1cd306b2e96d642563d11805d1d7f63674a65fb",
+        "global.boderRadii.75": "528a02aaecf059e4b86d6be2e9cc01d2e9019e4e",
+        "global.boderRadii.100": "a10bc4469c8a54d166e58c602f531fb069e7fd36",
+        "global.boderRadii.125": "20c226006d162691aa19577e707a15632912fec7",
+        "global.boderRadii.150": "5cad030ed893906ec8c414e6ee051a6936e5fb6d",
+        "global.boderRadii.200": "20c9044538015b8ca429f74ebf5a84c539ebbb7d",
+        "global.boderRadii.250": "031373cef71d56f080a63ed7867a7606d545faf0",
+        "global.boderRadii.300": "cbe9169ba0aaf44c14b4a07f6334273d215b4ee3",
+        "global.boderRadii.none": "1579443cd8e16fe3f0827af0344df2471bcc9100",
+        "global.boderRadii.round": "1601257dda677128810d3c99bfa6f4350f2be44c",
+        "global.fontfamily.PingFang_SC": "4cb1369de74588c244d58ab19aa1757295155e0e",
+        "global.fontweight.regular": "12b48843e141b8b74abdcc354ead157c0c818521",
+        "global.fontweight.medium": "6f173bb8417348c55fdbacc5fcb5f09b098defc0",
+        "global.fontweight.semibold": "be1e87ade5de3716318498118883809f23158e2b",
+        "global.fontfamily.SF_Pro": "621775ef86d4c5d40a0cf1f8f92a1f9e3e179553",
+        "global.fontfamily.Inter": "65b94a72896ae1fe77e5f91b7859b75ede38154a",
+        "global.fontfamily.HarmonyOS_Sans_SC": "14e2f54eebbfffc6bf3fd5bdd0286575bdf72521",
+        "global.fontsize.10": "aae108debd7c5350679fc9de432877b276e8b99a",
+        "global.fontsize.12": "6efb1e2e216a0bf3d036fe428411aedf0ef724b8",
+        "global.fontsize.14": "7ccb8ae0d49a5b065c2cf46fd205a42230d731a5",
+        "global.fontsize.16": "e2d25e1037acab5c6aeda896b862f29d580f61f5",
+        "global.fontsize.18": "9f5ad60af79d44af8cfb27205d1d2b5d3f17754e",
+        "global.fontsize.20": "4ece7489c3143713e4f3698226b06d4b5a197412",
+        "global.fontsize.22": "fd75ea7b0398e01f90eac4fe91a0e401ab3dfcd9",
+        "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
+        "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
+        "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
+        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+      },
+      "$figmaCollectionId": "VariableCollectionId:1743:5443",
+      "$figmaModeId": "1743:12",
+      "group": "fontTheme"
+    },
+    {
+      "id": "b93dd07c9a001142fe153e204e2b5a3b165ab8e6",
+      "name": "ios_eng",
+      "$figmaStyleReferences": {
+        "semantic.typography.label.10": "S:3845461bd4f7259753f1ef912b402b1bf164b417,",
+        "semantic.typography.label.12": "S:ffe92429e016690a3c0b193ad794e1dff2d5749a,",
+        "semantic.typography.label.14": "S:e097b0aa4a99ac749cede2fa7f92fa7aa3ec9e9b,",
+        "semantic.typography.body.12": "S:872ee8463a450413b6f07d28126e59f547563e0b,",
+        "semantic.typography.body.14": "S:5d7f8ab66ecfb141d58f4b67bfb7865778091d9e,",
+        "semantic.typography.body.16": "S:710ccbe00d4fed67892310680bc944f97e098622,",
+        "semantic.typography.title.16": "S:035f3c6425cb0c96f1a3621f062b8559e5b4555c,",
+        "semantic.typography.title.18": "S:7af896d5a367b5848f78c0fbf0448c61f7762bff,",
+        "semantic.typography.title.22": "S:d1e5915cc784da9e30668c9bed1eeeefd12a38fe,",
+        "semantic.typography.display.24": "S:ffd9ddc558c1646db15bb07d3a151297798966b2,",
+        "semantic.typography.display.28": "S:147c11788db4886a66b5ab4636d30414da928e84,",
+        "semantic.typography.number_text.12": "S:44c663f0a08bc1d499bed232cc7ccb87857dd0c5,",
+        "semantic.typography.number_text.14": "S:bbe0f303d8cee0f7d526aa35da7529c479e37466,",
+        "semantic.typography.number_text.16": "S:33a26d2808c5133c1caa85d7b83bd023d696fd97,",
+        "semantic.typography.number.12": "S:f6a8072037d777cca5659a26c14683ea7fcbf7d0,",
+        "semantic.typography.number.20": "S:55b6721f62623f4224ae404cd38db7e7691c8cae,",
+        "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
+        "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
+        "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
+        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+      },
+      "selectedTokenSets": {
+        "global": "source",
+        "semanric_typography/android_eng": "enabled"
+      },
+      "$figmaVariableReferences": {
+        "semantic.fontfamily.text": "11495ebf4f04a3c34b3efd75d8b3d3051bae366f",
+        "semantic.fontfamily.number": "2a9a2ed710ed7bca66a92980148beaca6c947c77",
+        "global.spacing.base": "a9dfd51daf1c0843dc46e1410e39d0c30e3204d5",
+        "global.spacing.25": "5eeb70e2df96be9bdb13bfa897ff1e2839eaa074",
+        "global.spacing.50": "c8c21c01d78335b0027b42c16bec375e090a5a11",
+        "global.spacing.100": "b85e7d3d32be0dc7dd2f4c3cc104d03f08ec5456",
+        "global.spacing.150": "89e229051fb26f1164951a1002ed92061f58bcf1",
+        "global.spacing.200": "08536a5b537d9b9c070da701f4f7b02f77800bab",
+        "global.spacing.250": "00bdf4e3fbd9798910da51f690bf3a57b7baaa93",
+        "global.spacing.300": "d2957987523db77a45b61d02623e9ad8ef2b957e",
+        "global.spacing.350": "d63cc8c7792d3eb1a8fe8e628d008e5b5a9fc582",
+        "global.spacing.400": "da4a31ba506646389d6edae1a48cac524de89e73",
+        "global.spacing.500": "ea9f8c0933e9704ac96307d92dd67773b39e1803",
+        "global.spacing.600": "f1cc423952cd540d87c86dc6bdf4dc4b5e050a66",
+        "global.boderRadii.base": "f4940c8d8d461bbe6bc875dc98dcacea0f429d9f",
+        "global.boderRadii.25": "16d393fd0cea6b4b2f5ca9a181336d2e962621be",
+        "global.boderRadii.50": "a1cd306b2e96d642563d11805d1d7f63674a65fb",
+        "global.boderRadii.75": "528a02aaecf059e4b86d6be2e9cc01d2e9019e4e",
+        "global.boderRadii.100": "a10bc4469c8a54d166e58c602f531fb069e7fd36",
+        "global.boderRadii.125": "20c226006d162691aa19577e707a15632912fec7",
+        "global.boderRadii.150": "5cad030ed893906ec8c414e6ee051a6936e5fb6d",
+        "global.boderRadii.200": "20c9044538015b8ca429f74ebf5a84c539ebbb7d",
+        "global.boderRadii.250": "031373cef71d56f080a63ed7867a7606d545faf0",
+        "global.boderRadii.300": "cbe9169ba0aaf44c14b4a07f6334273d215b4ee3",
+        "global.boderRadii.none": "1579443cd8e16fe3f0827af0344df2471bcc9100",
+        "global.boderRadii.round": "1601257dda677128810d3c99bfa6f4350f2be44c",
+        "global.fontfamily.PingFang_SC": "4cb1369de74588c244d58ab19aa1757295155e0e",
+        "global.fontweight.regular": "12b48843e141b8b74abdcc354ead157c0c818521",
+        "global.fontweight.medium": "6f173bb8417348c55fdbacc5fcb5f09b098defc0",
+        "global.fontweight.semibold": "be1e87ade5de3716318498118883809f23158e2b",
+        "global.fontfamily.SF_Pro": "621775ef86d4c5d40a0cf1f8f92a1f9e3e179553",
+        "global.fontfamily.Inter": "65b94a72896ae1fe77e5f91b7859b75ede38154a",
+        "global.fontfamily.HarmonyOS_Sans_SC": "14e2f54eebbfffc6bf3fd5bdd0286575bdf72521",
+        "global.fontsize.10": "aae108debd7c5350679fc9de432877b276e8b99a",
+        "global.fontsize.12": "6efb1e2e216a0bf3d036fe428411aedf0ef724b8",
+        "global.fontsize.14": "7ccb8ae0d49a5b065c2cf46fd205a42230d731a5",
+        "global.fontsize.16": "e2d25e1037acab5c6aeda896b862f29d580f61f5",
+        "global.fontsize.18": "9f5ad60af79d44af8cfb27205d1d2b5d3f17754e",
+        "global.fontsize.20": "4ece7489c3143713e4f3698226b06d4b5a197412",
+        "global.fontsize.22": "fd75ea7b0398e01f90eac4fe91a0e401ab3dfcd9",
+        "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
+        "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
+        "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
+        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+      },
+      "$figmaCollectionId": "VariableCollectionId:1743:5443",
+      "$figmaModeId": "1743:13",
+      "group": "fontTheme"
+    },
+    {
+      "id": "f0d40567910f936962102cf824d0337e29c6b2ee",
+      "name": "android_ch",
+      "$figmaStyleReferences": {
+        "semantic.typography.label.10": "S:3845461bd4f7259753f1ef912b402b1bf164b417,",
+        "semantic.typography.label.12": "S:ffe92429e016690a3c0b193ad794e1dff2d5749a,",
+        "semantic.typography.label.14": "S:e097b0aa4a99ac749cede2fa7f92fa7aa3ec9e9b,",
+        "semantic.typography.body.12": "S:872ee8463a450413b6f07d28126e59f547563e0b,",
+        "semantic.typography.body.14": "S:5d7f8ab66ecfb141d58f4b67bfb7865778091d9e,",
+        "semantic.typography.body.16": "S:710ccbe00d4fed67892310680bc944f97e098622,",
+        "semantic.typography.title.16": "S:035f3c6425cb0c96f1a3621f062b8559e5b4555c,",
+        "semantic.typography.title.18": "S:7af896d5a367b5848f78c0fbf0448c61f7762bff,",
+        "semantic.typography.title.22": "S:d1e5915cc784da9e30668c9bed1eeeefd12a38fe,",
+        "semantic.typography.display.24": "S:ffd9ddc558c1646db15bb07d3a151297798966b2,",
+        "semantic.typography.display.28": "S:147c11788db4886a66b5ab4636d30414da928e84,",
+        "semantic.typography.number_text.12": "S:44c663f0a08bc1d499bed232cc7ccb87857dd0c5,",
+        "semantic.typography.number_text.14": "S:bbe0f303d8cee0f7d526aa35da7529c479e37466,",
+        "semantic.typography.number_text.16": "S:33a26d2808c5133c1caa85d7b83bd023d696fd97,",
+        "semantic.typography.number.12": "S:f6a8072037d777cca5659a26c14683ea7fcbf7d0,",
+        "semantic.typography.number.20": "S:55b6721f62623f4224ae404cd38db7e7691c8cae,",
+        "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
+        "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
+        "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
+        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+      },
+      "selectedTokenSets": {
+        "semanric_typography/android_ch": "enabled",
+        "global": "source"
+      },
+      "$figmaVariableReferences": {
+        "semantic.fontfamily.text": "11495ebf4f04a3c34b3efd75d8b3d3051bae366f",
+        "semantic.fontfamily.number": "2a9a2ed710ed7bca66a92980148beaca6c947c77",
+        "global.spacing.base": "a9dfd51daf1c0843dc46e1410e39d0c30e3204d5",
+        "global.spacing.25": "5eeb70e2df96be9bdb13bfa897ff1e2839eaa074",
+        "global.spacing.50": "c8c21c01d78335b0027b42c16bec375e090a5a11",
+        "global.spacing.100": "b85e7d3d32be0dc7dd2f4c3cc104d03f08ec5456",
+        "global.spacing.150": "89e229051fb26f1164951a1002ed92061f58bcf1",
+        "global.spacing.200": "08536a5b537d9b9c070da701f4f7b02f77800bab",
+        "global.spacing.250": "00bdf4e3fbd9798910da51f690bf3a57b7baaa93",
+        "global.spacing.300": "d2957987523db77a45b61d02623e9ad8ef2b957e",
+        "global.spacing.350": "d63cc8c7792d3eb1a8fe8e628d008e5b5a9fc582",
+        "global.spacing.400": "da4a31ba506646389d6edae1a48cac524de89e73",
+        "global.spacing.500": "ea9f8c0933e9704ac96307d92dd67773b39e1803",
+        "global.spacing.600": "f1cc423952cd540d87c86dc6bdf4dc4b5e050a66",
+        "global.boderRadii.base": "f4940c8d8d461bbe6bc875dc98dcacea0f429d9f",
+        "global.boderRadii.25": "16d393fd0cea6b4b2f5ca9a181336d2e962621be",
+        "global.boderRadii.50": "a1cd306b2e96d642563d11805d1d7f63674a65fb",
+        "global.boderRadii.75": "528a02aaecf059e4b86d6be2e9cc01d2e9019e4e",
+        "global.boderRadii.100": "a10bc4469c8a54d166e58c602f531fb069e7fd36",
+        "global.boderRadii.125": "20c226006d162691aa19577e707a15632912fec7",
+        "global.boderRadii.150": "5cad030ed893906ec8c414e6ee051a6936e5fb6d",
+        "global.boderRadii.200": "20c9044538015b8ca429f74ebf5a84c539ebbb7d",
+        "global.boderRadii.250": "031373cef71d56f080a63ed7867a7606d545faf0",
+        "global.boderRadii.300": "cbe9169ba0aaf44c14b4a07f6334273d215b4ee3",
+        "global.boderRadii.none": "1579443cd8e16fe3f0827af0344df2471bcc9100",
+        "global.boderRadii.round": "1601257dda677128810d3c99bfa6f4350f2be44c",
+        "global.fontfamily.PingFang_SC": "4cb1369de74588c244d58ab19aa1757295155e0e",
+        "global.fontweight.regular": "12b48843e141b8b74abdcc354ead157c0c818521",
+        "global.fontweight.medium": "6f173bb8417348c55fdbacc5fcb5f09b098defc0",
+        "global.fontweight.semibold": "be1e87ade5de3716318498118883809f23158e2b",
+        "global.fontfamily.SF_Pro": "621775ef86d4c5d40a0cf1f8f92a1f9e3e179553",
+        "global.fontfamily.Inter": "65b94a72896ae1fe77e5f91b7859b75ede38154a",
+        "global.fontfamily.HarmonyOS_Sans_SC": "14e2f54eebbfffc6bf3fd5bdd0286575bdf72521",
+        "global.fontsize.10": "aae108debd7c5350679fc9de432877b276e8b99a",
+        "global.fontsize.12": "6efb1e2e216a0bf3d036fe428411aedf0ef724b8",
+        "global.fontsize.14": "7ccb8ae0d49a5b065c2cf46fd205a42230d731a5",
+        "global.fontsize.16": "e2d25e1037acab5c6aeda896b862f29d580f61f5",
+        "global.fontsize.18": "9f5ad60af79d44af8cfb27205d1d2b5d3f17754e",
+        "global.fontsize.20": "4ece7489c3143713e4f3698226b06d4b5a197412",
+        "global.fontsize.22": "fd75ea7b0398e01f90eac4fe91a0e401ab3dfcd9",
+        "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
+        "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
+        "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
+        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+      },
+      "$figmaCollectionId": "VariableCollectionId:1743:5443",
+      "$figmaModeId": "1743:14",
+      "group": "fontTheme"
+    },
+    {
+      "id": "c691920c090168346b22145926ce6ce1d3c3db82",
+      "name": "android_eng",
+      "$figmaStyleReferences": {
+        "semantic.typography.label.10": "S:3845461bd4f7259753f1ef912b402b1bf164b417,",
+        "semantic.typography.label.12": "S:ffe92429e016690a3c0b193ad794e1dff2d5749a,",
+        "semantic.typography.label.14": "S:e097b0aa4a99ac749cede2fa7f92fa7aa3ec9e9b,",
+        "semantic.typography.body.12": "S:872ee8463a450413b6f07d28126e59f547563e0b,",
+        "semantic.typography.body.14": "S:5d7f8ab66ecfb141d58f4b67bfb7865778091d9e,",
+        "semantic.typography.body.16": "S:710ccbe00d4fed67892310680bc944f97e098622,",
+        "semantic.typography.title.16": "S:035f3c6425cb0c96f1a3621f062b8559e5b4555c,",
+        "semantic.typography.title.18": "S:7af896d5a367b5848f78c0fbf0448c61f7762bff,",
+        "semantic.typography.title.22": "S:d1e5915cc784da9e30668c9bed1eeeefd12a38fe,",
+        "semantic.typography.display.24": "S:ffd9ddc558c1646db15bb07d3a151297798966b2,",
+        "semantic.typography.display.28": "S:147c11788db4886a66b5ab4636d30414da928e84,",
+        "semantic.typography.number_text.12": "S:44c663f0a08bc1d499bed232cc7ccb87857dd0c5,",
+        "semantic.typography.number_text.14": "S:bbe0f303d8cee0f7d526aa35da7529c479e37466,",
+        "semantic.typography.number_text.16": "S:33a26d2808c5133c1caa85d7b83bd023d696fd97,",
+        "semantic.typography.number.12": "S:f6a8072037d777cca5659a26c14683ea7fcbf7d0,",
+        "semantic.typography.number.20": "S:55b6721f62623f4224ae404cd38db7e7691c8cae,",
+        "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
+        "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
+        "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
+        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+      },
+      "selectedTokenSets": {
+        "global": "source",
+        "semanric_typography/ios_eng": "enabled"
+      },
+      "$figmaVariableReferences": {
+        "semantic.fontfamily.text": "11495ebf4f04a3c34b3efd75d8b3d3051bae366f",
+        "semantic.fontfamily.number": "2a9a2ed710ed7bca66a92980148beaca6c947c77",
+        "global.spacing.base": "a9dfd51daf1c0843dc46e1410e39d0c30e3204d5",
+        "global.spacing.25": "5eeb70e2df96be9bdb13bfa897ff1e2839eaa074",
+        "global.spacing.50": "c8c21c01d78335b0027b42c16bec375e090a5a11",
+        "global.spacing.100": "b85e7d3d32be0dc7dd2f4c3cc104d03f08ec5456",
+        "global.spacing.150": "89e229051fb26f1164951a1002ed92061f58bcf1",
+        "global.spacing.200": "08536a5b537d9b9c070da701f4f7b02f77800bab",
+        "global.spacing.250": "00bdf4e3fbd9798910da51f690bf3a57b7baaa93",
+        "global.spacing.300": "d2957987523db77a45b61d02623e9ad8ef2b957e",
+        "global.spacing.350": "d63cc8c7792d3eb1a8fe8e628d008e5b5a9fc582",
+        "global.spacing.400": "da4a31ba506646389d6edae1a48cac524de89e73",
+        "global.spacing.500": "ea9f8c0933e9704ac96307d92dd67773b39e1803",
+        "global.spacing.600": "f1cc423952cd540d87c86dc6bdf4dc4b5e050a66",
+        "global.boderRadii.base": "f4940c8d8d461bbe6bc875dc98dcacea0f429d9f",
+        "global.boderRadii.25": "16d393fd0cea6b4b2f5ca9a181336d2e962621be",
+        "global.boderRadii.50": "a1cd306b2e96d642563d11805d1d7f63674a65fb",
+        "global.boderRadii.75": "528a02aaecf059e4b86d6be2e9cc01d2e9019e4e",
+        "global.boderRadii.100": "a10bc4469c8a54d166e58c602f531fb069e7fd36",
+        "global.boderRadii.125": "20c226006d162691aa19577e707a15632912fec7",
+        "global.boderRadii.150": "5cad030ed893906ec8c414e6ee051a6936e5fb6d",
+        "global.boderRadii.200": "20c9044538015b8ca429f74ebf5a84c539ebbb7d",
+        "global.boderRadii.250": "031373cef71d56f080a63ed7867a7606d545faf0",
+        "global.boderRadii.300": "cbe9169ba0aaf44c14b4a07f6334273d215b4ee3",
+        "global.boderRadii.none": "1579443cd8e16fe3f0827af0344df2471bcc9100",
+        "global.boderRadii.round": "1601257dda677128810d3c99bfa6f4350f2be44c",
+        "global.fontfamily.PingFang_SC": "4cb1369de74588c244d58ab19aa1757295155e0e",
+        "global.fontweight.regular": "12b48843e141b8b74abdcc354ead157c0c818521",
+        "global.fontweight.medium": "6f173bb8417348c55fdbacc5fcb5f09b098defc0",
+        "global.fontweight.semibold": "be1e87ade5de3716318498118883809f23158e2b",
+        "global.fontfamily.SF_Pro": "621775ef86d4c5d40a0cf1f8f92a1f9e3e179553",
+        "global.fontfamily.Inter": "65b94a72896ae1fe77e5f91b7859b75ede38154a",
+        "global.fontfamily.HarmonyOS_Sans_SC": "14e2f54eebbfffc6bf3fd5bdd0286575bdf72521",
+        "global.fontsize.10": "aae108debd7c5350679fc9de432877b276e8b99a",
+        "global.fontsize.12": "6efb1e2e216a0bf3d036fe428411aedf0ef724b8",
+        "global.fontsize.14": "7ccb8ae0d49a5b065c2cf46fd205a42230d731a5",
+        "global.fontsize.16": "e2d25e1037acab5c6aeda896b862f29d580f61f5",
+        "global.fontsize.18": "9f5ad60af79d44af8cfb27205d1d2b5d3f17754e",
+        "global.fontsize.20": "4ece7489c3143713e4f3698226b06d4b5a197412",
+        "global.fontsize.22": "fd75ea7b0398e01f90eac4fe91a0e401ab3dfcd9",
+        "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
+        "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
+        "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
+        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+      },
+      "$figmaCollectionId": "VariableCollectionId:1743:5443",
+      "$figmaModeId": "1743:15",
+      "group": "fontTheme"
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "global",
+      "semantic_color/light",
+      "semantic_color/dark",
+      "semantic_spacing",
+      "semantic_boderRadii",
+      "semanric_typography/ios_ch",
+      "semanric_typography/ios_eng",
+      "semanric_typography/android_ch",
+      "semanric_typography/android_eng"
+    ]
+  }
+}
