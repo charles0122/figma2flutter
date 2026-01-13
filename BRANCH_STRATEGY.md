@@ -10,7 +10,7 @@
 - ✅ 核心功能代码
 - ❌ 不包含项目特定代码
 
-### `feature/project-specific-code` 分支
+### `feature/rc_design_tokens` 分支
 **用途：** 项目特定代码，针对当前 example 项目
 
 **包含内容：**
@@ -28,11 +28,11 @@
 - 保持 `main` 分支的通用性
 
 ### 对于项目使用者
-- 如果需要项目特定功能，使用 `feature/project-specific-code` 分支
+- 如果需要项目特定功能，使用 `feature/rc_design_tokens` 分支
 - 或者基于 `main` 分支创建自己的项目特定分支
 
 ## 📝 提交历史
 
-- `8f36a1d` - 完整功能存档（在 `feature/project-specific-code` 分支）
+- `8f36a1d` - 完整功能存档（在 `feature/rc_design_tokens` 分支）
 - `9fb9820` - 支持无空格数学表达式（在 `main` 分支）
 - `d17b87e` - 添加基于 source set 的 token 过滤机制（在 `main` 分支）
