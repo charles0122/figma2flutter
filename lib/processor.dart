@@ -21,8 +21,8 @@ class Processor {
       //print('Generating Theme: ${theme.name}');
       final resolved = theme.resolvedTokens;
 
-      final single = _loopProcess(singleTokenTransformerFactories, resolved);
-      final multi = _loopProcess(multiTokenTransformerFactories, resolved)
+      final single = _loopProcess(singleTokenTransformerFactories, resolved, theme);
+      final multi = _loopProcess(multiTokenTransformerFactories, resolved, theme)
           .cast<MultiTokenTransformer>()
         ..forEach((element) => element.postProcess());
 
@@ -35,17 +35,20 @@ class Processor {
   List<Transformer> _loopProcess(
     List<TransformerFactory> factories,
     List<Token> tokens,
+    TokenTheme theme,
   ) {
     final transformers = factories.map((f) => f(tokens)).toList();
     for (final transformer in transformers) {
+      // 设置 theme 信息，用于判断 token 是否来自 source set
+      transformer.setTheme(theme);
       for (final token in tokens) {
-        _safeProcess(transformer, token);
+        _safeProcess(transformer, token, theme);
       }
     }
     return transformers;
   }
 
-  void _safeProcess(Transformer transformer, Token token) {
+  void _safeProcess(Transformer transformer, Token token, TokenTheme theme) {
     try {
       transformer.process(token);
     } catch (e) {

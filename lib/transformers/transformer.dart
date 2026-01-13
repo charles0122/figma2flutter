@@ -1,4 +1,5 @@
 import 'package:figma2flutter/models/token.dart';
+import 'package:figma2flutter/models/token_theme.dart';
 import 'package:meta/meta.dart';
 import 'package:recase/recase.dart';
 
@@ -13,6 +14,37 @@ abstract class Transformer {
 
   // The name of the class that will be generated
   String get className => '${name.pascalCase}Tokens';
+
+  /// Current theme being processed (用于判断 token 是否来自 source set)
+  TokenTheme? _currentTheme;
+
+  /// 设置当前处理的 theme
+  void setTheme(TokenTheme theme) {
+    _currentTheme = theme;
+  }
+
+  /// 检查 token 是否来自 source set（标记为 source，只用于被引用，不需要生成代码）
+  @protected
+  bool _isSourceToken(Token token) {
+    if (_currentTheme == null || _currentTheme!.sourceSets.isEmpty) {
+      return false;
+    }
+    
+    // 构建 token 的处理后的 key（_postProcess 之后的格式）
+    // 注意：token.path 在 _postProcess 后已经移除了 set 前缀
+    // tokenKeyToSet 中的 key 也是 _postProcess 后的格式，即 "path.name"
+    final tokenKey = token.path.isEmpty 
+        ? token.name 
+        : '${token.path}.${token.name}';
+    
+    // 通过映射查找这个 token 来自哪个 set
+    final sourceSet = _currentTheme!.tokenKeyToSet[tokenKey];
+    if (sourceSet != null && _currentTheme!.sourceSets.contains(sourceSet)) {
+      return true;
+    }
+    
+    return false;
+  }
 
   // Returns true if the token should be processed by this transformer
   @protected
@@ -68,6 +100,11 @@ abstract class SingleTokenTransformer extends Transformer {
   // Processes the token and adds the generated code to the lines list
   @override
   void process(Token token) {
+    // 跳过来自 source set 的 token（标记为 source，只用于被引用，不需要生成代码）
+    if (_isSourceToken(token)) {
+      return;
+    }
+    
     if (matcher(token)) {
       final codeLine = '@override\n  $type get ${token.variableName} => ${transform(token)};';
       

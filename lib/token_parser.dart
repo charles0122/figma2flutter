@@ -47,7 +47,70 @@ class TokenParser {
       }
 
       final tokens = findTokens('.', tokensForTheme, null, tokensForTheme);
+      
+      // 在 _postProcess 之前，保存原始 key 到 set 的映射
+      // findTokens 返回的 key 格式取决于 tokensForTheme 的结构：
+      // - 如果 tokensForTheme 是 { "set": { ... } }，key 格式是 "set.path.name"
+      // - 如果 tokensForTheme 是直接的 token 数据，key 格式是 "path.name"
+      final keyToSetMap = <String, String>{};
+      for (final entry in tokens.entries) {
+        final key = entry.key;
+        // 找到这个 key 对应的 set（按 sets 顺序，后面的会覆盖前面的）
+        // 注意：_postProcess 使用的是全局 sets，但这里我们使用 theme.sets 来建立映射
+        for (final set in theme.sets) {
+          final setPrefix = '$set.';
+          if (key.startsWith(setPrefix)) {
+            keyToSetMap[key] = set;
+            // 不 break，让后面的 set 覆盖前面的（与 _postProcess 逻辑一致）
+          }
+        }
+      }
+      
+      // 保存 _postProcess 之前的 tokens 快照，用于后续映射
+      final tokensBeforePostProcess = Map<String, Token>.from(tokens);
+      
+      // 使用全局 sets 进行 _postProcess（与原始逻辑一致）
       _postProcess(tokens);
+
+      // 保存处理后的 key 到原始 set 的映射
+      // _postProcess 会移除 set 前缀（使用全局 sets），所以处理后的 key 是 "path.name"
+      // 我们需要从处理后的 key 找到原始 key，然后找到对应的 set
+      for (final entry in tokens.entries) {
+        final processedKey = entry.key;
+        
+        // 直接从 keyToSetMap 查找（使用原始 key，即 _postProcess 之前的 key）
+        // keyToSetMap 中的 key 是 "set.path.name" 格式
+        String? matchedSet;
+        
+        // 反向遍历 theme.sets，找到最后一个匹配的 set（与 _postProcess 逻辑一致）
+        // 注意：_postProcess 使用全局 sets，但这里我们使用 theme.sets 来建立映射
+        // 因为我们需要知道 token 来自哪个 theme set，而不是全局 set
+        for (final set in theme.sets.toList().reversed) {
+          final setPrefix = '$set.';
+          final originalKey = '$setPrefix$processedKey';
+          if (keyToSetMap.containsKey(originalKey)) {
+            matchedSet = keyToSetMap[originalKey];
+            break;
+          }
+        }
+        
+        // 如果通过 keyToSetMap 查找失败，尝试从 tokensBeforePostProcess 查找
+        // 这可以处理一些边界情况
+        if (matchedSet == null) {
+          for (final set in theme.sets.toList().reversed) {
+            final setPrefix = '$set.';
+            final originalKey = '$setPrefix$processedKey';
+            if (tokensBeforePostProcess.containsKey(originalKey)) {
+              matchedSet = set;
+              break;
+            }
+          }
+        }
+        
+        if (matchedSet != null) {
+          theme.tokenKeyToSet[processedKey] = matchedSet;
+        }
+      }
 
       theme.addTokens(tokens);
       // Store original document for JSON Pointer resolution
