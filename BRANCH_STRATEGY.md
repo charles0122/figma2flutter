@@ -10,26 +10,55 @@
 - ✅ 核心功能代码
 - ❌ 不包含项目特定代码
 
+<<<<<<< HEAD
 ### `feature/rc_design_tokens` 分支
+=======
+**提交历史：**
+- `9fb9820` - feat: 支持无空格数学表达式
+- `d17b87e` - feat: 添加基于 source set 的 token 过滤机制
+
+### `feature/rc_design_tokens` 分支（原 `feature/project-specific-code`）
+>>>>>>> ed8079a (feat: 添加项目特定代码)
 **用途：** 项目特定代码，针对当前 example 项目
 
 **包含内容：**
 - ✅ 所有插件通用优化
 - ✅ 项目特定代码：
+<<<<<<< HEAD
   * 字体主题过滤 (`_isFontTheme`)
   * 文本样式自定义代码生成 (`_buildTextStyleCustomCode`)
   * MaterialColor 生成禁用
   * TextStyle 特定生成策略
+=======
+  * 字体主题过滤 (`_isFontTheme`) - 硬编码主题名称模式
+  * 文本样式自定义代码生成 (`_buildTextStyleCustomCode`) - 硬编码文本样式实现
+  * MaterialColor 生成禁用 - 硬编码过滤逻辑
+  * TextStyle 特定生成策略 - 硬编码策略
+  * 自适应文本样式 (`AdaptiveTextStyleTokens`) - 根据平台和地区自动选择
+
+**提交历史：**
+- `c71fc61` - feat: 添加项目特定代码
+- `81f1d42` - docs: 更新分支名称从 feature/project-specific-code 到 feature/rc_design_tokens
+>>>>>>> ed8079a (feat: 添加项目特定代码)
 
 ## 🔄 使用方式
 
 ### 对于插件维护者
 - 在 `main` 分支进行通用优化
 - 保持 `main` 分支的通用性
+<<<<<<< HEAD
 
 ### 对于项目使用者
 - 如果需要项目特定功能，使用 `feature/rc_design_tokens` 分支
 - 或者基于 `main` 分支创建自己的项目特定分支
+=======
+- 项目特定需求放在 `feature/rc_design_tokens` 分支
+
+### 对于项目使用者
+- **推荐：** 使用 `main` 分支（通用版本）
+- **如果需要项目特定功能：** 使用 `feature/rc_design_tokens` 分支
+- **或者：** 基于 `main` 分支创建自己的项目特定分支
+>>>>>>> ed8079a (feat: 添加项目特定代码)
 
 ## 📝 提交历史
 
@@ -37,3 +66,18 @@
 - `9fb9820` - 支持无空格数学表达式（在 `main` 分支）
 - `d17b87e` - 添加基于 source set 的 token 过滤机制（在 `main` 分支）
 
+<<<<<<< HEAD
+=======
+### 保留在 feature/rc_design_tokens 分支（项目特定）
+1. ✅ `_isFontTheme()` - 字体主题过滤
+2. ✅ `_buildTextStyleCustomCode()` - 文本样式自定义代码
+3. ✅ MaterialColor 生成禁用
+4. ✅ TextStyle 特定生成策略
+5. ✅ `AdaptiveTextStyleTokens` - 自适应文本样式
+
+## 🎯 后续计划
+
+1. **配置化项目特定代码** - 将硬编码逻辑提取为配置
+2. **基于元数据判断** - 使用 JSON 元数据而非硬编码名称
+3. **提供自定义代码生成机制** - 更灵活的扩展点
+>>>>>>> ed8079a (feat: 添加项目特定代码)
