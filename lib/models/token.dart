@@ -336,14 +336,26 @@ class Token {
   }
 
   Token _resolveMathExpression(Map<String, Token> tokenMap) {
-    final isMultiply = valueAsString!.contains(' * ');
-    final isDivide = valueAsString!.contains(' / ');
-    final isAdd = valueAsString!.contains(' + ');
-    final isSubtract = valueAsString!.contains(' - ');
+    // 支持带空格和不带空格的运算符
+    // 例如: "a * b" 或 "a*b" 或 "{token}*0.25"
+    final operatorPattern = RegExp(r'\s*([*/+-])\s*');
+    final match = operatorPattern.firstMatch(valueAsString!);
+    
+    if (match == null) {
+      throw FormatException(
+        'Could not find operator in math expression for Token $name (path: $path) `$valueAsString`',
+      );
+    }
+    
+    final operator = match.group(1)!;
+    final isMultiply = operator == '*';
+    final isDivide = operator == '/';
+    final isAdd = operator == '+';
+    final isSubtract = operator == '-';
 
     // Split on expression and parse the left and right side
-    // We search for: a space, then a valid operator (*/+-), then a space
-    final splitted = valueAsString!.split(RegExp(r'\s[*/+-]\s'));
+    // 支持带空格和不带空格的运算符
+    final splitted = valueAsString!.split(operatorPattern);
 
     final leftPart = splitted[0].trim();
     final rightPart = splitted[1].trim();

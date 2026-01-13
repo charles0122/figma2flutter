@@ -32,10 +32,9 @@ extension StringExtension on String {
   }
 
   bool get isMathExpression {
-    return contains(' + ') ||
-        contains(' - ') ||
-        contains(' * ') ||
-        contains(' / ');
+    // 支持带空格和不带空格的运算符
+    // 例如: "a * b" 或 "a*b" 或 "{token}*0.25"
+    return RegExp(r'\s*[*/+-]\s*').hasMatch(this);
   }
 
   /// Returns the path of a reference, so we can search for the token
