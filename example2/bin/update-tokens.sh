@@ -10,4 +10,4 @@
 
 dart ../bin/figma2flutter.dart --input "./bin/tokens/" --output "./lib/generated"
 
-dart format -l 120 --fix ./lib/generated
+dart format -l 120 ./lib/generated

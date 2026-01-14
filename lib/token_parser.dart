@@ -134,8 +134,15 @@ class TokenParser {
 
         if (key.startsWith(set)) {
           tokenMap.remove(key);
-          tokenMap[key.substring(setLength + 1)] = value.copyWith(
-            path: value.path.substring(setLength),
+          // 安全地处理 key 和 path 的 substring 操作
+          final newKey = key.length > setLength + 1 
+              ? key.substring(setLength + 1) 
+              : '';
+          final newPath = value.path.length > setLength
+              ? value.path.substring(setLength)
+              : '';
+          tokenMap[newKey] = value.copyWith(
+            path: newPath,
           );
         }
       });

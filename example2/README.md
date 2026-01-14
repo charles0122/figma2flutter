@@ -10,7 +10,7 @@ Run the following from the example2 directory or run the script in bin.  It will
 
 `dart ..\bin\figma2flutter.dart -i .\bin\tokens\ -o .\lib\generated\`
 and
-`dart format -l 120 --fix .\lib\generated\`
+`dart format -l 120 .\lib\generated\`
 
 ## Assumptions
 

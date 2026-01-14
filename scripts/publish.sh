@@ -1,5 +1,5 @@
 
-dart format . --fix
+dart format .
 dart analyze .
 
 dart pub publish

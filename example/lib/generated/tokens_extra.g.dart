@@ -3,178 +3,74 @@
 /// Figma2Flutter
 /// *****************************************************
 
-part of tokens;
+part of 'tokens.g.dart';
 
-class CompositionToken {
-  final EdgeInsets? padding;
-  final Size? size;
-  final Color? fill;
-  final LinearGradient? gradient;
-  final double? itemSpacing;
-  final BorderRadius? borderRadius;
-  final Border? border;
-  final List<BoxShadow>? boxShadow;
-  final TextStyle? textStyle;
-  final double? opacity;
+/// 自适应 TextStyleTokens，根据平台和地区自动选择对应的 tokens
+class AdaptiveTextStyleTokens extends TextStyleTokens {
+  final TextStyleTokens _iosChTokens = IosChTextStyleTokens();
+  final TextStyleTokens _iosEngTokens = IosEngTextStyleTokens();
+  final TextStyleTokens _androidChTokens = AndroidChTextStyleTokens();
+  final TextStyleTokens _androidEngTokens = AndroidEngTextStyleTokens();
 
-  const CompositionToken({
-    this.padding,
-    this.size,
-    this.fill,
-    this.gradient,
-    this.itemSpacing,
-    this.borderRadius,
-    this.border,
-    this.boxShadow,
-    this.textStyle,
-    this.opacity,
-  });
+  /// 根据平台和地区获取对应的 tokens
+  TextStyleTokens get _platformTokens {
+    // 判断是否为中文地区（中国大陆、台湾、香港、澳门）
+    final locale = PlatformDispatcher.instance.locale;
+    final isChina = locale.languageCode == 'zh' &&
+        (locale.countryCode == 'CN' ||
+            locale.countryCode == 'TW' ||
+            locale.countryCode == 'HK' ||
+            locale.countryCode == 'MO');
 
-  CompositionToken copyWith({
-    EdgeInsets? padding,
-    Size? size,
-    Color? fill,
-    LinearGradient? gradient,
-    double? itemSpacing,
-    BorderRadius? borderRadius,
-    Border? border,
-    List<BoxShadow>? boxShadow,
-    TextStyle? textStyle,
-    double? opacity,
-  }) {
-    return CompositionToken(
-      padding: padding ?? this.padding,
-      size: size ?? this.size,
-      fill: fill ?? this.fill,
-      gradient: gradient ?? this.gradient,
-      itemSpacing: itemSpacing ?? this.itemSpacing,
-      borderRadius: borderRadius ?? this.borderRadius,
-      border: border ?? this.border,
-      boxShadow: boxShadow ?? this.boxShadow,
-      textStyle: textStyle ?? this.textStyle,
-      opacity: opacity ?? this.opacity,
-    );
-  }
-
-  InputDecoration asInputDecoration(BorderColors colors) {
-    InputBorder borderForColor(Color color) {
-      return OutlineInputBorder(
-        borderRadius: borderRadius ?? BorderRadius.zero,
-        borderSide: BorderSide(
-          color: color,
-          width: border?.top.width ?? 0,
-        ),
-      );
-    }
-
-    return InputDecoration(
-      contentPadding: padding,
-      fillColor: fill,
-      filled: fill != null,
-      border: borderForColor(colors.normal),
-      enabledBorder: borderForColor(colors.normal),
-      focusedBorder: borderForColor(colors.focussed),
-      disabledBorder: borderForColor(colors.disabled),
-      errorBorder: borderForColor(colors.error),
-      focusedErrorBorder: borderForColor(colors.focussedError),
-      errorStyle: textStyle,
-    );
-  }
-}
-
-class BorderColors {
-  final Color normal;
-  final Color focussed;
-  final Color disabled;
-  final Color error;
-  final Color focussedError;
-
-  const BorderColors({
-    required this.normal,
-    required this.focussed,
-    required this.disabled,
-    required this.error,
-    required this.focussedError,
-  });
-}
-
-class Composition extends StatelessWidget {
-  const Composition({
-    required this.token,
-    required this.axis,
-    required this.children,
-    this.mainAxisAlignment = MainAxisAlignment.start,
-    this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.mainAxisSize = MainAxisSize.min,
-    this.duration = const Duration(milliseconds: 200),
-    super.key,
-  });
-
-  final CompositionToken token;
-  final Axis axis;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
-  final MainAxisSize mainAxisSize;
-  final List<Widget> children;
-  final Duration duration;
-
-  Widget get spacing {
-    if (axis == Axis.horizontal) {
-      return SizedBox(width: token.itemSpacing);
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      return isChina ? _iosChTokens : _iosEngTokens;
     } else {
-      return SizedBox(height: token.itemSpacing);
+      return isChina ? _androidChTokens : _androidEngTokens;
     }
   }
 
   @override
-  Widget build(BuildContext context) {
-    Widget child = Flex(
-      direction: axis,
-      mainAxisAlignment: mainAxisAlignment,
-      crossAxisAlignment: crossAxisAlignment,
-      mainAxisSize: mainAxisSize,
-      children: token.itemSpacing != null ? children.separated(spacing) : children,
-    );
-
-    if (token.textStyle != null) {
-      child = DefaultTextStyle(
-        style: token.textStyle!,
-        child: child,
-      );
-    }
-
-    final container = AnimatedContainer(
-      duration: duration,
-      decoration: BoxDecoration(
-        color: token.fill,
-        gradient: token.gradient,
-        borderRadius: token.borderRadius,
-        border: token.border,
-        boxShadow: token.boxShadow,
-      ),
-      padding: token.padding,
-      width: token.size?.width,
-      height: token.size?.height,
-      child: child,
-    );
-
-    if (token.opacity != null) {
-      return Opacity(
-        opacity: token.opacity!,
-        child: container,
-      );
-    }
-
-    return container;
-  }
-}
-
-extension WidgetListEx on List<Widget> {
-  List<Widget> separated(Widget separator) {
-    List<Widget> list = map((element) => <Widget>[element, separator]).expand((e) => e).toList();
-    if (list.isNotEmpty) list = list..removeLast();
-    return list;
-  }
+  TextStyle get semanticTypographyLabel10 => _platformTokens.semanticTypographyLabel10;
+  @override
+  TextStyle get semanticTypographyLabel12 => _platformTokens.semanticTypographyLabel12;
+  @override
+  TextStyle get semanticTypographyLabel14 => _platformTokens.semanticTypographyLabel14;
+  @override
+  TextStyle get semanticTypographyBody12 => _platformTokens.semanticTypographyBody12;
+  @override
+  TextStyle get semanticTypographyBody14 => _platformTokens.semanticTypographyBody14;
+  @override
+  TextStyle get semanticTypographyBody16 => _platformTokens.semanticTypographyBody16;
+  @override
+  TextStyle get semanticTypographyTitle16 => _platformTokens.semanticTypographyTitle16;
+  @override
+  TextStyle get semanticTypographyTitle18 => _platformTokens.semanticTypographyTitle18;
+  @override
+  TextStyle get semanticTypographyTitle20 => _platformTokens.semanticTypographyTitle20;
+  @override
+  TextStyle get semanticTypographyTitle22 => _platformTokens.semanticTypographyTitle22;
+  @override
+  TextStyle get semanticTypographyDisplay24 => _platformTokens.semanticTypographyDisplay24;
+  @override
+  TextStyle get semanticTypographyDisplay28 => _platformTokens.semanticTypographyDisplay28;
+  @override
+  TextStyle get semanticTypographyNumberText12 => _platformTokens.semanticTypographyNumberText12;
+  @override
+  TextStyle get semanticTypographyNumberText14 => _platformTokens.semanticTypographyNumberText14;
+  @override
+  TextStyle get semanticTypographyNumberText16 => _platformTokens.semanticTypographyNumberText16;
+  @override
+  TextStyle get semanticTypographyNumber12 => _platformTokens.semanticTypographyNumber12;
+  @override
+  TextStyle get semanticTypographyNumber20 => _platformTokens.semanticTypographyNumber20;
+  @override
+  TextStyle get semanticTypographyNumber24 => _platformTokens.semanticTypographyNumber24;
+  @override
+  TextStyle get semanticTypographyNumber28 => _platformTokens.semanticTypographyNumber28;
+  @override
+  TextStyle get semanticTypographyNumber32 => _platformTokens.semanticTypographyNumber32;
+  @override
+  TextStyle get semanticTypographyNumber56 => _platformTokens.semanticTypographyNumber56;
 }
 
 class Tokens extends InheritedWidget {
