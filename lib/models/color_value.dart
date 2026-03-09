@@ -103,8 +103,15 @@ class ColorValue {
   }
 
   /// Transforms a hex color to a Flutter color
+  /// Supports: #rgb, #rgba, #rrggbb, #rrggbbaa
   static ColorValue _transformHex(String value) {
-    final color = value.substring(1).toUpperCase();
+    String color = value.substring(1).toUpperCase();
+    // Expand shorthand: #fff → #ffffff, #fffa → #fffffaaa
+    if (color.length == 3) {
+      color = color.split('').map((c) => '$c$c').join();
+    } else if (color.length == 4) {
+      color = color.split('').map((c) => '$c$c').join();
+    }
     final alpha = color.length == 8 ? color.substring(6, 8) : 'FF';
     final hex = color.length == 8 ? color.substring(0, 6) : color;
 

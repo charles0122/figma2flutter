@@ -7,7 +7,7 @@ import 'package:figma2flutter/transformers/transformer.dart';
 // https://docs.tokens.studio/available-tokens/color-tokens
 // There are multiple ways you can write color tokens:
 
-// Hex: #ff0000
+// Hex: #ff0000, #f00 (shorthand)
 // RGB: rgb(255, 0, 0)
 // RGBA: rgba(255, 0, 0, 1)
 // HSL: hsl(120, 50%, 50%)
