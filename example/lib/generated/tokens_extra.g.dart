@@ -5,6 +5,9 @@
 
 part of 'tokens.g.dart';
 
+
+
+
 /// 自适应 TextStyleTokens，根据平台和地区自动选择对应的 tokens
 class AdaptiveTextStyleTokens extends TextStyleTokens {
   final TextStyleTokens _iosChTokens = IosChTextStyleTokens();
@@ -70,7 +73,7 @@ class AdaptiveTextStyleTokens extends TextStyleTokens {
   @override
   TextStyle get semanticTypographyNumber32 => _platformTokens.semanticTypographyNumber32;
   @override
-  TextStyle get semanticTypographyNumber56 => _platformTokens.semanticTypographyNumber56;
+  TextStyle get semanticTypographyNumber64 => _platformTokens.semanticTypographyNumber64;
 }
 
 class Tokens extends InheritedWidget {
@@ -95,3 +98,4 @@ class Tokens extends InheritedWidget {
 extension TokensExtension on BuildContext {
   ITokens get tokens => Tokens.of(this);
 }
+

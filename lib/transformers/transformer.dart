@@ -3,6 +3,13 @@ import 'package:figma2flutter/models/token_theme.dart';
 import 'package:meta/meta.dart';
 import 'package:recase/recase.dart';
 
+/// 表示从 transformer line 解析出的 getter 类型与名称，用于并集接口与默认值生成。
+class GetterEntry {
+  final String type;
+  final String name;
+  GetterEntry(this.type, this.name);
+}
+
 /// A transformer is responsible for transforming a token into code
 /// that can be used in the generated code.
 abstract class Transformer {
@@ -84,6 +91,44 @@ class ${theme.pascalCase}$className extends $className {
     final codeOnly = codeLines.join('\n');
     
     return '${codeOnly.substring(0, codeOnly.indexOf('=>')).replaceAll('@override\n', '').trim()};';
+  }
+
+  /// 从单条 line 块（可能含注释/注解）解析出 getter 的返回类型和名称，用于并集接口与默认值生成。
+  /// 返回 null 表示无法解析（例如没有 => 的块）。
+  static GetterEntry? parseGetterFromLineBlock(String lineBlock) {
+    final idx = lineBlock.indexOf('=>');
+    if (idx < 0) return null;
+    final beforeArrow = lineBlock.substring(0, idx).replaceAll('@override', '').trim();
+    final parts = beforeArrow.split(RegExp(r'\s+get\s+'));
+    if (parts.length != 2) return null;
+    final type = parts[0].trim();
+    final name = parts[1].trim();
+    if (type.isEmpty || name.isEmpty) return null;
+    return GetterEntry(type, name);
+  }
+
+  /// 从 transformer 的 lines 列表中按顺序解析出所有 getter 的 GetterEntry。
+  static List<GetterEntry> parseGetterEntries(List<String> lines) {
+    final entries = <GetterEntry>[];
+    for (final block in lines) {
+      final parsed = parseGetterFromLineBlock(block);
+      if (parsed != null) {
+        entries.add(parsed);
+      }
+    }
+    return entries;
+  }
+
+  /// 从 transformer 的 lines 列表中解析出 getter 名称到其完整 line 块的映射。
+  static Map<String, String> getterNameToLineBlock(List<String> lines) {
+    final map = <String, String>{};
+    for (final block in lines) {
+      final parsed = parseGetterFromLineBlock(block);
+      if (parsed != null) {
+        map[parsed.name] = block;
+      }
+    }
+    return map;
   }
 
   String? extraDeclaration() => null;

@@ -19,6 +19,21 @@ class _SharedClassResult {
   _SharedClassResult(this.names, this.classes);
 }
 
+/// 每个 transformer 的接口并集与默认值回退信息
+class _InterfaceUnion {
+  final List<String> interfaceStrings;
+  /// transformerName -> 按顺序的 getter 并集
+  final Map<String, List<GetterEntry>> unionGetters;
+  /// transformerName -> (getterName -> 第一个拥有该 getter 的主题名，用于默认值)
+  final Map<String, Map<String, String>> fallbackThemePerGetter;
+
+  _InterfaceUnion(
+    this.interfaceStrings,
+    this.unionGetters,
+    this.fallbackThemePerGetter,
+  );
+}
+
 /// Generates a Dart file with all the tokens.
 class Generator {
   /// Creates a new [Generator] instance.
@@ -66,13 +81,14 @@ $_helpers
       throw StateError('Cannot generate output without themes');
     }
     
-    final interfaces = _buildInterfaces();
+    final interfaceUnion = _buildInterfaces();
     final themeContentMap = _buildThemeContentMap();
     final sharedClassResult = _generateSharedClasses();
     final classes = _generateThemeClasses(
       sharedClassResult.names,
       themeContentMap,
       sharedClassResult.classes,
+      interfaceUnion,
     );
 
     final imports = _buildImports();
@@ -86,7 +102,7 @@ $imports
 
 part 'tokens_extra.g.dart';
 
-${interfaces.join('\n\n')}
+${interfaceUnion.interfaceStrings.join('\n\n')}
 
 ${classes.join('\n\n')}''';
   }
@@ -199,60 +215,83 @@ $getterMethods
 
   /// Builds interface declarations for all transformers.
   /// Returns a list of interface code strings, with ITokens interface first.
-  List<String> _buildInterfaces() {
-    final interfaces = <String>[];
+  /// 构建接口声明，接口包含所有主题的 getter 并集；并返回并集与默认值回退信息。
+  _InterfaceUnion _buildInterfaces() {
+    final interfaceStrings = <String>[];
     final interFaceNames = <String, String>{};
-    
-    // 收集所有主题使用的 transformer（排除字体主题的非 textStyle transformer，排除 materialColor）
+    final unionGetters = <String, List<GetterEntry>>{};
+    final fallbackThemePerGetter = <String, Map<String, String>>{};
+
     final allTransformerNames = <String>{};
     for (final theme in themes) {
       final isFontTheme = _isFontTheme(theme.name);
       for (final transformer in theme.transformers) {
-        if (isFontTheme && transformer.name != 'textStyle') {
-          continue;
-        }
-        // 排除 materialColor transformer
-        if (transformer.name == 'materialColor') {
-          continue;
-        }
+        if (isFontTheme && transformer.name != 'textStyle') continue;
+        if (transformer.name == 'materialColor') continue;
         allTransformerNames.add(transformer.name);
       }
     }
-    
-    // 使用第一个非字体主题来获取 transformer 实例（用于生成接口）
+
     final referenceTheme = themes.firstWhere(
       (t) => !_isFontTheme(t.name),
       orElse: () => themes.first,
     );
-    
+
     for (final transformer in referenceTheme.transformers) {
-      // 排除 materialColor transformer
-      if (transformer.name == 'materialColor') {
-        continue;
+      if (transformer.name == 'materialColor') continue;
+      if (!allTransformerNames.contains(transformer.name)) continue;
+      final transformerName = transformer.name;
+
+      final seen = <String>{};
+      final orderedEntries = <GetterEntry>[];
+      final fallbackForTransformer = <String, String>{};
+
+      for (final theme in themes) {
+        if (_isFontTheme(theme.name) && transformerName != 'textStyle') continue;
+        final matching = theme.transformers.where((t) => t.name == transformerName);
+        if (matching.isEmpty) continue;
+        final entries = Transformer.parseGetterEntries(matching.first.lines);
+        for (final e in entries) {
+          if (seen.add(e.name)) {
+            orderedEntries.add(e);
+            fallbackForTransformer[e.name] = theme.name;
+          }
+        }
       }
-      if (allTransformerNames.contains(transformer.name)) {
-        interfaces.add(transformer.interfaceDeclaration());
-        interFaceNames[transformer.name] = transformer.className;
-      }
+
+      unionGetters[transformerName] = orderedEntries;
+      fallbackThemePerGetter[transformerName] = fallbackForTransformer;
+
+      final interfaceLines = orderedEntries.map((e) => '${e.type} get ${e.name};').join('\n  ');
+      interfaceStrings.add('''
+abstract class ${transformer.className} {
+  $interfaceLines
+}''');
+      interFaceNames[transformerName] = transformer.className;
     }
-    
-    // 如果 textStyle 不在 referenceTheme 中，需要从字体主题中获取
+
     if (allTransformerNames.contains('textStyle') && !interFaceNames.containsKey('textStyle')) {
-      // 查找有 textStyle transformer 的主题
       TokenTheme? themeWithTextStyle;
       for (final theme in themes) {
-        final hasTextStyle = theme.transformers.any((t) => t.name == 'textStyle');
-        if (hasTextStyle) {
+        if (theme.transformers.any((t) => t.name == 'textStyle')) {
           themeWithTextStyle = theme;
           break;
         }
       }
-      
       if (themeWithTextStyle != null) {
         final textStyleTransformer = themeWithTextStyle.transformers.firstWhere(
           (t) => t.name == 'textStyle',
         );
-        interfaces.add(textStyleTransformer.interfaceDeclaration());
+        final entries = Transformer.parseGetterEntries(textStyleTransformer.lines);
+        unionGetters['textStyle'] = entries;
+        fallbackThemePerGetter['textStyle'] = {
+          for (final e in entries) e.name: themeWithTextStyle.name,
+        };
+        final interfaceLines = entries.map((e) => '${e.type} get ${e.name};').join('\n  ');
+        interfaceStrings.add('''
+abstract class ${textStyleTransformer.className} {
+  $interfaceLines
+}''');
         interFaceNames['textStyle'] = textStyleTransformer.className;
       }
     }
@@ -262,8 +301,8 @@ abstract class ITokens {
   ${interFaceNames.entries.map((e) => '${e.value} get ${e.key};').join('\n  ')}
 }''';
 
-    interfaces.insert(0, iTokenInterface);
-    return interfaces;
+    interfaceStrings.insert(0, iTokenInterface);
+    return _InterfaceUnion(interfaceStrings, unionGetters, fallbackThemePerGetter);
   }
 
   /// Builds a map of theme -> transformer name -> content signature.
@@ -349,11 +388,11 @@ class $sharedClassName extends ${transformer.className} {
   }
 
   /// Generates theme-specific classes and theme token classes.
-  /// Returns a list of class code strings.
   List<String> _generateThemeClasses(
     Map<String, Map<String, String>> sharedClassNames,
     Map<TokenTheme, Map<String, String>> themeContentMap,
     List<String> sharedClasses,
+    _InterfaceUnion interfaceUnion,
   ) {
     final classes = <String>[];
     
@@ -418,9 +457,41 @@ class $sharedClassName extends ${transformer.className} {
           final sharedClassName = sharedClassNames[transformerName]![contentSignature]!;
           properties.add('@override\n  ${transformer.className} get $transformerName => $sharedClassName();');
         } else {
-          // Generate theme-specific class
+          // Generate theme-specific class (with default stubs for getters missing in this theme)
           properties.add(transformer.propertyDeclaration(theme.name));
-          classes.add(transformer.classDeclaration(theme.name));
+          final unionEntries = interfaceUnion.unionGetters[transformerName];
+          final fallbackMap = interfaceUnion.fallbackThemePerGetter[transformerName];
+          final themeGetterCount = Transformer.getterNameToLineBlock(transformer.lines).length;
+          if (unionEntries == null ||
+              unionEntries.isEmpty ||
+              fallbackMap == null ||
+              unionEntries.length == themeGetterCount) {
+            classes.add(transformer.classDeclaration(theme.name));
+          } else {
+            final getterToBlock = Transformer.getterNameToLineBlock(transformer.lines);
+            final classLines = <String>[];
+            final missingTokenNames = <String>[];
+            for (final e in unionEntries) {
+              if (getterToBlock.containsKey(e.name)) {
+                classLines.add(getterToBlock[e.name]!);
+              } else {
+                missingTokenNames.add(e.name);
+                final fallbackTheme = fallbackMap[e.name] ?? theme.name;
+                final fallbackClassName = '${fallbackTheme.pascalCase}${transformer.className}';
+                classLines.add(
+                  '/// 当前主题 (${theme.name}) 未定义此 token，使用 $fallbackTheme 主题的值作为默认值。\n  @override\n  ${e.type} get ${e.name} => $fallbackClassName().${e.name};',
+                );
+              }
+            }
+            if (missingTokenNames.isNotEmpty) {
+              stderr.writeln(
+                'Warning: 主题 "${theme.name}" 的 ${transformer.className} 中以下 token 未提供，已使用默认主题的值: ${missingTokenNames.join(', ')}',
+              );
+            }
+            classes.add(
+              'class ${theme.name.pascalCase}${transformer.className} extends ${transformer.className} {\n  ${classLines.join('\n  ')}\n}\n',
+            );
+          }
         }
       }
 

@@ -18,36 +18,38 @@
           "100": {
             "value": "#efeff0",
             "type": "color",
-            "description": "已用作页面背景"
+            "description": "已用在fill.window"
           },
           "200": {
             "value": "#ecedee",
             "type": "color",
-            "description": "已用作页面背景"
+            "description": "已用在border.quaternary"
           },
           "300": {
             "value": "#dfe0e2",
-            "type": "color"
+            "type": "color",
+            "description": "已用在border.tertiary"
           },
           "400": {
             "value": "#d4d5d8",
-            "type": "color"
+            "type": "color",
+            "description": "已用在border.secondary"
           },
           "500": {
             "value": "#b7b9be",
-            "type": "color"
+            "type": "color",
+            "description": "已用在border.primary"
           },
           "600": {
             "value": "#000000",
             "type": "color"
           },
           "700": {
-            "value": "#000000",
-            "type": "color",
-            "description": "已当作品牌色"
+            "value": "#46464E",
+            "type": "color"
           },
           "800": {
-            "value": "#000000",
+            "value": "#1E1E1F",
             "type": "color"
           },
           "900": {
@@ -55,47 +57,47 @@
             "type": "color"
           },
           "1000": {
-            "value": "#ff4848",
+            "value": "#111112",
             "type": "color"
           }
         },
         "pureblue": {
           "100": {
-            "value": "#f4f4f5",
-            "type": "color",
-            "description": "已用作页面背景"
+            "value": "#F6F6F8",
+            "type": "color"
           },
           "200": {
-            "value": "#d4ddff",
+            "value": "#000",
             "type": "color"
           },
           "300": {
             "value": "#b4cbfe",
-            "type": "color"
+            "type": "color",
+            "description": "已用在activity.inactive"
           },
           "400": {
-            "value": "#88a4fc",
+            "value": "#000",
             "type": "color"
           },
           "500": {
-            "value": "#6389fa",
+            "value": "#000",
             "type": "color"
           },
           "600": {
             "value": "#3f70f8",
             "type": "color",
-            "description": "已当作品牌色"
+            "description": "已用作brand.primary"
           },
           "700": {
-            "value": "#164af3",
+            "value": "#000",
             "type": "color"
           },
           "800": {
-            "value": "#0d35ce",
+            "value": "#000",
             "type": "color"
           },
           "900": {
-            "value": "#0d27a1",
+            "value": "#000",
             "type": "color"
           },
           "1000": {
@@ -105,66 +107,68 @@
         },
         "purple": {
           "100": {
-            "value": "#f6f6f8",
-            "type": "color",
-            "description": "已用作睡眠页背景"
+            "value": "#000",
+            "type": "color"
           },
           "200": {
-            "value": "#e6e0ff",
+            "value": "#000",
             "type": "color"
           },
           "300": {
-            "value": "#cbbffd",
+            "value": "#000",
             "type": "color"
           },
           "400": {
             "value": "#bbacfb",
-            "type": "color"
+            "type": "color",
+            "description": "已用作sleep.remsleep"
           },
           "500": {
-            "value": "#9c86f4",
+            "value": "#000",
             "type": "color"
           },
           "600": {
             "value": "#8265f6",
-            "type": "color"
+            "type": "color",
+            "description": "已用作sleep.lightsleep"
           },
           "700": {
-            "value": "#693cf1",
+            "value": "#000",
             "type": "color"
           },
           "800": {
-            "value": "#5314eb",
+            "value": "#000",
             "type": "color"
           },
           "900": {
             "value": "#4d12bf",
-            "type": "color"
+            "type": "color",
+            "description": "已用作sleep.primary和sleep.deepsleep"
           },
           "1000": {
-            "value": "#431094",
+            "value": "#000",
             "type": "color"
           }
         },
         "pinkred": {
           "100": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           },
           "200": {
-            "value": "#ffb8cf",
+            "value": "#000",
             "type": "color"
           },
           "300": {
-            "value": "#fe8bb0",
+            "value": "#000",
             "type": "color"
           },
           "400": {
-            "value": "#fc5f91",
+            "value": "#000",
             "type": "color"
           },
           "500": {
-            "value": "#fa3372",
+            "value": "#000",
             "type": "color"
           },
           "600": {
@@ -172,33 +176,33 @@
             "type": "color"
           },
           "700": {
-            "value": "#cc0525",
+            "value": "#000",
             "type": "color"
           },
           "800": {
-            "value": "#a00304",
+            "value": "#000",
             "type": "color"
           },
           "900": {
-            "value": "#741301",
+            "value": "#000",
             "type": "color"
           },
           "1000": {
-            "value": "#471600",
+            "value": "#000",
             "type": "color"
           }
         },
         "cyanblue": {
           "100": {
-            "value": "#f7f9fa",
+            "value": "#000",
             "type": "color"
           },
           "200": {
-            "value": "#e5f3ff",
+            "value": "#000",
             "type": "color"
           },
           "300": {
-            "value": "#d8ebfe",
+            "value": "#000",
             "type": "color"
           },
           "400": {
@@ -206,19 +210,19 @@
             "type": "color"
           },
           "500": {
-            "value": "#7ebdfc",
+            "value": "#000",
             "type": "color"
           },
           "600": {
-            "value": "#51a6fa",
+            "value": "#51A6FA",
             "type": "color"
           },
           "700": {
-            "value": "#1e8dfa",
+            "value": "#000",
             "type": "color"
           },
           "800": {
-            "value": "#046fd9",
+            "value": "#3E5EBF",
             "type": "color"
           },
           "900": {
@@ -226,33 +230,33 @@
             "type": "color"
           },
           "1000": {
-            "value": "#002c57",
+            "value": "#000",
             "type": "color"
           }
         },
         "orange": {
           "100": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           },
           "200": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           },
           "300": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           },
           "400": {
-            "value": "#fbc250",
+            "value": "#ffbc8a",
             "type": "color"
           },
           "500": {
-            "value": "#fa9852",
+            "value": "#ffa35f",
             "type": "color"
           },
           "600": {
-            "value": "#f66c51",
+            "value": "#ff8f3d",
             "type": "color"
           },
           "700": {
@@ -260,34 +264,38 @@
             "type": "color"
           },
           "800": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           },
           "900": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           },
           "1000": {
-            "value": "#f8f7f7",
+            "value": "#000",
             "type": "color"
           }
         },
         "bluegray_alpha": {
           "100": {
             "value": "#1e222e08",
-            "type": "color"
+            "type": "color",
+            "description": "已用在fill.quaternary"
           },
           "200": {
             "value": "#1e222e12",
-            "type": "color"
+            "type": "color",
+            "description": "已用在fill.tertiary"
           },
           "300": {
             "value": "#1e222e1a",
-            "type": "color"
+            "type": "color",
+            "description": "已用在fill.secondary"
           },
           "400": {
             "value": "#1e222e2e",
-            "type": "color"
+            "type": "color",
+            "description": "已用在fill.primary"
           },
           "500": {
             "value": "#1e222e38",
@@ -296,12 +304,12 @@
           "600": {
             "value": "#1e222e4d",
             "type": "color",
-            "description": "已用在text_quaternary"
+            "description": "已用在text.quaternary"
           },
           "700": {
             "value": "#1e222e80",
             "type": "color",
-            "description": "已用在text_tertiary"
+            "description": "已用在text.tertiary 和 icon.secondary"
           },
           "800": {
             "value": "#1e222e99",
@@ -313,8 +321,7 @@
           },
           "1000": {
             "value": "#1e222ee6",
-            "type": "color",
-            "description": "已用在text_secondary"
+            "type": "color"
           }
         },
         "black_alpha": {
@@ -336,7 +343,8 @@
           },
           "500": {
             "value": "#00000073",
-            "type": "color"
+            "type": "color",
+            "description": "已用在background.mask"
           },
           "600": {
             "value": "#00000099",
@@ -356,6 +364,217 @@
           },
           "1000": {
             "value": "#000000e6",
+            "type": "color",
+            "description": "已用在background.soptlight"
+          }
+        },
+        "white_alpha": {
+          "100": {
+            "value": "rgba(255,255,255,0.05)",
+            "type": "color"
+          },
+          "200": {
+            "value": "rgba(255,255,255,0.1)",
+            "type": "color"
+          },
+          "300": {
+            "value": "rgba(255,255,255,0.15)",
+            "type": "color"
+          },
+          "400": {
+            "value": "rgba(255,255,255,0.2)",
+            "type": "color"
+          },
+          "500": {
+            "value": "rgba(255,255,255,0.5)",
+            "type": "color"
+          },
+          "600": {
+            "value": "rgba(255,255,255,0.6)",
+            "type": "color"
+          },
+          "700": {
+            "value": "rgba(255,255,255,0.7)",
+            "type": "color"
+          },
+          "800": {
+            "value": "rgba(255,255,255,0.8)",
+            "type": "color"
+          },
+          "900": {
+            "value": "rgba(255,255,255,0.9)",
+            "type": "color"
+          },
+          "1000": {
+            "value": "rgba(255,255,255,0.95)",
+            "type": "color"
+          }
+        },
+        "radical_red": {
+          "100": {
+            "value": "#000",
+            "type": "color"
+          },
+          "200": {
+            "value": "#000",
+            "type": "color"
+          },
+          "300": {
+            "value": "#000",
+            "type": "color"
+          },
+          "400": {
+            "value": "#000",
+            "type": "color"
+          },
+          "500": {
+            "value": "#FF6254",
+            "type": "color"
+          },
+          "600": {
+            "value": "#f56447",
+            "type": "color"
+          },
+          "700": {
+            "value": "#000",
+            "type": "color"
+          },
+          "800": {
+            "value": "#000",
+            "type": "color"
+          },
+          "900": {
+            "value": "#000",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#000",
+            "type": "color"
+          }
+        },
+        "puerto_rico": {
+          "100": {
+            "value": "#D8FBF5",
+            "type": "color"
+          },
+          "200": {
+            "value": "#88EFE0",
+            "type": "color"
+          },
+          "300": {
+            "value": "#60E7B5",
+            "type": "color"
+          },
+          "400": {
+            "value": "#2ED3E9",
+            "type": "color"
+          },
+          "500": {
+            "value": "#24C9B6",
+            "type": "color"
+          },
+          "600": {
+            "value": "#48C8BD",
+            "type": "color"
+          },
+          "700": {
+            "value": "#43CF9B",
+            "type": "color"
+          },
+          "800": {
+            "value": "#000",
+            "type": "color"
+          },
+          "900": {
+            "value": "#000",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#000",
+            "type": "color"
+          }
+        },
+        "tuna": {
+          "100": {
+            "value": "#000",
+            "type": "color"
+          },
+          "200": {
+            "value": "#000",
+            "type": "color"
+          },
+          "300": {
+            "value": "#000",
+            "type": "color"
+          },
+          "400": {
+            "value": "#000",
+            "type": "color"
+          },
+          "500": {
+            "value": "#33394A",
+            "type": "color"
+          },
+          "600": {
+            "value": "#21242B",
+            "type": "color"
+          },
+          "700": {
+            "value": "#1F212E",
+            "type": "color"
+          },
+          "800": {
+            "value": "#151620",
+            "type": "color"
+          },
+          "900": {
+            "value": "#000",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#000",
+            "type": "color"
+          }
+        },
+        "yellow": {
+          "100": {
+            "value": "#000",
+            "type": "color"
+          },
+          "200": {
+            "value": "#000",
+            "type": "color"
+          },
+          "300": {
+            "value": "#000",
+            "type": "color"
+          },
+          "400": {
+            "value": "#000",
+            "type": "color"
+          },
+          "500": {
+            "value": "#FBDC5E",
+            "type": "color"
+          },
+          "600": {
+            "value": "#fbc250",
+            "type": "color"
+          },
+          "700": {
+            "value": "#bf8c25",
+            "type": "color"
+          },
+          "800": {
+            "value": "#000",
+            "type": "color"
+          },
+          "900": {
+            "value": "#000",
+            "type": "color"
+          },
+          "1000": {
+            "value": "#000",
             "type": "color"
           }
         }
@@ -494,7 +713,7 @@
       },
       "lineheight": {
         "xxs": {
-          "value": "110%",
+          "value": "100%",
           "type": "lineHeights"
         },
         "xs": {
@@ -563,8 +782,8 @@
           "value": "32",
           "type": "fontSizes"
         },
-        "56": {
-          "value": "56",
+        "60": {
+          "value": "60",
           "type": "fontSizes"
         }
       }
@@ -636,26 +855,6 @@
               "value": "{global.color.black_alpha.1000}",
               "type": "color",
               "description": "toast填充色"
-            },
-            "layoutsleep": {
-              "value": "{global.color.purple.100}",
-              "type": "color",
-              "description": "睡眠页背景色"
-            },
-            "layoutstress": {
-              "value": "{global.color.cyanblue.100}",
-              "type": "color",
-              "description": "压力页背景色"
-            },
-            "layoutactivity": {
-              "value": "{global.color.orange.100}",
-              "type": "color",
-              "description": "活动页背景色"
-            },
-            "layoutvital": {
-              "value": "{global.color.pinkred.100}",
-              "type": "color",
-              "description": "体征页背景色"
             }
           },
           "fill": {
@@ -728,6 +927,11 @@
               "type": "color",
               "description": "2级图标色"
             },
+            "tertiary": {
+              "value": "{global.color.bluegray_alpha.500}",
+              "type": "color",
+              "description": "3级图表色"
+            },
             "inverse": {
               "value": "{global.color.white}",
               "type": "color",
@@ -744,19 +948,18 @@
         },
         "tag": {
           "good": {
-            "value": "#20C7B1",
-            "type": "color",
-            "description": "优秀标签色"
-          },
-          "normal": {
-            "value": "#7F94E0",
-            "type": "color",
-            "description": "正常标签色"
+            "value": "{global.color.puerto_rico.600}",
+            "type": "color"
           },
           "improvable": {
-            "value": "#F6994C",
+            "value": "{global.color.orange.500}",
             "type": "color",
             "description": "可提升标签色"
+          },
+          "warning": {
+            "value": "{global.color.radical_red.600}",
+            "type": "color",
+            "description": "危险标签色"
           }
         },
         "sleep": {
@@ -766,7 +969,7 @@
             "description": "睡眠主色"
           },
           "awake": {
-            "value": "#FAB979",
+            "value": "{global.color.orange.400}",
             "type": "color",
             "description": "睡眠分期_清醒色"
           },
@@ -786,28 +989,28 @@
             "description": "睡眠分期_深睡色"
           }
         },
-        "acitivity": {
+        "activity": {
           "primary": {
-            "value": "{global.color.orange.700}",
+            "value": "{global.color.orange.600}",
             "type": "color",
             "description": "活动主色"
           },
           "step": {
-            "value": "{global.color.orange.400}",
+            "value": "{global.color.yellow.600}",
             "type": "color",
             "description": "活动_步数主色、低强度主色"
           },
           "calories": {
-            "value": "{global.color.orange.500}",
+            "value": "{global.color.orange.600}",
             "type": "color",
             "description": "活动_卡路里主色、中强度主色"
           },
-          "acitivity_time": {
-            "value": "{global.color.orange.600}",
+          "activity_time": {
+            "value": "{global.color.radical_red.600}",
             "type": "color",
             "description": "活动_活动时长主色、高强度主色"
           },
-          "Inactive": {
+          "inactive": {
             "value": "{global.color.pureblue.300}",
             "type": "color",
             "description": "不活跃主色"
@@ -835,7 +1038,7 @@
             "description": "压力分级_中等"
           },
           "high": {
-            "value": "#FF6B54",
+            "value": "{global.color.radical_red.500}",
             "type": "color",
             "description": "压力分级_高压"
           }
@@ -864,6 +1067,85 @@
             "value": "#FFA852",
             "type": "color"
           }
+        },
+        "sport": {
+          "go": {
+            "value": "{global.color.puerto_rico.500}",
+            "type": "color",
+            "description": "运动强调色"
+          },
+          "primary": {
+            "value": "{global.color.tuna.500}",
+            "type": "color",
+            "description": "运动主色"
+          },
+          "warm_up": {
+            "value": "{global.color.cyanblue.400}",
+            "type": "color",
+            "description": "热身色\n"
+          },
+          "fat_burning": {
+            "value": "{global.color.puerto_rico.200}",
+            "type": "color",
+            "description": "燃脂色\n"
+          },
+          "aerobic": {
+            "value": "{global.color.yellow.600}",
+            "type": "color",
+            "description": "有氧色"
+          },
+          "anaerobic": {
+            "value": "{global.color.orange.600}",
+            "type": "color",
+            "description": "无氧色"
+          },
+          "extreme": {
+            "value": "{global.color.radical_red.600}",
+            "type": "color",
+            "description": "极限色"
+          },
+          "low": {
+            "value": "{global.color.yellow.500}",
+            "type": "color"
+          },
+          "fair": {
+            "value": "{global.color.puerto_rico.300}",
+            "type": "color"
+          },
+          "good": {
+            "value": "{global.color.puerto_rico.400}",
+            "type": "color"
+          },
+          "excellent": {
+            "value": "{global.color.cyanblue.800}",
+            "type": "color"
+          },
+          "elite": {
+            "value": "{global.color.cyanblue.900}",
+            "type": "color"
+          },
+          "background": {
+            "value": "{global.color.tuna.600}",
+            "type": "color"
+          }
+        },
+        "OSA": {
+          "no_abnormalities_detected": {
+            "value": "{global.color.puerto_rico.500}",
+            "type": "color"
+          },
+          "suspected_mild": {
+            "value": "{global.color.yellow.700}",
+            "type": "color"
+          },
+          "suspected_moderate": {
+            "value": "{global.color.orange.500}",
+            "type": "color"
+          },
+          "suspected_severe": {
+            "value": "{global.color.radical_red.600}",
+            "type": "color"
+          }
         }
       }
     }
@@ -874,22 +1156,22 @@
         "grey": {
           "text": {
             "primary": {
-              "value": "{global.color.black}",
+              "value": "{global.color.white_alpha.1000}",
               "type": "color",
               "description": "1级文本色"
             },
             "secondary": {
-              "value": "{global.color.bluegray_alpha.900}",
+              "value": "{global.color.white_alpha.600}",
               "type": "color",
               "description": "2级文本色"
             },
             "tertiary": {
-              "value": "{global.color.bluegray_alpha.700}",
+              "value": "{global.color.white_alpha.500}",
               "type": "color",
               "description": "3级文本色"
             },
             "quaternary": {
-              "value": "{global.color.bluegray_alpha.600}",
+              "value": "{global.color.white_alpha.400}",
               "type": "color",
               "description": "4级文本色"
             },
@@ -911,17 +1193,17 @@
           },
           "background": {
             "layout": {
-              "value": "{global.color.pureblue.100}",
+              "value": "{global.color.bluegray.1000}",
               "type": "color",
               "description": "常规背景色"
             },
             "container": {
-              "value": "{global.color.white}",
+              "value": "{global.color.bluegray.800}",
               "type": "color",
               "description": "背景容器层填充色"
             },
             "elevated": {
-              "value": "{global.color.white}",
+              "value": "{global.color.bluegray.700}",
               "type": "color",
               "description": "背景弹出层填充色"
             },
@@ -934,46 +1216,26 @@
               "value": "{global.color.black_alpha.1000}",
               "type": "color",
               "description": "toast填充色"
-            },
-            "layoutsleep": {
-              "value": "{global.color.purple.100}",
-              "type": "color",
-              "description": "睡眠页背景色"
-            },
-            "layoutstress": {
-              "value": "{global.color.cyanblue.100}",
-              "type": "color",
-              "description": "压力页背景色"
-            },
-            "layoutactivity": {
-              "value": "{global.color.orange.100}",
-              "type": "color",
-              "description": "活动页背景色"
-            },
-            "layoutvital": {
-              "value": "{global.color.pinkred.100}",
-              "type": "color",
-              "description": "体征页背景色"
             }
           },
           "fill": {
             "primary": {
-              "value": "{global.color.bluegray_alpha.400}",
+              "value": "{global.color.white_alpha.400}",
               "type": "color",
               "description": "1级填充灰色"
             },
             "secondary": {
-              "value": "{global.color.bluegray_alpha.300}",
+              "value": "{global.color.white_alpha.300}",
               "type": "color",
               "description": "2级填充灰色"
             },
             "tertiary": {
-              "value": "{global.color.bluegray_alpha.200}",
+              "value": "{global.color.white_alpha.200}",
               "type": "color",
               "description": "3级填充灰色"
             },
             "quaternary": {
-              "value": "{global.color.bluegray_alpha.100}",
+              "value": "{global.color.white_alpha.100}",
               "type": "color",
               "description": "4级填充灰色"
             },
@@ -983,29 +1245,29 @@
               "description": "图表点按填充色"
             },
             "inverse": {
-              "value": "{global.color.white}",
+              "value": "{global.color.white_alpha.200}",
               "type": "color",
               "description": "填充反色"
             }
           },
           "border": {
             "primary": {
-              "value": "{global.color.bluegray.500}",
+              "value": "{global.color.white_alpha.200}",
               "type": "color",
               "description": "1级线条色"
             },
             "secondary": {
-              "value": "{global.color.bluegray.400}",
+              "value": "{global.color.white_alpha.300}",
               "type": "color",
               "description": "2级线条色"
             },
             "tertiary": {
-              "value": "{global.color.bluegray.300}",
+              "value": "{global.color.white_alpha.200}",
               "type": "color",
               "description": "3级线条色"
             },
             "quaternary": {
-              "value": "{global.color.bluegray.200}",
+              "value": "{global.color.white_alpha.100}",
               "type": "color",
               "description": "4级线条色"
             },
@@ -1017,14 +1279,19 @@
           },
           "icon": {
             "primary": {
-              "value": "{global.color.black}",
+              "value": "{global.color.white_alpha.1000}",
               "type": "color",
               "description": "1级图标色"
             },
             "secondary": {
-              "value": "{global.color.bluegray_alpha.700}",
+              "value": "{global.color.white_alpha.600}",
               "type": "color",
               "description": "2级图标色"
+            },
+            "tertiary": {
+              "value": "{global.color.white_alpha.500}",
+              "type": "color",
+              "description": "3级图表色"
             },
             "inverse": {
               "value": "{global.color.white}",
@@ -1042,19 +1309,18 @@
         },
         "tag": {
           "good": {
-            "value": "#20C7B1",
+            "value": "{global.color.puerto_rico.600}",
             "type": "color",
             "description": "优秀标签色"
           },
-          "normal": {
-            "value": "#7F94E0",
-            "type": "color",
-            "description": "正常标签色"
-          },
           "improvable": {
-            "value": "#F6994C",
+            "value": "{global.color.orange.500}",
             "type": "color",
             "description": "可提升标签色"
+          },
+          "warning": {
+            "value": "{global.color.radical_red.600}",
+            "type": "color"
           }
         },
         "sleep": {
@@ -1084,28 +1350,28 @@
             "description": "睡眠分期_深睡色"
           }
         },
-        "acitivity": {
+        "activity": {
           "primary": {
             "value": "{global.color.orange.700}",
             "type": "color",
             "description": "活动主色"
           },
           "step": {
-            "value": "{global.color.orange.400}",
+            "value": "{global.color.yellow.600}",
             "type": "color",
             "description": "活动_步数主色、低强度主色"
           },
           "calories": {
-            "value": "{global.color.orange.500}",
+            "value": "{global.color.orange.600}",
             "type": "color",
             "description": "活动_卡路里主色、中强度主色"
           },
-          "acitivity_time": {
-            "value": "{global.color.orange.600}",
+          "activity_time": {
+            "value": "{global.color.radical_red.600}",
             "type": "color",
             "description": "活动_活动时长主色、高强度主色"
           },
-          "Inactive": {
+          "inactive": {
             "value": "{global.color.pureblue.300}",
             "type": "color",
             "description": "不活跃主色"
@@ -1133,7 +1399,7 @@
             "description": "压力分级_中等"
           },
           "high": {
-            "value": "#FF6B54",
+            "value": "{global.color.radical_red.500}",
             "type": "color",
             "description": "压力分级_高压"
           }
@@ -1160,6 +1426,67 @@
           },
           "luteal": {
             "value": "#FFA852",
+            "type": "color"
+          }
+        },
+        "sport": {
+          "go": {
+            "value": "{global.color.puerto_rico.500}",
+            "type": "color",
+            "description": "运动强调色"
+          },
+          "primary": {
+            "value": "{global.color.tuna.500}",
+            "type": "color",
+            "description": "运动主色"
+          },
+          "warm_up": {
+            "value": "{global.color.cyanblue.400}",
+            "type": "color",
+            "description": "热身色\n"
+          },
+          "fat_burning": {
+            "value": "{global.color.puerto_rico.200}",
+            "type": "color",
+            "description": "燃脂色\n"
+          },
+          "aerobic": {
+            "value": "{global.color.yellow.600}",
+            "type": "color",
+            "description": "有氧色"
+          },
+          "anaerobic": {
+            "value": "{global.color.orange.600}",
+            "type": "color",
+            "description": "无氧色"
+          },
+          "extreme": {
+            "value": "{global.color.radical_red.600}",
+            "type": "color",
+            "description": "极限色"
+          },
+          "low": {
+            "value": "{global.color.yellow.500}",
+            "type": "color"
+          },
+          "fair": {
+            "value": "{global.color.puerto_rico.300}",
+            "type": "color"
+          },
+          "good": {
+            "value": "{global.color.puerto_rico.400}",
+            "type": "color"
+          },
+          "excellent": {
+            "value": "{global.color.cyanblue.800}",
+            "type": "color"
+          },
+          "elite": {
+            "value": "{global.color.cyanblue.900}",
+            "type": "color"
+          },
+          "background": {
+            "value": "{global.color.tuna.600}",
             "type": "color"
           }
         }
@@ -1277,7 +1604,7 @@
         },
         "section": {
           "s": {
-            "value": "{global.spacing.100}",
+            "value": "{global.spacing.150}",
             "type": "spacing"
           },
           "m": {
@@ -1541,11 +1868,11 @@
             },
             "type": "typography"
           },
-          "56": {
+          "64": {
             "value": {
               "fontFamily": "{global.fontfamily.SF_Pro}",
               "fontWeight": "{global.fontweight.semibold}",
-              "fontSize": "{global.fontsize.56}",
+              "fontSize": "{global.fontsize.60}",
               "lineHeight": "{global.lineheight.xxs}"
             },
             "type": "typography"
@@ -1764,11 +2091,11 @@
             },
             "type": "typography"
           },
-          "56": {
+          "64": {
             "value": {
               "fontFamily": "{global.fontfamily.SF_Pro}",
               "fontWeight": "{global.fontweight.semibold}",
-              "fontSize": "{global.fontsize.56}",
+              "fontSize": "{global.fontsize.60}",
               "lineHeight": "{global.lineheight.xxs}"
             },
             "type": "typography"
@@ -1987,11 +2314,11 @@
             },
             "type": "typography"
           },
-          "56": {
+          "64": {
             "value": {
               "fontFamily": "{global.fontfamily.SF_Pro}",
               "fontWeight": "{global.fontweight.semibold}",
-              "fontSize": "{global.fontsize.56}",
+              "fontSize": "{global.fontsize.60}",
               "lineHeight": "{global.lineheight.xxs}"
             },
             "type": "typography"
@@ -2210,11 +2537,11 @@
             },
             "type": "typography"
           },
-          "56": {
+          "64": {
             "value": {
               "fontFamily": "{global.fontfamily.SF_Pro}",
               "fontWeight": "{global.fontweight.semibold}",
-              "fontSize": "{global.fontsize.56}",
+              "fontSize": "{global.fontsize.60}",
               "lineHeight": "{global.lineheight.xxs}"
             },
             "type": "typography"
@@ -2265,10 +2592,6 @@
         "semantic.color.grey.background.elevated": "8da61e64f2f5ae4d690acc979fc4c6360cfeb122",
         "semantic.color.grey.background.mask": "2d0cddfcea30dbecb5db09977c5daf2641c6316e",
         "semantic.color.grey.background.spotlight": "48b030a9b7a1b85ccc9b95ff3824b0d5516c8631",
-        "semantic.color.grey.background.layoutsleep": "1c009cdf42e4f2dd5e3d1d8d69ec96d36fb5c83b",
-        "semantic.color.grey.background.layoutstress": "45ff31948286802a843ad8584c6675d1dffe04f4",
-        "semantic.color.grey.background.layoutactivity": "9d2bbe5ef6a071bc5f994a496c3af5d042d836c2",
-        "semantic.color.grey.background.layoutvital": "d27b4cdab7ae8646772330c3b31d53f0329e36de",
         "semantic.color.grey.fill.primary": "71f13f4c2d48717076ae998f4781f4ba29f2757c",
         "semantic.color.grey.fill.secondary": "ec99c7b9c78f7c3c8dc33eeec13a6c42fef8f2b9",
         "semantic.color.grey.fill.tertiary": "260a6ff429122ac60fd36e7abc6d72453ac4eeba",
@@ -2282,21 +2605,21 @@
         "semantic.color.grey.border.black": "8d327144104d4ac6b094c467a52331936062c499",
         "semantic.color.grey.icon.primary": "530d58198654e25585174b81c68d792cd8c02837",
         "semantic.color.grey.icon.secondary": "93edc97da501b3460d7def8c3eecdc229fe4c500",
+        "semantic.color.grey.icon.tertiary": "5fe52925800f87f2bb40db5b1a69617a3c27d341",
         "semantic.color.grey.icon.inverse": "aa7d505ed5756a0734b299cd1f0039954be307b2",
         "semantic.color.brand.primary": "b84dc0c93d97d49222f7b14164e8dcd43334ba7b",
         "semantic.color.tag.good": "68648651f1130a6214aa3af32dca3aff53b9cce4",
-        "semantic.color.tag.normal": "9e00e4c7b1f4a018868b8143aaa453650a8fdba2",
         "semantic.color.tag.improvable": "588087fc396e32d35b3edd6d21650ea08c9f0f47",
         "semantic.color.sleep.primary": "f28798733c86941d6d62bb2fcb4cb8e714b5b745",
         "semantic.color.sleep.awake": "b9dae2a2a9f2838007482210371460617f865a0c",
         "semantic.color.sleep.remsleep": "db6ac24824ff51c0f9e375b5d6fac76217ebbf82",
         "semantic.color.sleep.lightsleep": "32e2607bf1bb16942cc382bcac92bd638a3ecc15",
         "semantic.color.sleep.deepsleep": "96284d8d78e169bce54171c477fe9363a9e573e4",
-        "semantic.color.acitivity.primary": "ff95cfba3ca2b70c3794a515852259f5c6e9bce9",
-        "semantic.color.acitivity.step": "080f05f07479ed9a2a9af6b4fe66dae06074d772",
-        "semantic.color.acitivity.calories": "690e27d4cb51ad67c68a904000dd76bc267c7b76",
-        "semantic.color.acitivity.acitivity_time": "cf4d5cde578ed5dbe18d5ff19c75bc295edbe8eb",
-        "semantic.color.acitivity.Inactive": "0a14903aa3781b03621f26325ec0337d1ceaeca3",
+        "semantic.color.activity.primary": "ff95cfba3ca2b70c3794a515852259f5c6e9bce9",
+        "semantic.color.activity.step": "080f05f07479ed9a2a9af6b4fe66dae06074d772",
+        "semantic.color.activity.calories": "690e27d4cb51ad67c68a904000dd76bc267c7b76",
+        "semantic.color.activity.activity_time": "cf4d5cde578ed5dbe18d5ff19c75bc295edbe8eb",
+        "semantic.color.activity.inactive": "0a14903aa3781b03621f26325ec0337d1ceaeca3",
         "semantic.color.stress.primary": "d7f478c516995af487d079f0d436354fc5c5f843",
         "semantic.color.stress.relaxed": "dbd7894c0274860bdbd0a635110c93f0984d284b",
         "semantic.color.stress.normal": "c0b9d13c95f01fb74191d606b4e6d1a2fd1a19ef",
@@ -2306,7 +2629,25 @@
         "semantic.color.female.menstrual": "1e3364ef78e17028d00255c1134682b91f8d0ad2",
         "semantic.color.female.follicular": "a38a2a1cc9b66497188afa947278f41323793c08",
         "semantic.color.female.ovulation": "c271eefb34abae94a44eb76e27e3278ac772bccf",
-        "semantic.color.female.luteal": "dfcd53b25e039c8757890abb76b250cac09aaf75"
+        "semantic.color.female.luteal": "dfcd53b25e039c8757890abb76b250cac09aaf75",
+        "semantic.color.sport.go": "4efd62659c2c1d8da532276c26bb11faea0a0615",
+        "semantic.color.sport.primary": "92789fccf1e7ee92debbce408e4b4989ecec624f",
+        "semantic.color.sport.warm_up": "cfde1d4b4d2f340155d3496b8de2a65e7d85a090",
+        "semantic.color.sport.fat_burning": "c7c6d1e2a6a0d47e1bd59427b7f19574864e53ce",
+        "semantic.color.sport.aerobic": "f93549f35f3b51e86aba8f73670144c1e0d87a49",
+        "semantic.color.sport.anaerobic": "608cd74605b2fc51e5f7a8889d695b7d3e1838ab",
+        "semantic.color.sport.extreme": "4162a6011d291839d5a3a1d106ea3a3dc64ece72",
+        "semantic.color.sport.low": "d655f05eb1bf49e7454c249e817a6fc39c29c49c",
+        "semantic.color.sport.fair": "f6410aeebb5ab15c59f686e88c0edb0f982554cf",
+        "semantic.color.sport.good": "0ab52cef0103f8f50fac41ea4689bd50df7839a2",
+        "semantic.color.sport.excellent": "a83e0f50624dba8f235135884e246b5b1d8aaa09",
+        "semantic.color.sport.elite": "9527e17c0a9d65223f74b930158adac2bbb89ba5",
+        "semantic.color.sport.background": "701422a5f63c5940d0a3553836d81f663e122d1d",
+        "semantic.color.tag.warning": "b92f0f531e6db926775bf71a8fffd4c63e017853",
+        "semantic.color.OSA.no_abnormalities_detected": "d7c2a42291b7bc93bc8781907c332b60806b4530",
+        "semantic.color.OSA.suspected_mild": "1311e2d8b3ffa8496f18cbbd442c883e02eda75e",
+        "semantic.color.OSA.suspected_moderate": "17c40f48bdd6af07ccd008af5a0783f8418f16c0",
+        "semantic.color.OSA.suspected_severe": "685f0bde1063d00653e96b8163bac9f9160dcdfe"
       },
       "group": "colorTheme"
     },
@@ -2333,10 +2674,6 @@
         "semantic.color.grey.background.elevated": "8da61e64f2f5ae4d690acc979fc4c6360cfeb122",
         "semantic.color.grey.background.mask": "2d0cddfcea30dbecb5db09977c5daf2641c6316e",
         "semantic.color.grey.background.spotlight": "48b030a9b7a1b85ccc9b95ff3824b0d5516c8631",
-        "semantic.color.grey.background.layoutsleep": "1c009cdf42e4f2dd5e3d1d8d69ec96d36fb5c83b",
-        "semantic.color.grey.background.layoutstress": "45ff31948286802a843ad8584c6675d1dffe04f4",
-        "semantic.color.grey.background.layoutactivity": "9d2bbe5ef6a071bc5f994a496c3af5d042d836c2",
-        "semantic.color.grey.background.layoutvital": "d27b4cdab7ae8646772330c3b31d53f0329e36de",
         "semantic.color.grey.fill.primary": "71f13f4c2d48717076ae998f4781f4ba29f2757c",
         "semantic.color.grey.fill.secondary": "ec99c7b9c78f7c3c8dc33eeec13a6c42fef8f2b9",
         "semantic.color.grey.fill.tertiary": "260a6ff429122ac60fd36e7abc6d72453ac4eeba",
@@ -2350,27 +2687,45 @@
         "semantic.color.grey.border.black": "8d327144104d4ac6b094c467a52331936062c499",
         "semantic.color.grey.icon.primary": "530d58198654e25585174b81c68d792cd8c02837",
         "semantic.color.grey.icon.secondary": "93edc97da501b3460d7def8c3eecdc229fe4c500",
+        "semantic.color.grey.icon.tertiary": "5fe52925800f87f2bb40db5b1a69617a3c27d341",
         "semantic.color.grey.icon.inverse": "aa7d505ed5756a0734b299cd1f0039954be307b2",
         "semantic.color.brand.primary": "b84dc0c93d97d49222f7b14164e8dcd43334ba7b",
         "semantic.color.tag.good": "68648651f1130a6214aa3af32dca3aff53b9cce4",
-        "semantic.color.tag.normal": "9e00e4c7b1f4a018868b8143aaa453650a8fdba2",
         "semantic.color.tag.improvable": "588087fc396e32d35b3edd6d21650ea08c9f0f47",
         "semantic.color.sleep.primary": "f28798733c86941d6d62bb2fcb4cb8e714b5b745",
         "semantic.color.sleep.awake": "b9dae2a2a9f2838007482210371460617f865a0c",
         "semantic.color.sleep.remsleep": "db6ac24824ff51c0f9e375b5d6fac76217ebbf82",
         "semantic.color.sleep.lightsleep": "32e2607bf1bb16942cc382bcac92bd638a3ecc15",
         "semantic.color.sleep.deepsleep": "96284d8d78e169bce54171c477fe9363a9e573e4",
-        "semantic.color.acitivity.primary": "ff95cfba3ca2b70c3794a515852259f5c6e9bce9",
-        "semantic.color.acitivity.step": "080f05f07479ed9a2a9af6b4fe66dae06074d772",
-        "semantic.color.acitivity.calories": "690e27d4cb51ad67c68a904000dd76bc267c7b76",
-        "semantic.color.acitivity.acitivity_time": "cf4d5cde578ed5dbe18d5ff19c75bc295edbe8eb",
-        "semantic.color.acitivity.Inactive": "0a14903aa3781b03621f26325ec0337d1ceaeca3",
+        "semantic.color.activity.primary": "ff95cfba3ca2b70c3794a515852259f5c6e9bce9",
+        "semantic.color.activity.step": "080f05f07479ed9a2a9af6b4fe66dae06074d772",
+        "semantic.color.activity.calories": "690e27d4cb51ad67c68a904000dd76bc267c7b76",
+        "semantic.color.activity.activity_time": "cf4d5cde578ed5dbe18d5ff19c75bc295edbe8eb",
+        "semantic.color.activity.inactive": "0a14903aa3781b03621f26325ec0337d1ceaeca3",
         "semantic.color.stress.primary": "d7f478c516995af487d079f0d436354fc5c5f843",
         "semantic.color.stress.relaxed": "dbd7894c0274860bdbd0a635110c93f0984d284b",
         "semantic.color.stress.normal": "c0b9d13c95f01fb74191d606b4e6d1a2fd1a19ef",
         "semantic.color.stress.medium": "bb5b7a5664a773037c11f49aa5f4c5d253cced15",
         "semantic.color.stress.high": "ba99d4d7eac534565f833b6172506cfa0bf3b9e1",
-        "semantic.color.vital.primary": "6d659f1915e2f07297e8f7a32bbb2586dd4555d4"
+        "semantic.color.vital.primary": "6d659f1915e2f07297e8f7a32bbb2586dd4555d4",
+        "semantic.color.female.menstrual": "1e3364ef78e17028d00255c1134682b91f8d0ad2",
+        "semantic.color.female.follicular": "a38a2a1cc9b66497188afa947278f41323793c08",
+        "semantic.color.female.ovulation": "c271eefb34abae94a44eb76e27e3278ac772bccf",
+        "semantic.color.female.luteal": "dfcd53b25e039c8757890abb76b250cac09aaf75",
+        "semantic.color.sport.go": "4efd62659c2c1d8da532276c26bb11faea0a0615",
+        "semantic.color.sport.primary": "92789fccf1e7ee92debbce408e4b4989ecec624f",
+        "semantic.color.sport.warm_up": "cfde1d4b4d2f340155d3496b8de2a65e7d85a090",
+        "semantic.color.sport.fat_burning": "c7c6d1e2a6a0d47e1bd59427b7f19574864e53ce",
+        "semantic.color.sport.aerobic": "f93549f35f3b51e86aba8f73670144c1e0d87a49",
+        "semantic.color.sport.anaerobic": "608cd74605b2fc51e5f7a8889d695b7d3e1838ab",
+        "semantic.color.sport.extreme": "4162a6011d291839d5a3a1d106ea3a3dc64ece72",
+        "semantic.color.sport.low": "d655f05eb1bf49e7454c249e817a6fc39c29c49c",
+        "semantic.color.sport.fair": "f6410aeebb5ab15c59f686e88c0edb0f982554cf",
+        "semantic.color.sport.good": "0ab52cef0103f8f50fac41ea4689bd50df7839a2",
+        "semantic.color.sport.excellent": "a83e0f50624dba8f235135884e246b5b1d8aaa09",
+        "semantic.color.sport.elite": "9527e17c0a9d65223f74b930158adac2bbb89ba5",
+        "semantic.color.sport.background": "701422a5f63c5940d0a3553836d81f663e122d1d",
+        "semantic.color.tag.warning": "b92f0f531e6db926775bf71a8fffd4c63e017853"
       },
       "$figmaCollectionId": "VariableCollectionId:1199:1035",
       "$figmaModeId": "1778:0",
@@ -2399,7 +2754,7 @@
         "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
         "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
         "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
-        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+        "semantic.typography.number.64": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
       },
       "selectedTokenSets": {
         "semanric_typography/ios_ch": "enabled",
@@ -2449,7 +2804,7 @@
         "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
         "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
         "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
-        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+        "global.fontsize.60": "baffa92162ee10df73bf606ff2a7063b99058309"
       },
       "$figmaCollectionId": "VariableCollectionId:1743:5443",
       "$figmaModeId": "1743:12",
@@ -2478,7 +2833,7 @@
         "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
         "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
         "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
-        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+        "semantic.typography.number.64": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
       },
       "selectedTokenSets": {
         "global": "source",
@@ -2528,7 +2883,7 @@
         "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
         "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
         "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
-        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+        "global.fontsize.60": "baffa92162ee10df73bf606ff2a7063b99058309"
       },
       "$figmaCollectionId": "VariableCollectionId:1743:5443",
       "$figmaModeId": "1743:13",
@@ -2557,7 +2912,7 @@
         "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
         "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
         "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
-        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+        "semantic.typography.number.64": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
       },
       "selectedTokenSets": {
         "semanric_typography/android_ch": "enabled",
@@ -2607,7 +2962,7 @@
         "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
         "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
         "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
-        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+        "global.fontsize.60": "baffa92162ee10df73bf606ff2a7063b99058309"
       },
       "$figmaCollectionId": "VariableCollectionId:1743:5443",
       "$figmaModeId": "1743:14",
@@ -2636,7 +2991,7 @@
         "semantic.typography.number.24": "S:6faa50a43cecd89ccdbde9884287fb7fbb89e05b,",
         "semantic.typography.number.28": "S:7f6ac7e0e2f6078d05c9a88a5d6b87d4e806f4b1,",
         "semantic.typography.number.32": "S:925b54157a53d706140ddec614bda216b21e22e3,",
-        "semantic.typography.number.56": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
+        "semantic.typography.number.64": "S:0f43351070f26b1b9d4b98c6bac25ac117720428,"
       },
       "selectedTokenSets": {
         "global": "source",
@@ -2686,7 +3041,7 @@
         "global.fontsize.24": "c492d0cd83b4cb9cbbfed7ea80ee742c32e631c3",
         "global.fontsize.28": "8a31a35ff5f42c70cb404d17f580ef44315f2a52",
         "global.fontsize.32": "f1926c15618d84c2b660879ffcd81e12713ba10c",
-        "global.fontsize.56": "baffa92162ee10df73bf606ff2a7063b99058309"
+        "global.fontsize.60": "baffa92162ee10df73bf606ff2a7063b99058309"
       },
       "$figmaCollectionId": "VariableCollectionId:1743:5443",
       "$figmaModeId": "1743:15",
