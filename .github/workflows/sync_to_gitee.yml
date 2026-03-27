@@ -1,0 +1,25 @@
+name: Sync to Gitee
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on pushes to the main branch
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync GitHub to Gitee
+        uses: abersheeran/sync-gitee-mirror@master
+        with:
+          # The Gitee repository to sync to, in format <username>/<repository>
+          repository: jiuzhitech/figma2flutter
+          # Your Gitee username
+          username: ovocyl
+          # Your Gitee password or personal access token (from secrets)
+          password: ${{ secrets.GITEE_PASSWORD }} 
+          # Whether to sync tags (defaults to true)
+          tags: true 
+          # A space-separated list of branches to sync (defaults to main master)
+          branches: main master 
