@@ -3,7 +3,8 @@ name: Sync to Gitee
 on:
   push:
     branches:
-      - main # Trigger the workflow on pushes to the main branch
+      # - main # Trigger the workflow on pushes to the main branch
+      - feature/rc_design_tokens
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
 jobs:
