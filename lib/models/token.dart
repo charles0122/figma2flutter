@@ -336,26 +336,34 @@ class Token {
   }
 
   Token _resolveMathExpression(Map<String, Token> tokenMap) {
-    // 支持带空格和不带空格的运算符
-    // 例如: "a * b" 或 "a*b" 或 "{token}*0.25"
-    final operatorPattern = RegExp(r'\s*([*/+-])\s*');
+    // 支持带空格和不带空格的 * / +，以及二元减号。
+    // 二元减号须为「两侧有空格的 -」，避免把路径里的连字符（如 sizing-base）、
+    // 纯数字里的负号（-0.5）、或「{a} - -12」里操作数的负号误判为运算符。
+    // 不使用带捕获组的 split，避免 Dart 把捕获段插入 split 结果导致左右操作数错位。
+    final operatorPattern = RegExp(
+      r'\s+-\s+|\s*[*/]\s*|\s*\+\s*',
+    );
     final match = operatorPattern.firstMatch(valueAsString!);
-    
+
     if (match == null) {
       throw FormatException(
         'Could not find operator in math expression for Token $name (path: $path) `$valueAsString`',
       );
     }
-    
-    final operator = match.group(1)!;
-    final isMultiply = operator == '*';
-    final isDivide = operator == '/';
-    final isAdd = operator == '+';
-    final isSubtract = operator == '-';
 
-    // Split on expression and parse the left and right side
-    // 支持带空格和不带空格的运算符
+    final matchedOp = match.group(0)!;
+    final isMultiply = matchedOp.contains('*');
+    final isDivide = matchedOp.contains('/');
+    final isAdd = matchedOp.contains('+');
+    final isSubtract =
+        matchedOp.contains('-') && !isMultiply && !isDivide && !isAdd;
+
     final splitted = valueAsString!.split(operatorPattern);
+    if (splitted.length < 2) {
+      throw FormatException(
+        'Could not parse math expression for Token $name (path: $path) `$valueAsString`',
+      );
+    }
 
     final leftPart = splitted[0].trim();
     final rightPart = splitted[1].trim();

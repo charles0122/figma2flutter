@@ -34,6 +34,17 @@ extension StringExtension on String {
   bool get isMathExpression {
     // 支持带空格和不带空格的运算符
     // 例如: "a * b" 或 "a*b" 或 "{token}*0.25"
+    //
+    // 负号开头的纯数字（如 letterSpacing 的 "-0.5"）不是二元运算，否则正则会把
+    // 开头的 `-` 当成减号，导致误判为数学表达式并在 _resolveMathExpression 中报错。
+    final trimmed = trim();
+    if (trimmed.isNotEmpty && double.tryParse(trimmed) != null) {
+      return false;
+    }
+    // 单独的 {token.path} 引用（路径中可含连字符，如 {sizing-base}）不是数学表达式。
+    if (isTokenReference) {
+      return false;
+    }
     return RegExp(r'\s*[*/+-]\s*').hasMatch(this);
   }
 
