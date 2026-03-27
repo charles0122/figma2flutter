@@ -23,4 +23,4 @@ jobs:
           # Whether to sync tags (defaults to true)
           tags: true 
           # A space-separated list of branches to sync (defaults to main master)
-          branches: main master 
+          branches: main master feature/rc_design_tokens
