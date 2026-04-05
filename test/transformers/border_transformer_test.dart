@@ -42,13 +42,13 @@ void main() {
     expect(
       transformer.lines[0],
       contains(
-        'Border get borderHeavy => Border.all(color: const Color(0x00363636), width: 3.0, style: BorderStyle.solid);',
+        'static const Border borderHeavy = Border.all(color: const Color(0x00363636), width: 3.0, style: BorderStyle.solid);',
       ),
     );
     expect(
       transformer.lines[1],
       contains(
-        'Border get borderFocusring => Border.all(color: const Color(0xFFFF00FF), width: 1.0, style: BorderStyle.solid);',
+        'static const Border borderFocusring = Border.all(color: const Color(0xFFFF00FF), width: 1.0, style: BorderStyle.solid);',
       ),
     );
   });

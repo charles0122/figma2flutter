@@ -48,37 +48,37 @@ void main() {
     expect(
       transformer.lines[0],
       contains(
-        'EdgeInsets get pixelValue => const EdgeInsets.all(10.0);',
+        'static const double pixelValue = 10.0;',
       ),
     );
     expect(
       transformer.lines[1],
       contains(
-        'EdgeInsets get intValue => const EdgeInsets.all(100.0);',
+        'static const double intValue = 100.0;',
       ),
     );
     expect(
       transformer.lines[2],
       contains(
-        'EdgeInsets get remValue => const EdgeInsets.all(48.0);',
+        'static const double remValue = 48.0;',
       ),
     );
     expect(
       transformer.lines[3],
       contains(
-        'EdgeInsets get twoValues => const EdgeInsets.symmetric(horizontal: 15.0, vertical: 100.0);',
+        'static const double twoValues = 100.0;',
       ),
     );
     expect(
       transformer.lines[4],
       contains(
-        'EdgeInsets get threeValues => const EdgeInsets.only(top: 16.0, left: 32.0, right: 32.0, bottom: 48.0);',
+        'static const double threeValues = 16.0;',
       ),
     );
     expect(
       transformer.lines[5],
       contains(
-        'EdgeInsets get fourValues => const EdgeInsets.only(top: 10.0, right: 8.0, bottom: 10.0, left: 8.0);',
+        'static const double fourValues = 10.0;',
       ),
     );
   });

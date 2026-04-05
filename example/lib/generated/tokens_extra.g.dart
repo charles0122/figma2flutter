@@ -5,15 +5,17 @@
 
 part of 'tokens.g.dart';
 
-
-
-
 /// 自适应 TextStyleTokens，根据平台和地区自动选择对应的 tokens
-class AdaptiveTextStyleTokens extends TextStyleTokens {
-  final TextStyleTokens _iosChTokens = IosChTextStyleTokens();
-  final TextStyleTokens _iosEngTokens = IosEngTextStyleTokens();
-  final TextStyleTokens _androidChTokens = AndroidChTextStyleTokens();
-  final TextStyleTokens _androidEngTokens = AndroidEngTextStyleTokens();
+class AdaptiveTextStyleTokens implements TextStyleTokens {
+  static final AdaptiveTextStyleTokens _instance = AdaptiveTextStyleTokens._();
+  factory AdaptiveTextStyleTokens() => _instance;
+
+  AdaptiveTextStyleTokens._();
+
+  final TextStyleTokens _iosChTokens = const IosChTextStyleTokens();
+  final TextStyleTokens _iosEngTokens = const IosEngTextStyleTokens();
+  final TextStyleTokens _androidChTokens = const AndroidChTextStyleTokens();
+  final TextStyleTokens _androidEngTokens = const AndroidEngTextStyleTokens();
 
   /// 根据平台和地区获取对应的 tokens
   TextStyleTokens get _platformTokens {
@@ -53,9 +55,13 @@ class AdaptiveTextStyleTokens extends TextStyleTokens {
   @override
   TextStyle get semanticTypographyTitle22 => _platformTokens.semanticTypographyTitle22;
   @override
+  TextStyle get semanticTypographyDisplay22 => _platformTokens.semanticTypographyDisplay22;
+  @override
   TextStyle get semanticTypographyDisplay24 => _platformTokens.semanticTypographyDisplay24;
   @override
   TextStyle get semanticTypographyDisplay28 => _platformTokens.semanticTypographyDisplay28;
+  @override
+  TextStyle get semanticTypographyDisplay32 => _platformTokens.semanticTypographyDisplay32;
   @override
   TextStyle get semanticTypographyNumberText12 => _platformTokens.semanticTypographyNumberText12;
   @override
@@ -65,6 +71,10 @@ class AdaptiveTextStyleTokens extends TextStyleTokens {
   @override
   TextStyle get semanticTypographyNumber12 => _platformTokens.semanticTypographyNumber12;
   @override
+  TextStyle get semanticTypographyNumber16 => _platformTokens.semanticTypographyNumber16;
+  @override
+  TextStyle get semanticTypographyNumber18 => _platformTokens.semanticTypographyNumber18;
+  @override
   TextStyle get semanticTypographyNumber20 => _platformTokens.semanticTypographyNumber20;
   @override
   TextStyle get semanticTypographyNumber24 => _platformTokens.semanticTypographyNumber24;
@@ -72,6 +82,10 @@ class AdaptiveTextStyleTokens extends TextStyleTokens {
   TextStyle get semanticTypographyNumber28 => _platformTokens.semanticTypographyNumber28;
   @override
   TextStyle get semanticTypographyNumber32 => _platformTokens.semanticTypographyNumber32;
+  @override
+  TextStyle get semanticTypographyNumber40 => _platformTokens.semanticTypographyNumber40;
+  @override
+  TextStyle get semanticTypographyNumber60 => _platformTokens.semanticTypographyNumber60;
   @override
   TextStyle get semanticTypographyNumber64 => _platformTokens.semanticTypographyNumber64;
 }
@@ -98,4 +112,3 @@ class Tokens extends InheritedWidget {
 extension TokensExtension on BuildContext {
   ITokens get tokens => Tokens.of(this);
 }
-

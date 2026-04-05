@@ -254,15 +254,15 @@ void main() {
       // Check that all three themes reference SharedSpacingTokens
       final themeATokensMatch = RegExp(r'class ThemeATokens[^}]+}').firstMatch(output);
       expect(themeATokensMatch, isNotNull);
-      expect(themeATokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeATokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       final themeBTokensMatch = RegExp(r'class ThemeBTokens[^}]+}').firstMatch(output);
       expect(themeBTokensMatch, isNotNull);
-      expect(themeBTokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeBTokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       final themeCTokensMatch = RegExp(r'class ThemeCTokens[^}]+}').firstMatch(output);
       expect(themeCTokensMatch, isNotNull);
-      expect(themeCTokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeCTokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       // Verify that color classes are theme-specific (different content)
       expect(output, contains('ThemeAColorTokens'));
@@ -353,11 +353,11 @@ void main() {
       // Verify that A and B use shared class
       final themeATokensMatch = RegExp(r'class ThemeATokens[^}]+}').firstMatch(output);
       expect(themeATokensMatch, isNotNull);
-      expect(themeATokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeATokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       final themeBTokensMatch = RegExp(r'class ThemeBTokens[^}]+}').firstMatch(output);
       expect(themeBTokensMatch, isNotNull);
-      expect(themeBTokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeBTokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       // Verify that C uses its own class
       final themeCTokensMatch = RegExp(r'class ThemeCTokens[^}]+}').firstMatch(output);
@@ -474,15 +474,15 @@ void main() {
       // Verify that all three themes use the shared class
       final themeATokensMatch = RegExp(r'class ThemeATokens[^}]+}').firstMatch(output);
       expect(themeATokensMatch, isNotNull);
-      expect(themeATokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeATokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       final themeBTokensMatch = RegExp(r'class ThemeBTokens[^}]+}').firstMatch(output);
       expect(themeBTokensMatch, isNotNull);
-      expect(themeBTokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeBTokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       final themeCTokensMatch = RegExp(r'class ThemeCTokens[^}]+}').firstMatch(output);
       expect(themeCTokensMatch, isNotNull);
-      expect(themeCTokensMatch!.group(0), contains('SpacingTokens get spacing => SharedSpacingTokens()'));
+      expect(themeCTokensMatch!.group(0), contains('SpacingTokens get spacing => const SharedSpacingTokens()'));
       
       // Verify that color classes are theme-specific
       expect(output, contains('ThemeAColorTokens'));

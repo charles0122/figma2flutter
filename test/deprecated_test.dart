@@ -117,7 +117,9 @@ void main() {
       expect(token?.deprecated, equals('Fallback deprecated message'));
     });
 
-    test('should generate @deprecated annotation in code when deprecated is true', () {
+    test(
+        'should generate @deprecated annotation in code when deprecated is true',
+        () {
       final input = '''
       {
         "deprecatedToken": {
@@ -149,7 +151,7 @@ void main() {
       );
       expect(
         transformer.lines[0],
-        contains('@override\n  Color get deprecatedToken'),
+        contains('static const Color deprecatedToken'),
       );
     });
 
@@ -206,7 +208,7 @@ void main() {
       final generatedCode = transformer.lines[0];
       expect(generatedCode, contains("@Deprecated('Use newToken instead')"));
       expect(generatedCode, contains('/// Old color token'));
-      expect(generatedCode, contains('@override\n  Color get deprecatedToken'));
+      expect(generatedCode, contains('static const Color deprecatedToken'));
     });
   });
 }

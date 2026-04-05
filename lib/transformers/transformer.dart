@@ -36,20 +36,19 @@ abstract class Transformer {
     if (_currentTheme == null || _currentTheme!.sourceSets.isEmpty) {
       return false;
     }
-    
+
     // 构建 token 的处理后的 key（_postProcess 之后的格式）
     // 注意：token.path 在 _postProcess 后已经移除了 set 前缀
     // tokenKeyToSet 中的 key 也是 _postProcess 后的格式，即 "path.name"
-    final tokenKey = token.path.isEmpty 
-        ? token.name 
-        : '${token.path}.${token.name}';
-    
+    final tokenKey =
+        token.path.isEmpty ? token.name : '${token.path}.${token.name}';
+
     // 通过映射查找这个 token 来自哪个 set
     final sourceSet = _currentTheme!.tokenKeyToSet[tokenKey];
     if (sourceSet != null && _currentTheme!.sourceSets.contains(sourceSet)) {
       return true;
     }
-    
+
     return false;
   }
 
@@ -63,48 +62,164 @@ abstract class Transformer {
 }''';
   }
 
+  String _toInterfaceDeclaration(String input) {
+    final idx = input.indexOf('=');
+    if (idx < 0) return input;
+    final beforeEqual = input.substring(0, idx).trim();
+    final parts = beforeEqual.split(RegExp(r'\s+'));
+    if (parts.length >= 3 && parts[0] == 'static' && parts[1] == 'const') {
+      parts.removeRange(0, 2);
+    }
+    return '${parts.join(' ')} get ${parts.last};';
+  }
+
   // Returns the code that will be generated for the property declaration
-  String propertyDeclaration(String theme) {
-    return '@override\n  $className get $name => ${theme.pascalCase}$className();';
+  String propertyDeclaration(String theme, {bool useConst = true}) {
+    final prefix = useConst ? 'const ' : '';
+    return '@override\n  $className get $name => ${prefix}${theme.pascalCase}$className();';
+  }
+
+  // Returns static const property declaration for single implementation transformers
+  String staticConstPropertyDeclaration() {
+    return '@override\n  $className get $name => const Default$className();';
+  }
+
+  /// 提取块首的 `///` 文档与 `@` 注解（至 ` static const` / ` final` 赋值行之前），
+  /// 每行已带类成员缩进（两个空格）。无内容时返回空字符串。
+  static String formatMemberPrefixFromBlock(String? block) {
+    if (block == null || block.isEmpty) return '';
+    final out = <String>[];
+    for (final raw in block.split('\n')) {
+      final trimmed = raw.trim();
+      if (trimmed.isEmpty) continue;
+      if (trimmed.startsWith('///') || trimmed.startsWith('@')) {
+        out.add('  $trimmed');
+        continue;
+      }
+      break;
+    }
+    if (out.isEmpty) return '';
+    return '${out.join('\n')}\n';
+  }
+
+  /// 从一条 token 代码块解析出 `super(...)` 中的 `name: value`。
+  static String? toSuperInitializerArg(String block) {
+    final parsed = parseGetterFromLineBlock(block);
+    if (parsed == null) return null;
+    final idx = _declarationEqualsIndex(block) ?? block.indexOf('=');
+    if (idx < 0) return null;
+    var rhs = block.substring(idx + 1).trim();
+    final semi = rhs.lastIndexOf(';');
+    if (semi >= 0) {
+      rhs = rhs.substring(0, semi).trim();
+    }
+    return '${parsed.name}: $rhs';
+  }
+
+  static List<String> superInitializerArgsFromLines(List<String> lines) {
+    final out = <String>[];
+    for (final line in lines) {
+      final arg = toSuperInitializerArg(line);
+      if (arg != null) out.add(arg);
+    }
+    return out;
+  }
+
+  // Returns the class declaration for static const implementation
+  String staticConstClassDeclaration() {
+    final superArgs = superInitializerArgsFromLines(lines);
+    final superCall = superArgs.isEmpty
+        ? ''
+        : ' : super(\n    ${superArgs.join(',\n    ')}\n  )';
+    return '''
+class Default$className extends $className {
+  const Default$className()$superCall;
+}
+''';
   }
 
   void process(Token token);
 
   // Returns the class that is generated for this transformer including all processed tokens
   String classDeclaration(String theme) {
+    final superArgs = superInitializerArgsFromLines(lines);
+    final superCall = superArgs.isEmpty
+        ? ''
+        : ' : super(\n    ${superArgs.join(',\n    ')}\n  )';
     return '''
 class ${theme.pascalCase}$className extends $className {
-  ${lines.join('\n  ')}
+  const ${theme.pascalCase}$className()$superCall;
 }
 ''';
   }
 
-  String _toInterfaceDeclaration(String input) {
-    // Remove comment lines (lines starting with ///) and deprecated annotations
-    final lines = input.split('\n');
-    final codeLines = lines.where((line) {
-      final trimmed = line.trim();
-      return !trimmed.startsWith('///') && 
-             !trimmed.startsWith('@Deprecated') && 
-             !trimmed.startsWith('@deprecated');
-    }).toList();
-    final codeOnly = codeLines.join('\n');
-    
-    return '${codeOnly.substring(0, codeOnly.indexOf('=>')).replaceAll('@override\n', '').trim()};';
+  static GetterEntry? _getterEntryFromBeforeEqual(String beforeEqual) {
+    final parts = beforeEqual.split(RegExp(r'\s+'));
+    if (parts.length >= 3 && parts[0] == 'static' && parts[1] == 'const') {
+      final type = parts.sublist(2, parts.length - 1).join(' ');
+      final name = parts.last;
+      if (type.isEmpty || name.isEmpty) return null;
+      return GetterEntry(type, name);
+    }
+    if (parts.length >= 2 && parts[0] == 'final') {
+      final type = parts.sublist(1, parts.length - 1).join(' ');
+      final name = parts.last;
+      if (type.isEmpty || name.isEmpty) return null;
+      return GetterEntry(type, name);
+    }
+    if (parts.length < 2) return null;
+    final type = parts.sublist(0, parts.length - 1).join(' ');
+    final name = parts.last;
+    if (type.isEmpty || name.isEmpty) return null;
+    return GetterEntry(type, name);
+  }
+
+  /// 查找含 `static const` / `final` 声明的赋值行的第一个 `=` 在 [block] 内的下标。
+  static int? _declarationEqualsIndex(String block) {
+    var offset = 0;
+    for (final raw in block.split('\n')) {
+      final line = raw.trim();
+      final skipOnlyAnnotation = line.startsWith('@') && !line.contains('=');
+      if (line.isEmpty || line.startsWith('///') || skipOnlyAnnotation) {
+        offset += raw.length + 1;
+        continue;
+      }
+      if (!line.contains('=')) {
+        offset += raw.length + 1;
+        continue;
+      }
+      final localEq = raw.indexOf('=');
+      final beforeEqual = raw.substring(0, localEq).trim();
+      final parts = beforeEqual.split(RegExp(r'\s+'));
+      final isDecl = (parts.length >= 3 &&
+              parts[0] == 'static' &&
+              parts[1] == 'const') ||
+          (parts.length >= 2 && parts[0] == 'final');
+      if (isDecl) {
+        return offset + localEq;
+      }
+      offset += raw.length + 1;
+    }
+    return null;
   }
 
   /// 从单条 line 块（可能含注释/注解）解析出 getter 的返回类型和名称，用于并集接口与默认值生成。
-  /// 返回 null 表示无法解析（例如没有 => 的块）。
+  /// 返回 null 表示无法解析（例如没有 = 的块）。
   static GetterEntry? parseGetterFromLineBlock(String lineBlock) {
-    final idx = lineBlock.indexOf('=>');
+    for (final raw in lineBlock.split('\n')) {
+      final line = raw.trim();
+      final skipOnlyAnnotation = line.startsWith('@') && !line.contains('=');
+      if (line.isEmpty || line.startsWith('///') || skipOnlyAnnotation) {
+        continue;
+      }
+      if (!line.contains('=')) continue;
+      final beforeEqual = line.substring(0, line.indexOf('=')).trim();
+      final parsed = _getterEntryFromBeforeEqual(beforeEqual);
+      if (parsed != null) return parsed;
+    }
+    final idx = lineBlock.indexOf('=');
     if (idx < 0) return null;
-    final beforeArrow = lineBlock.substring(0, idx).replaceAll('@override', '').trim();
-    final parts = beforeArrow.split(RegExp(r'\s+get\s+'));
-    if (parts.length != 2) return null;
-    final type = parts[0].trim();
-    final name = parts[1].trim();
-    if (type.isEmpty || name.isEmpty) return null;
-    return GetterEntry(type, name);
+    return _getterEntryFromBeforeEqual(lineBlock.substring(0, idx).trim());
   }
 
   /// 从 transformer 的 lines 列表中按顺序解析出所有 getter 的 GetterEntry。
@@ -149,12 +264,13 @@ abstract class SingleTokenTransformer extends Transformer {
     if (_isSourceToken(token)) {
       return;
     }
-    
+
     if (matcher(token)) {
-      final codeLine = '@override\n  $type get ${token.variableName} => ${transform(token)};';
-      
+      final codeLine =
+          'static const $type ${token.variableName} = ${transform(token)};';
+
       final parts = <String>[];
-      
+
       // Add deprecated annotation if available
       if (token.isDeprecated) {
         if (token.deprecated?.isNotEmpty == true) {
@@ -165,12 +281,12 @@ abstract class SingleTokenTransformer extends Transformer {
           parts.add('@deprecated');
         }
       }
-      
+
       // Add description as comment if available
       if (token.description != null && token.description!.isNotEmpty) {
         parts.add(_formatDescription(token.description!));
       }
-      
+
       // Combine all parts with the code line
       if (parts.isNotEmpty) {
         lines.add('${parts.join('\n  ')}\n  $codeLine');

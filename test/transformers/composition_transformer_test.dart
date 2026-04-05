@@ -112,7 +112,7 @@ void main() {
     parser.resolvedTokens().forEach(transformer.process);
 
     final expected = '''
-CompositionToken get testCard => CompositionToken(
+static const CompositionToken testCard = CompositionToken(
   size: const Size(100.0, 100.0),
   padding: const EdgeInsets.only(
     top: 16.0,
@@ -181,7 +181,7 @@ CompositionToken get testCard => CompositionToken(
     parser.resolvedTokens().forEach(transformer.process);
 
     final output = '''
-CompositionToken get testCard => CompositionToken(
+static const CompositionToken testCard = CompositionToken(
   padding: const EdgeInsets.only(
     top: 0.0,
     right: 0.0,

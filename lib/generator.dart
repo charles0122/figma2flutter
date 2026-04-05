@@ -16,14 +16,20 @@ class _SharedClassResult {
   final Map<String, Map<String, String>> names;
   final List<String> classes;
 
-  _SharedClassResult(this.names, this.classes);
+  /// Transformers that have only a single implementation (can use static const)
+  final Set<String> singleImplementationTransformers;
+
+  _SharedClassResult(
+      this.names, this.classes, this.singleImplementationTransformers);
 }
 
 /// 每个 transformer 的接口并集与默认值回退信息
 class _InterfaceUnion {
   final List<String> interfaceStrings;
+
   /// transformerName -> 按顺序的 getter 并集
   final Map<String, List<GetterEntry>> unionGetters;
+
   /// transformerName -> (getterName -> 第一个拥有该 getter 的主题名，用于默认值)
   final Map<String, Map<String, String>> fallbackThemePerGetter;
 
@@ -47,10 +53,10 @@ class Generator {
     if (themes.isEmpty) {
       throw StateError('Cannot generate extra without themes');
     }
-    
+
     final extraContent = _buildExtraContent();
     final adaptiveTextStyleClass = _generateAdaptiveTextStyleClass();
-    
+
     return '''
 $_genWarning
 
@@ -80,19 +86,21 @@ $_helpers
     if (themes.isEmpty) {
       throw StateError('Cannot generate output without themes');
     }
-    
-    final interfaceUnion = _buildInterfaces();
-    final themeContentMap = _buildThemeContentMap();
+
     final sharedClassResult = _generateSharedClasses();
+    final interfaceUnion =
+        _buildInterfaces(sharedClassResult.singleImplementationTransformers);
+    final themeContentMap = _buildThemeContentMap();
     final classes = _generateThemeClasses(
       sharedClassResult.names,
       themeContentMap,
       sharedClassResult.classes,
       interfaceUnion,
+      sharedClassResult.singleImplementationTransformers,
     );
 
     final imports = _buildImports();
-    
+
     return '''
 $_genWarning
 
@@ -106,7 +114,7 @@ ${interfaceUnion.interfaceStrings.join('\n\n')}
 
 ${classes.join('\n\n')}''';
   }
-  
+
   /// Builds the imports section, including adaptive text style imports if needed.
   String _buildImports() {
     final hasFontThemes = _hasAllFontThemes();
@@ -116,69 +124,73 @@ import 'package:flutter/material.dart';''';
     }
     return 'import \'package:flutter/material.dart\';';
   }
-  
+
   /// Generates AdaptiveTextStyleTokens class if all font themes are present.
   String? _generateAdaptiveTextStyleClass() {
     if (!_hasAllFontThemes()) {
       return null;
     }
-    
+
     // Find font theme class names (支持带下划线和驼峰命名)
     final iosChTheme = themes.firstWhere(
-      (t) => _isFontTheme(t.name) && (t.name.toLowerCase().contains('iosch') || t.name.toLowerCase() == 'ios_ch'),
+      (t) =>
+          _isFontTheme(t.name) &&
+          (t.name.toLowerCase().contains('iosch') ||
+              t.name.toLowerCase() == 'ios_ch'),
       orElse: () => throw StateError('IosCh theme not found'),
     );
     final iosEngTheme = themes.firstWhere(
-      (t) => _isFontTheme(t.name) && (t.name.toLowerCase().contains('ioseng') || t.name.toLowerCase() == 'ios_eng'),
+      (t) =>
+          _isFontTheme(t.name) &&
+          (t.name.toLowerCase().contains('ioseng') ||
+              t.name.toLowerCase() == 'ios_eng'),
       orElse: () => throw StateError('IosEng theme not found'),
     );
     final androidChTheme = themes.firstWhere(
-      (t) => _isFontTheme(t.name) && (t.name.toLowerCase().contains('androidch') || t.name.toLowerCase() == 'android_ch'),
+      (t) =>
+          _isFontTheme(t.name) &&
+          (t.name.toLowerCase().contains('androidch') ||
+              t.name.toLowerCase() == 'android_ch'),
       orElse: () => throw StateError('AndroidCh theme not found'),
     );
     final androidEngTheme = themes.firstWhere(
-      (t) => _isFontTheme(t.name) && (t.name.toLowerCase().contains('androideng') || t.name.toLowerCase() == 'android_eng'),
+      (t) =>
+          _isFontTheme(t.name) &&
+          (t.name.toLowerCase().contains('androideng') ||
+              t.name.toLowerCase() == 'android_eng'),
       orElse: () => throw StateError('AndroidEng theme not found'),
     );
-    
+
     final iosChClassName = '${iosChTheme.name.pascalCase}TextStyleTokens';
     final iosEngClassName = '${iosEngTheme.name.pascalCase}TextStyleTokens';
-    final androidChClassName = '${androidChTheme.name.pascalCase}TextStyleTokens';
-    final androidEngClassName = '${androidEngTheme.name.pascalCase}TextStyleTokens';
-    
-    // Get all TextStyle getters from the transformer lines
+    final androidChClassName =
+        '${androidChTheme.name.pascalCase}TextStyleTokens';
+    final androidEngClassName =
+        '${androidEngTheme.name.pascalCase}TextStyleTokens';
+
     final textStyleTransformer = iosChTheme.transformers.firstWhere(
       (t) => t.name == 'textStyle',
     );
-    
-    // Generate getter methods for all TextStyle properties
-    // Extract getter names from lines (format: "@override\n  TextStyle get tokenName => ...;")
-    final getters = <String>[];
-    for (final line in textStyleTransformer.lines) {
-      final trimmed = line.trim();
-      // Match patterns like: "TextStyle get tokenName =>" or "@override\n  TextStyle get tokenName =>"
-      if (trimmed.contains('TextStyle get ')) {
-        final match = RegExp(r'TextStyle get (\w+)').firstMatch(trimmed);
-        if (match != null) {
-          final getterName = match.group(1)!;
-          if (!getters.contains(getterName)) {
-            getters.add(getterName);
-          }
-        }
-      }
-    }
-    
-    final getterMethods = getters.map((getter) => '''
+
+    final textStyleEntries =
+        Transformer.parseGetterEntries(textStyleTransformer.lines);
+
+    final getterMethods = textStyleEntries.map((e) => '''
   @override
-  TextStyle get $getter => _platformTokens.$getter;''').join('\n');
-    
+  ${e.type} get ${e.name} => _platformTokens.${e.name};''').join('\n');
+
     return '''
 /// 自适应 TextStyleTokens，根据平台和地区自动选择对应的 tokens
-class AdaptiveTextStyleTokens extends TextStyleTokens {
-  final TextStyleTokens _iosChTokens = $iosChClassName();
-  final TextStyleTokens _iosEngTokens = $iosEngClassName();
-  final TextStyleTokens _androidChTokens = $androidChClassName();
-  final TextStyleTokens _androidEngTokens = $androidEngClassName();
+class AdaptiveTextStyleTokens implements TextStyleTokens {
+  static final AdaptiveTextStyleTokens _instance = AdaptiveTextStyleTokens._();
+  factory AdaptiveTextStyleTokens() => _instance;
+
+  AdaptiveTextStyleTokens._();
+
+  final TextStyleTokens _iosChTokens = const $iosChClassName();
+  final TextStyleTokens _iosEngTokens = const $iosEngClassName();
+  final TextStyleTokens _androidChTokens = const $androidChClassName();
+  final TextStyleTokens _androidEngTokens = const $androidEngClassName();
 
   /// 根据平台和地区获取对应的 tokens
   TextStyleTokens get _platformTokens {
@@ -200,23 +212,56 @@ class AdaptiveTextStyleTokens extends TextStyleTokens {
 $getterMethods
 }''';
   }
-  
+
   /// Checks if all font themes (IosCh, IosEng, AndroidCh, AndroidEng) are present.
   bool _hasAllFontThemes() {
-    final fontThemeNames = themes.where((t) => _isFontTheme(t.name)).map((t) => t.name.toLowerCase()).toSet();
+    final fontThemeNames = themes
+        .where((t) => _isFontTheme(t.name))
+        .map((t) => t.name.toLowerCase())
+        .toSet();
     // 检查是否包含所有字体主题（支持带下划线和驼峰命名）
     // 移除下划线后检查，以支持 ios_ch 和 iosch 两种格式
-    final normalizedNames = fontThemeNames.map((name) => name.replaceAll('_', '')).toSet();
+    final normalizedNames =
+        fontThemeNames.map((name) => name.replaceAll('_', '')).toSet();
     return normalizedNames.contains('iosch') &&
         normalizedNames.contains('ioseng') &&
         normalizedNames.contains('androidch') &&
         normalizedNames.contains('androideng');
   }
 
+  /// 为 token 分组类生成字段：将 transformer 块首的 `///` 与 `@deprecated` / `@Deprecated` 挂到对应 `final` 成员上。
+  String _tokenGroupFieldDeclarations({
+    required List<GetterEntry> entries,
+    required Map<String, String> fallbackThemePerToken,
+    required String transformerName,
+  }) {
+    return entries.map((e) {
+      final themeName = fallbackThemePerToken[e.name];
+      if (themeName == null) {
+        return 'final ${e.type} ${e.name};';
+      }
+      final ti = themes.indexWhere((t) => t.name == themeName);
+      if (ti < 0) {
+        return 'final ${e.type} ${e.name};';
+      }
+      final theme = themes[ti];
+      final tri = theme.transformers.indexWhere((t) => t.name == transformerName);
+      if (tri < 0) {
+        return 'final ${e.type} ${e.name};';
+      }
+      final tr = theme.transformers[tri];
+      final block = Transformer.getterNameToLineBlock(tr.lines)[e.name];
+      final prefix = Transformer.formatMemberPrefixFromBlock(block);
+      return '${prefix}final ${e.type} ${e.name};';
+    }).join('\n  ');
+  }
+
   /// Builds interface declarations for all transformers.
   /// Returns a list of interface code strings, with ITokens interface first.
   /// 构建接口声明，接口包含所有主题的 getter 并集；并返回并集与默认值回退信息。
-  _InterfaceUnion _buildInterfaces() {
+  /// [singleImplementationTransformers] - transformers with only one implementation (use static const)
+  _InterfaceUnion _buildInterfaces(
+      Set<String> singleImplementationTransformers) {
     final interfaceStrings = <String>[];
     final interFaceNames = <String, String>{};
     final unionGetters = <String, List<GetterEntry>>{};
@@ -247,8 +292,10 @@ $getterMethods
       final fallbackForTransformer = <String, String>{};
 
       for (final theme in themes) {
-        if (_isFontTheme(theme.name) && transformerName != 'textStyle') continue;
-        final matching = theme.transformers.where((t) => t.name == transformerName);
+        if (_isFontTheme(theme.name) && transformerName != 'textStyle')
+          continue;
+        final matching =
+            theme.transformers.where((t) => t.name == transformerName);
         if (matching.isEmpty) continue;
         final entries = Transformer.parseGetterEntries(matching.first.lines);
         for (final e in entries) {
@@ -262,15 +309,27 @@ $getterMethods
       unionGetters[transformerName] = orderedEntries;
       fallbackThemePerGetter[transformerName] = fallbackForTransformer;
 
-      final interfaceLines = orderedEntries.map((e) => '${e.type} get ${e.name};').join('\n  ');
+      final params = orderedEntries
+          .map((e) => 'required this.${e.name},')
+          .join('\n    ');
+      final fields = _tokenGroupFieldDeclarations(
+        entries: orderedEntries,
+        fallbackThemePerToken: fallbackForTransformer,
+        transformerName: transformerName,
+      );
       interfaceStrings.add('''
-abstract class ${transformer.className} {
-  $interfaceLines
+class ${transformer.className} {
+  const ${transformer.className}({
+    $params
+  });
+
+  $fields
 }''');
       interFaceNames[transformerName] = transformer.className;
     }
 
-    if (allTransformerNames.contains('textStyle') && !interFaceNames.containsKey('textStyle')) {
+    if (allTransformerNames.contains('textStyle') &&
+        !interFaceNames.containsKey('textStyle')) {
       TokenTheme? themeWithTextStyle;
       for (final theme in themes) {
         if (theme.transformers.any((t) => t.name == 'textStyle')) {
@@ -282,15 +341,28 @@ abstract class ${transformer.className} {
         final textStyleTransformer = themeWithTextStyle.transformers.firstWhere(
           (t) => t.name == 'textStyle',
         );
-        final entries = Transformer.parseGetterEntries(textStyleTransformer.lines);
+        final entries =
+            Transformer.parseGetterEntries(textStyleTransformer.lines);
         unionGetters['textStyle'] = entries;
         fallbackThemePerGetter['textStyle'] = {
           for (final e in entries) e.name: themeWithTextStyle.name,
         };
-        final interfaceLines = entries.map((e) => '${e.type} get ${e.name};').join('\n  ');
+        final params =
+            entries.map((e) => 'required this.${e.name},').join('\n    ');
+        final fields = _tokenGroupFieldDeclarations(
+          entries: entries,
+          fallbackThemePerToken: {
+            for (final e in entries) e.name: themeWithTextStyle.name,
+          },
+          transformerName: 'textStyle',
+        );
         interfaceStrings.add('''
-abstract class ${textStyleTransformer.className} {
-  $interfaceLines
+class ${textStyleTransformer.className} {
+  const ${textStyleTransformer.className}({
+    $params
+  });
+
+  $fields
 }''');
         interFaceNames['textStyle'] = textStyleTransformer.className;
       }
@@ -302,14 +374,15 @@ abstract class ITokens {
 }''';
 
     interfaceStrings.insert(0, iTokenInterface);
-    return _InterfaceUnion(interfaceStrings, unionGetters, fallbackThemePerGetter);
+    return _InterfaceUnion(
+        interfaceStrings, unionGetters, fallbackThemePerGetter);
   }
 
   /// Builds a map of theme -> transformer name -> content signature.
   /// This is used to look up transformer content signatures for each theme.
   Map<TokenTheme, Map<String, String>> _buildThemeContentMap() {
     final themeContentMap = <TokenTheme, Map<String, String>>{};
-    
+
     for (final theme in themes) {
       themeContentMap[theme] = {};
       final isFontTheme = _isFontTheme(theme.name);
@@ -326,44 +399,53 @@ abstract class ITokens {
         themeContentMap[theme]![transformer.name] = contentSignature;
       }
     }
-    
+
     return themeContentMap;
   }
 
   /// Generates shared classes for transformers that are shared across multiple themes.
+  /// Also detects single-implementation transformers that can use static const.
   /// Returns both the class names map and the generated class code.
   _SharedClassResult _generateSharedClasses() {
     final sharedClassesMap = _detectSharedClasses();
     final sharedClassNames = <String, Map<String, String>>{};
     final classes = <String>[];
     final usedClassNames = <String>{};
+    final singleImplementationTransformers = <String>{};
+
+    // Detect single-implementation transformers (only used by one non-font theme)
+    _detectSingleImplementationTransformers(singleImplementationTransformers);
 
     for (final entry in sharedClassesMap.entries) {
       final transformerName = entry.key;
       final contentGroups = entry.value;
-      
+
       sharedClassNames[transformerName] = {};
-      
+
       for (final contentEntry in contentGroups.entries) {
         final contentSignature = contentEntry.key;
         final sharedThemes = contentEntry.value;
-        
+
         if (sharedThemes.length > 1) {
           // Multiple themes share the same transformer content
           // 确保第一个主题不是字体主题（对于非 textStyle transformer）
-          final nonFontThemes = sharedThemes.where((t) => !_isFontTheme(t.name)).toList();
+          final nonFontThemes =
+              sharedThemes.where((t) => !_isFontTheme(t.name)).toList();
           if (nonFontThemes.isEmpty && transformerName != 'textStyle') {
             // 如果没有非字体主题，且不是 textStyle，跳过
             continue;
           }
-          
-          final firstTheme = nonFontThemes.isNotEmpty ? nonFontThemes.first : sharedThemes.first;
-          final matchingTransformers = firstTheme.transformers.where((t) => t.name == transformerName);
+
+          final firstTheme = nonFontThemes.isNotEmpty
+              ? nonFontThemes.first
+              : sharedThemes.first;
+          final matchingTransformers =
+              firstTheme.transformers.where((t) => t.name == transformerName);
           if (matchingTransformers.isEmpty) {
             continue;
           }
           final transformer = matchingTransformers.first;
-          
+
           // Generate class name - only use the first content signature to avoid duplicates
           // If the class name is already used, skip this content signature
           String sharedClassName = 'Shared${transformer.className}';
@@ -372,19 +454,58 @@ abstract class ITokens {
             continue;
           }
           usedClassNames.add(sharedClassName);
-          
-          sharedClassNames[transformerName]![contentSignature] = sharedClassName;
-          
-          // Generate shared class (only once per content signature)
+
+          sharedClassNames[transformerName]![contentSignature] =
+              sharedClassName;
+
+          final superArgs =
+              Transformer.superInitializerArgsFromLines(transformer.lines);
+          final superCall = superArgs.isEmpty
+              ? ''
+              : ' : super(\n    ${superArgs.join(',\n    ')}\n  )';
           classes.add('''
 class $sharedClassName extends ${transformer.className} {
-  ${transformer.lines.join('\n  ')}
+  const $sharedClassName()$superCall;
 }''');
         }
       }
     }
-    
-    return _SharedClassResult(sharedClassNames, classes);
+
+    return _SharedClassResult(
+        sharedClassNames, classes, singleImplementationTransformers);
+  }
+
+  /// Detects transformers that have only a single non-font theme implementation.
+  /// These can use static const instead of class instances.
+  void _detectSingleImplementationTransformers(
+      Set<String> singleImplementationTransformers) {
+    final transformerThemeCount = <String, int>{};
+    final transformerNonFontThemeCount = <String, int>{};
+
+    for (final theme in themes) {
+      final isFontTheme = _isFontTheme(theme.name);
+      for (final transformer in theme.transformers) {
+        if (transformer.name == 'materialColor') continue;
+        transformerThemeCount[transformer.name] =
+            (transformerThemeCount[transformer.name] ?? 0) + 1;
+        if (!isFontTheme) {
+          transformerNonFontThemeCount[transformer.name] =
+              (transformerNonFontThemeCount[transformer.name] ?? 0) + 1;
+        }
+      }
+    }
+
+    // Only use static const if:
+    // 1. Has only one non-font theme implementation
+    // 2. Not 'color' (too many tokens) or 'textStyle'（通常多字体主题）
+    for (final entry in transformerNonFontThemeCount.entries) {
+      if (entry.value == 1 &&
+          entry.key != 'color' &&
+          entry.key != 'materialColor' &&
+          entry.key != 'textStyle') {
+        singleImplementationTransformers.add(entry.key);
+      }
+    }
   }
 
   /// Generates theme-specific classes and theme token classes.
@@ -393,94 +514,120 @@ class $sharedClassName extends ${transformer.className} {
     Map<TokenTheme, Map<String, String>> themeContentMap,
     List<String> sharedClasses,
     _InterfaceUnion interfaceUnion,
+    Set<String> singleImplementationTransformers,
   ) {
     final classes = <String>[];
-    
+
     // Add shared classes first
     classes.addAll(sharedClasses);
 
     // Generate theme-specific classes and properties
     for (final theme in themes) {
       final isFontTheme = _isFontTheme(theme.name);
-      
+
       // 字体主题只生成 TextStyleTokens 实现类，不生成 ITokens 类和其他 transformer 类
       if (isFontTheme) {
         // 只处理 textStyle transformer，生成 TextStyleTokens 实现类
-        final textStyleTransformers = theme.transformers.where((t) => t.name == 'textStyle');
-        if (textStyleTransformers.isNotEmpty && themeContentMap[theme]!.containsKey('textStyle')) {
+        final textStyleTransformers =
+            theme.transformers.where((t) => t.name == 'textStyle');
+        if (textStyleTransformers.isNotEmpty &&
+            themeContentMap[theme]!.containsKey('textStyle')) {
           classes.add(textStyleTransformers.first.classDeclaration(theme.name));
         }
         // 字体主题不生成 ITokens 类和其他 transformer 类，直接跳过
         continue;
       }
-      
+
       // 非字体主题的处理
       final properties = <String>[];
       final insertAt = classes.length;
-      
+
       // 对于 Light 和 Dark 主题，如果存在所有字体主题，添加 textStyle getter（使用 AdaptiveTextStyleTokens）
-      final isLightOrDark = theme.name.toLowerCase() == 'light' || theme.name.toLowerCase() == 'dark';
+      final isLightOrDark = theme.name.toLowerCase() == 'light' ||
+          theme.name.toLowerCase() == 'dark';
       if (isLightOrDark && _hasAllFontThemes()) {
         // 查找 textStyle transformer（可能来自字体主题或其他主题）
         Transformer? textStyleTransformer;
         for (final t in themes) {
-          final textStyleTrans = t.transformers.where((tr) => tr.name == 'textStyle');
+          final textStyleTrans =
+              t.transformers.where((tr) => tr.name == 'textStyle');
           if (textStyleTrans.isNotEmpty) {
             textStyleTransformer = textStyleTrans.first;
             break;
           }
         }
         if (textStyleTransformer != null) {
-          properties.add('@override\n  ${textStyleTransformer.className} get textStyle => AdaptiveTextStyleTokens();');
+          properties.add(
+              '@override\n  ${textStyleTransformer.className} get textStyle => AdaptiveTextStyleTokens();');
         }
       }
-      
+
       for (final transformer in theme.transformers) {
         final transformerName = transformer.name;
-        
+
         // 检查 themeContentMap 中是否存在该 transformer（可能被过滤掉了）
         if (!themeContentMap[theme]!.containsKey(transformerName)) {
           continue;
         }
-        
+
         // 对于 Light 和 Dark 主题，如果已经添加了 textStyle getter（使用 AdaptiveTextStyleTokens），跳过
-        if (isLightOrDark && transformerName == 'textStyle' && _hasAllFontThemes()) {
+        if (isLightOrDark &&
+            transformerName == 'textStyle' &&
+            _hasAllFontThemes()) {
           continue;
         }
-        
+
         final contentSignature = themeContentMap[theme]![transformerName]!;
         final hasSharedClass = sharedClassNames.containsKey(transformerName) &&
             sharedClassNames[transformerName]!.containsKey(contentSignature);
-        
+
         if (hasSharedClass) {
           // Use shared class
-          final sharedClassName = sharedClassNames[transformerName]![contentSignature]!;
-          properties.add('@override\n  ${transformer.className} get $transformerName => $sharedClassName();');
+          final sharedClassName =
+              sharedClassNames[transformerName]![contentSignature]!;
+          properties.add(
+              '@override\n  ${transformer.className} get $transformerName => const $sharedClassName();');
+        } else if (singleImplementationTransformers.contains(transformerName)) {
+          // Single implementation - use static const
+          properties.add(transformer.staticConstPropertyDeclaration());
+          classes.add(transformer.staticConstClassDeclaration());
         } else {
           // Generate theme-specific class (with default stubs for getters missing in this theme)
-          properties.add(transformer.propertyDeclaration(theme.name));
           final unionEntries = interfaceUnion.unionGetters[transformerName];
-          final fallbackMap = interfaceUnion.fallbackThemePerGetter[transformerName];
-          final themeGetterCount = Transformer.getterNameToLineBlock(transformer.lines).length;
+          final fallbackMap =
+              interfaceUnion.fallbackThemePerGetter[transformerName];
+          final themeGetterCount =
+              Transformer.getterNameToLineBlock(transformer.lines).length;
+          final isPartialUnion = unionEntries != null &&
+              unionEntries.isNotEmpty &&
+              fallbackMap != null &&
+              unionEntries.length != themeGetterCount;
+
+          properties.add(transformer.propertyDeclaration(theme.name,
+              useConst: !isPartialUnion));
+
           if (unionEntries == null ||
               unionEntries.isEmpty ||
               fallbackMap == null ||
               unionEntries.length == themeGetterCount) {
             classes.add(transformer.classDeclaration(theme.name));
           } else {
-            final getterToBlock = Transformer.getterNameToLineBlock(transformer.lines);
-            final classLines = <String>[];
+            final getterToBlock =
+                Transformer.getterNameToLineBlock(transformer.lines);
+            final superParts = <String>[];
             final missingTokenNames = <String>[];
             for (final e in unionEntries) {
               if (getterToBlock.containsKey(e.name)) {
-                classLines.add(getterToBlock[e.name]!);
+                final arg =
+                    Transformer.toSuperInitializerArg(getterToBlock[e.name]!);
+                if (arg != null) superParts.add(arg);
               } else {
                 missingTokenNames.add(e.name);
                 final fallbackTheme = fallbackMap[e.name] ?? theme.name;
-                final fallbackClassName = '${fallbackTheme.pascalCase}${transformer.className}';
-                classLines.add(
-                  '/// 当前主题 (${theme.name}) 未定义此 token，使用 $fallbackTheme 主题的值作为默认值。\n  @override\n  ${e.type} get ${e.name} => $fallbackClassName().${e.name};',
-                );
+                final fallbackClassName =
+                    '${fallbackTheme.pascalCase}${transformer.className}';
+                superParts.add(
+                    '${e.name}: $fallbackClassName().${e.name}');
               }
             }
             if (missingTokenNames.isNotEmpty) {
@@ -488,9 +635,15 @@ class $sharedClassName extends ${transformer.className} {
                 'Warning: 主题 "${theme.name}" 的 ${transformer.className} 中以下 token 未提供，已使用默认主题的值: ${missingTokenNames.join(', ')}',
               );
             }
-            classes.add(
-              'class ${theme.name.pascalCase}${transformer.className} extends ${transformer.className} {\n  ${classLines.join('\n  ')}\n}\n',
-            );
+            final implName =
+                '${theme.name.pascalCase}${transformer.className}';
+            classes.add('''
+class $implName extends ${transformer.className} {
+  $implName() : super(
+    ${superParts.join(',\n    ')}
+  );
+}
+''');
           }
         }
       }
@@ -503,7 +656,7 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
 
       classes.insert(insertAt, tokenClass);
     }
-    
+
     return classes;
   }
 
@@ -512,41 +665,43 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
   /// Returns a map of transformer name -> content signature -> list of themes.
   Map<String, Map<String, List<TokenTheme>>> _detectSharedClasses() {
     if (themes.isEmpty) return {};
-    
+
     final sharedMap = <String, Map<String, List<TokenTheme>>>{};
-    final transformerNames = themes.first.transformers.map((t) => t.name).toSet();
-    
+    final transformerNames =
+        themes.first.transformers.map((t) => t.name).toSet();
+
     for (final transformerName in transformerNames) {
       // 禁止生成 SharedColorTokens 和 SharedMaterialColorTokens - 排除 color 和 materialColor transformer 的共享类生成
       if (transformerName == 'color' || transformerName == 'materialColor') {
         continue;
       }
-      
+
       // Group themes by transformer content (lines)
       final contentGroups = <String, List<TokenTheme>>{};
-      
+
       for (final theme in themes) {
         // 对于非 textStyle transformer，排除字体主题（它们不应该共享非 textStyle 的 transformer）
         if (transformerName != 'textStyle' && _isFontTheme(theme.name)) {
           continue;
         }
-        
+
         // 查找 transformer，如果找不到则跳过（字体主题可能没有某些 transformer）
-        final matchingTransformers = theme.transformers.where((t) => t.name == transformerName);
+        final matchingTransformers =
+            theme.transformers.where((t) => t.name == transformerName);
         if (matchingTransformers.isEmpty) {
           continue;
         }
         final transformer = matchingTransformers.first;
-        
+
         // Create a content signature from the transformer's lines
         final contentSignature = transformer.lines.join('\n');
-        
+
         if (!contentGroups.containsKey(contentSignature)) {
           contentGroups[contentSignature] = [];
         }
         contentGroups[contentSignature]!.add(theme);
       }
-      
+
       // Only include content signatures that are shared by multiple themes
       // AND the themes have at least one common token set
       // Use connected components algorithm to group themes correctly
@@ -556,7 +711,7 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
           // Multiple themes share this content
           // Find connected components: themes that can share (have common sets)
           final sharedGroups = _findConnectedComponents(entry.value);
-          
+
           // If there's only one connected component, all themes can share
           // If there are multiple components, we need to handle them separately
           // For now, we'll merge all components that have the same content
@@ -567,10 +722,11 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
             for (final group in sharedGroups) {
               allSharedThemes.addAll(group);
             }
-            
+
             // 对于非 textStyle transformer，排除字体主题（它们不应该共享非 textStyle 的 transformer）
             if (transformerName != 'textStyle') {
-              final nonFontThemes = allSharedThemes.where((t) => !_isFontTheme(t.name)).toList();
+              final nonFontThemes =
+                  allSharedThemes.where((t) => !_isFontTheme(t.name)).toList();
               if (nonFontThemes.length >= 2) {
                 sharedContentGroups[entry.key] = nonFontThemes;
               }
@@ -583,12 +739,12 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
           }
         }
       }
-      
+
       if (sharedContentGroups.isNotEmpty) {
         sharedMap[transformerName] = sharedContentGroups;
       }
     }
-    
+
     return sharedMap;
   }
 
@@ -620,17 +776,17 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
   /// Returns a list of groups, where each group contains themes that can share.
   List<List<TokenTheme>> _findConnectedComponents(List<TokenTheme> themes) {
     if (themes.length <= 1) return [];
-    
+
     final groups = <List<TokenTheme>>[];
     final processed = <TokenTheme>{};
-    
+
     for (final theme in themes) {
       if (processed.contains(theme)) continue;
-      
+
       // Start a new group with this theme
       final group = <TokenTheme>[theme];
       processed.add(theme);
-      
+
       // Find all themes that can share with any theme in this group
       // (i.e., have at least one common token set)
       bool foundNew;
@@ -638,7 +794,7 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
         foundNew = false;
         for (final otherTheme in themes) {
           if (processed.contains(otherTheme)) continue;
-          
+
           // Check if otherTheme shares common sets with any theme in current group
           for (final groupTheme in group) {
             if (_hasCommonTokenSets(otherTheme, groupTheme)) {
@@ -650,13 +806,13 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
           }
         }
       } while (foundNew);
-      
+
       // Only add groups with at least 2 themes
       if (group.length >= 2) {
         groups.add(group);
       }
     }
-    
+
     return groups;
   }
 

@@ -104,6 +104,44 @@ void main() {
     expect(parser.resolve('boldReference')!.value['fontSize'], equals('12px'));
   });
 
+  test('typography resolves Figma \$ alias for fontFamily in composite value', () {
+    final input = '''
+{
+  "Mali": {
+    "value": "Mali",
+    "type": "fontFamilies"
+  },
+  "heading": {
+    "value": "Roboto",
+    "type": "fontFamilies"
+  },
+  "boldDollar": {
+    "value": {
+      "fontFamily": "\$Mali",
+      "fontWeight": "700",
+      "fontSize": "16px"
+    },
+    "type": "typography"
+  },
+  "boldDollarSuffix": {
+    "value": {
+      "fontFamily": "\$heading",
+      "fontWeight": "700",
+      "fontSize": "16px"
+    },
+    "type": "typography"
+  }
+}
+''';
+
+    final parsed = json.decode(input) as Map<String, dynamic>;
+    final parser = TokenParser();
+    parser.parse(parsed);
+
+    expect(parser.resolve('boldDollar')!.value['fontFamily'], equals('Mali'));
+    expect(parser.resolve('boldDollarSuffix')!.value['fontFamily'], equals('Roboto'));
+  });
+
   test('Test recursive deep references', () {
     final recursiveTest = '''
 {

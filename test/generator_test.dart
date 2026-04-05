@@ -31,18 +31,23 @@ abstract class ITokens {
   ColorTokens get color;
 }
 
-abstract class ColorTokens {
-  Color get token;
+class ColorTokens {
+  const ColorTokens({
+    required this.token,
+  });
+
+  final Color token;
 }
 
 class DefaultTokens extends ITokens {
   @override
-  ColorTokens get color => DefaultColorTokens();
+  ColorTokens get color => const DefaultColorTokens();
 }
 
 class DefaultColorTokens extends ColorTokens {
-  @override
-  Color get token => const Color(0xFF111111);
+  const DefaultColorTokens() : super(
+    token: const Color(0xFF111111)
+  );
 }
 ''';
 
@@ -63,7 +68,7 @@ void main() {
     expect(transformer.lines.length, equals(1));
     expect(
       transformer.lines[0],
-      equals('@override\n  Color get token => const Color(0xFF111111);'),
+      equals('static const Color token = const Color(0xFF111111);'),
     );
 
     final processor = Processor(
@@ -89,5 +94,31 @@ void main() {
     );
 
     Directory('test/output').deleteSync(recursive: true);
+  });
+
+  test('Carries \$description and \$deprecated onto ColorTokens fields', () {
+    final input = '''
+{
+  "deprecatedToken": {
+    "value": "#111111",
+    "type": "color",
+    "\$description": "Old color token",
+    "\$deprecated": "Use newToken instead"
+  }
+}''';
+
+    final parsed = json.decode(input) as Map<String, dynamic>;
+    final parser = TokenParser()..parse(parsed);
+
+    final processor = Processor(
+      themes: parser.themes,
+      singleTokenTransformerFactories: [(_) => ColorTransformer()],
+    );
+    processor.process();
+
+    final out = Generator(processor.themes).output;
+    expect(out, contains('/// Old color token'));
+    expect(out, contains("@Deprecated('Use newToken instead')"));
+    expect(out, contains('final Color deprecatedToken;'));
   });
 }

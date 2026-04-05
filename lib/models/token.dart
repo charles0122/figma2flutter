@@ -315,6 +315,16 @@ class Token {
       } else if (value is String && value.isTokenReference) {
         final refKey = value.valueByRef;
         resolved[key] = tokenMap[refKey]?.resolveAllReferences(tokenMap, originalDocument).value;
+      } else if (value is String) {
+        final dollarRef = _figmaDollarAliasPath(value);
+        if (dollarRef != null) {
+          final refKey = _resolveDollarAliasToTokenKey(dollarRef, tokenMap);
+          resolved[key] = tokenMap[refKey]!
+              .resolveAllReferences(tokenMap, originalDocument)
+              .value;
+        } else {
+          resolved[key] = value;
+        }
       } else {
         resolved[key] = value;
       }
@@ -408,6 +418,34 @@ class Token {
   String toString() {
     return ('{"value": $value, "type": "$type", "path": "$path", "name": "$name", "variableName": "$variableName" }\n');
   }
+}
+
+/// Figma / Tokens Studio 旧式别名：整条字符串为 `\$tokenKey`（如 `\$Mali`、`\$spacing.sm`）。
+String? _figmaDollarAliasPath(String value) {
+  if (!value.startsWith(r'$') || value.length < 2) return null;
+  final body = value.substring(1);
+  if (body.isEmpty) return null;
+  if (!RegExp(r'^[\w.]+$').hasMatch(body)) return null;
+  return body;
+}
+
+/// 将 `\$ref` 解析为 [tokenMap] 的 key：先精确匹配，再匹配以 `.\$ref` 结尾的唯一键。
+String _resolveDollarAliasToTokenKey(
+  String ref,
+  Map<String, Token> tokenMap,
+) {
+  if (tokenMap.containsKey(ref)) return ref;
+  final suffix = '.$ref';
+  final candidates = tokenMap.keys.where((k) => k.endsWith(suffix)).toList();
+  if (candidates.isEmpty) {
+    throw ResolveTokenException('Reference not found for `\$$ref`');
+  }
+  if (candidates.length > 1) {
+    throw ResolveTokenException(
+      'Ambiguous \$ alias `\$$ref` matches: ${candidates.join(", ")}',
+    );
+  }
+  return candidates.single;
 }
 
 String? _resolveColorValue(String initialValue, Map<String, Token> tokenMap) {

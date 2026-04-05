@@ -32,11 +32,15 @@ extension StringExtension on String {
   }
 
   bool get isMathExpression {
-    // 支持带空格和不带空格的运算符
-    // 例如: "a * b" 或 "a*b" 或 "{token}*0.25"
+    // 支持带空格和不带空格的 * / +，以及「两侧有空格」的二元减号（与
+    // Token._resolveMathExpression 的 operatorPattern 保持一致）。
     //
-    // 负号开头的纯数字（如 letterSpacing 的 "-0.5"）不是二元运算，否则正则会把
-    // 开头的 `-` 当成减号，导致误判为数学表达式并在 _resolveMathExpression 中报错。
+    // 负号开头的纯数字（如 letterSpacing 的 "-0.5"）不是二元运算。
+    // 词内的连字符（如 Font Awesome 的 fa-solid、kebab-case）不得视为减号，否则会
+    // 误判 asset 等字符串并走进数学解析。
+    //
+    // 除 {token} 与尺寸字面量（数字 ± px/rem/%）外，不得含其它字母，否则视为 URL、
+    // class 名等，避免误判为数学式。
     final trimmed = trim();
     if (trimmed.isNotEmpty && double.tryParse(trimmed) != null) {
       return false;
@@ -45,7 +49,14 @@ extension StringExtension on String {
     if (isTokenReference) {
       return false;
     }
-    return RegExp(r'\s*[*/+-]\s*').hasMatch(this);
+    final operatorPattern = RegExp(r'\s+-\s+|\s*[*/]\s*|\s*\+\s*');
+    if (!operatorPattern.hasMatch(this)) {
+      return false;
+    }
+    if (_hasLettersOutsideTokenRefsAndNumericLiterals(this)) {
+      return false;
+    }
+    return true;
   }
 
   /// Returns the path of a reference, so we can search for the token
@@ -59,4 +70,18 @@ extension StringExtension on String {
       'Not a valid reference ( should start with \$ or encased in { })',
     );
   }
+}
+
+/// 去掉 [input] 中的 `{引用}` 与数字/尺寸片段后，是否仍含 [a-zA-Z]。
+bool _hasLettersOutsideTokenRefsAndNumericLiterals(String input) {
+  var s = input.replaceAll(RegExp(r'\{[^}]*\}'), '');
+  final numericWithOptionalUnit = RegExp(
+    r'-?(?:\d+(?:\.\d*)?|\.\d+)\s*(?:px|rem|%)?',
+  );
+  String previous;
+  do {
+    previous = s;
+    s = s.replaceAll(numericWithOptionalUnit, '');
+  } while (s != previous);
+  return RegExp(r'[a-zA-Z]').hasMatch(s);
 }

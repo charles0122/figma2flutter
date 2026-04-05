@@ -50,32 +50,28 @@ final input = '''
 }''';
 
 final output = '''
-@override
-  LinearGradient get gradient => const LinearGradient(
+static const LinearGradient gradient = const LinearGradient(
   colors: [Color(0xFFFFFFFF), Color(0xFF000000),],
   stops: [0.0, 1.0],
   begin: Alignment.bottomCenter,
   end: Alignment.topCenter,
   transform: GradientRotation(0.785),
 );
-@override
-  LinearGradient get gradientWithAlphaModifier => const LinearGradient(
+static const LinearGradient gradientWithAlphaModifier = const LinearGradient(
   colors: [Color(0xFFFFFFFF), Color(0x61FFFFFF),],
   stops: [0.0, 1.0],
   begin: Alignment.bottomCenter,
   end: Alignment.topCenter,
   transform: GradientRotation(0.785),
 );
-@override
-  LinearGradient get gradientMoreStops => const LinearGradient(
+static const LinearGradient gradientMoreStops = const LinearGradient(
   colors: [Color(0xFFFFFFFF), Color(0xFFFFB000), Color(0xFF000000),],
   stops: [0.0, 0.5, 1.0],
   begin: Alignment.bottomCenter,
   end: Alignment.topCenter,
   transform: GradientRotation(3.14),
 );
-@override
-  LinearGradient get rgbaInGradient => const LinearGradient(
+static const LinearGradient rgbaInGradient = const LinearGradient(
   colors: [Color(0x80FFFFFF), Color(0xFFFFB000),],
   stops: [0.0, 1.0],
   begin: Alignment.bottomCenter,

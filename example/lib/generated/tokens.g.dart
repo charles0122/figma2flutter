@@ -3,6 +3,8 @@
 /// Figma2Flutter
 /// *****************************************************
 
+// ignore_for_file: provide_deprecation_message
+
 library tokens;
 
 import 'package:flutter/foundation.dart';
@@ -17,2165 +19,2219 @@ abstract class ITokens {
   TextStyleTokens get textStyle;
 }
 
-abstract class ColorTokens {
-  Color get globalColorBlack;
-  Color get globalColorWhite;
-  Color get globalColorTransparent;
+class ColorTokens {
+  const ColorTokens({
+    required this.globalColorBlack,
+    required this.globalColorWhite,
+    required this.globalColorTransparent,
+    required this.globalColorBluegray100,
+    required this.globalColorBluegray200,
+    required this.globalColorBluegray300,
+    required this.globalColorBluegray400,
+    required this.globalColorBluegray500,
+    required this.globalColorBluegray550,
+    required this.globalColorBluegray600,
+    required this.globalColorBluegray650,
+    required this.globalColorBluegray700,
+    required this.globalColorBluegray800,
+    required this.globalColorBluegray900,
+    required this.globalColorBluegray1000,
+    required this.globalColorPureblue100,
+    required this.globalColorPureblue200,
+    required this.globalColorPureblue300,
+    required this.globalColorPureblue400,
+    required this.globalColorPureblue500,
+    required this.globalColorPureblue550,
+    required this.globalColorPureblue600,
+    required this.globalColorPureblue650,
+    required this.globalColorPureblue700,
+    required this.globalColorPureblue800,
+    required this.globalColorPureblue900,
+    required this.globalColorPureblue1000,
+    required this.globalColorPurple100,
+    required this.globalColorPurple200,
+    required this.globalColorPurple300,
+    required this.globalColorPurple400,
+    required this.globalColorPurple450,
+    required this.globalColorPurple500,
+    required this.globalColorPurple550,
+    required this.globalColorPurple600,
+    required this.globalColorPurple700,
+    required this.globalColorPurple800,
+    required this.globalColorPurple850,
+    required this.globalColorPurple900,
+    required this.globalColorPurple1000,
+    required this.globalColorPinkred100,
+    required this.globalColorPinkred200,
+    required this.globalColorPinkred300,
+    required this.globalColorPinkred400,
+    required this.globalColorPinkred500,
+    required this.globalColorPinkred600,
+    required this.globalColorPinkred700,
+    required this.globalColorPinkred800,
+    required this.globalColorPinkred900,
+    required this.globalColorPinkred1000,
+    required this.globalColorCyanblue100,
+    required this.globalColorCyanblue200,
+    required this.globalColorCyanblue300,
+    required this.globalColorCyanblue350,
+    required this.globalColorCyanblue400,
+    required this.globalColorCyanblue440,
+    required this.globalColorCyanblue450,
+    required this.globalColorCyanblue500,
+    required this.globalColorCyanblue550,
+    required this.globalColorCyanblue600,
+    required this.globalColorCyanblue700,
+    required this.globalColorCyanblue750,
+    required this.globalColorCyanblue800,
+    required this.globalColorCyanblue900,
+    required this.globalColorCyanblue1000,
+    required this.globalColorOrange100,
+    required this.globalColorOrange200,
+    required this.globalColorOrange300,
+    required this.globalColorOrange400,
+    required this.globalColorOrange500,
+    required this.globalColorOrange550,
+    required this.globalColorOrange600,
+    required this.globalColorOrange700,
+    required this.globalColorOrange800,
+    required this.globalColorOrange900,
+    required this.globalColorOrange1000,
+    required this.globalColorBluegrayAlpha100,
+    required this.globalColorBluegrayAlpha200,
+    required this.globalColorBluegrayAlpha300,
+    required this.globalColorBluegrayAlpha400,
+    required this.globalColorBluegrayAlpha500,
+    required this.globalColorBluegrayAlpha600,
+    required this.globalColorBluegrayAlpha700,
+    required this.globalColorBluegrayAlpha800,
+    required this.globalColorBluegrayAlpha900,
+    required this.globalColorBluegrayAlpha1000,
+    required this.globalColorBlackAlpha100,
+    required this.globalColorBlackAlpha200,
+    required this.globalColorBlackAlpha300,
+    required this.globalColorBlackAlpha400,
+    required this.globalColorBlackAlpha500,
+    required this.globalColorBlackAlpha600,
+    required this.globalColorBlackAlpha700,
+    required this.globalColorBlackAlpha800,
+    required this.globalColorBlackAlpha900,
+    required this.globalColorBlackAlpha1000,
+    required this.globalColorWhiteAlpha100,
+    required this.globalColorWhiteAlpha200,
+    required this.globalColorWhiteAlpha300,
+    required this.globalColorWhiteAlpha400,
+    required this.globalColorWhiteAlpha500,
+    required this.globalColorWhiteAlpha600,
+    required this.globalColorWhiteAlpha700,
+    required this.globalColorWhiteAlpha800,
+    required this.globalColorWhiteAlpha900,
+    required this.globalColorWhiteAlpha1000,
+    required this.globalColorRadicalRed100,
+    required this.globalColorRadicalRed200,
+    required this.globalColorRadicalRed300,
+    required this.globalColorRadicalRed400,
+    required this.globalColorRadicalRed450,
+    required this.globalColorRadicalRed500,
+    required this.globalColorRadicalRed550,
+    required this.globalColorRadicalRed560,
+    required this.globalColorRadicalRed600,
+    required this.globalColorRadicalRed700,
+    required this.globalColorRadicalRed800,
+    required this.globalColorRadicalRed900,
+    required this.globalColorRadicalRed1000,
+    required this.globalColorPuertoRico100,
+    required this.globalColorPuertoRico200,
+    required this.globalColorPuertoRico300,
+    required this.globalColorPuertoRico400,
+    required this.globalColorPuertoRico500,
+    required this.globalColorPuertoRico600,
+    required this.globalColorPuertoRico700,
+    required this.globalColorPuertoRico800,
+    required this.globalColorPuertoRico900,
+    required this.globalColorPuertoRico1000,
+    required this.globalColorTuna100,
+    required this.globalColorTuna200,
+    required this.globalColorTuna300,
+    required this.globalColorTuna400,
+    required this.globalColorTuna500,
+    required this.globalColorTuna600,
+    required this.globalColorTuna700,
+    required this.globalColorTuna800,
+    required this.globalColorTuna900,
+    required this.globalColorTuna1000,
+    required this.globalColorYellow100,
+    required this.globalColorYellow200,
+    required this.globalColorYellow300,
+    required this.globalColorYellow400,
+    required this.globalColorYellow500,
+    required this.globalColorYellow600,
+    required this.globalColorYellow700,
+    required this.globalColorYellow800,
+    required this.globalColorYellow900,
+    required this.globalColorYellow1000,
+    required this.globalColorPureblueAlpha700,
+    required this.globalColorCyanblueAlpha100,
+    required this.globalColorCyanblueAlpha300,
+    required this.globalColorLavenderpurple500,
+    required this.semanticColorGreyTextPrimary,
+    required this.semanticColorGreyTextSecondary,
+    required this.semanticColorGreyTextTertiary,
+    required this.semanticColorGreyTextQuaternary,
+    required this.semanticColorGreyTextWhite,
+    required this.semanticColorGreyTextInverse,
+    required this.semanticColorGreyTextInverse2,
+    required this.semanticColorGreyTextInverse3,
+    required this.semanticColorGreyTextBlack,
+    required this.semanticColorGreyTextBrand,
+    required this.semanticColorGreyTextLink,
+    required this.semanticColorGreyBackgroundLayout,
+    required this.semanticColorGreyBackgroundContainer,
+    required this.semanticColorGreyBackgroundElevated,
+    required this.semanticColorGreyBackgroundElevated2,
+    required this.semanticColorGreyBackgroundMask,
+    required this.semanticColorGreyBackgroundSpotlight,
+    required this.semanticColorGreyFillPrimary,
+    required this.semanticColorGreyFillSecondary,
+    required this.semanticColorGreyFillTertiary,
+    required this.semanticColorGreyFillQuaternary,
+    required this.semanticColorGreyFillWindow,
+    required this.semanticColorGreyFillInverse,
+    required this.semanticColorGreyBorderPrimary,
+    required this.semanticColorGreyBorderSecondary,
+    required this.semanticColorGreyBorderTertiary,
+    required this.semanticColorGreyBorderQuaternary,
+    required this.semanticColorGreyBorderBlack,
+    required this.semanticColorGreyBorderInverse,
+    required this.semanticColorGreyBorderInverseAlpha,
+    required this.semanticColorGreyIconPrimary,
+    required this.semanticColorGreyIconSecondary,
+    required this.semanticColorGreyIconTertiary,
+    required this.semanticColorGreyIconInverse,
+    required this.semanticColorGreyIconWhite,
+    required this.semanticColorGreyChartPrimary,
+    required this.semanticColorGreyChartNotselect,
+    required this.semanticColorBrandPrimary,
+    required this.semanticColorTagGood,
+    required this.semanticColorTagImprovable,
+    required this.semanticColorTagWarning,
+    required this.semanticColorSleepPrimary,
+    required this.semanticColorSleepAwake,
+    required this.semanticColorSleepRemsleep,
+    required this.semanticColorSleepLightsleep,
+    required this.semanticColorSleepDeepsleep,
+    required this.semanticColorSleepBodymovement1,
+    required this.semanticColorSleepBodymovement2,
+    required this.semanticColorSleepBodymovement3,
+    required this.semanticColorSleepText,
+    required this.semanticColorActivityPrimary,
+    required this.semanticColorActivityStep,
+    required this.semanticColorActivityCalories,
+    required this.semanticColorActivityActivityTime,
+    required this.semanticColorActivityInactive,
+    required this.semanticColorStressPrimary,
+    required this.semanticColorStressRelaxed,
+    required this.semanticColorStressNormal,
+    required this.semanticColorStressMedium,
+    required this.semanticColorStressHigh,
+    required this.semanticColorVitalPrimary,
+    required this.semanticColorVitalBaseline,
+    required this.semanticColorVitalRemind,
+    required this.semanticColorFemaleMenstrual,
+    required this.semanticColorFemaleFollicular,
+    required this.semanticColorFemaleOvulation,
+    required this.semanticColorFemaleLuteal,
+    required this.semanticColorFemaleNonMenstrual,
+    required this.semanticColorSportGo,
+    required this.semanticColorSportPrimary,
+    required this.semanticColorSportWarmUp,
+    required this.semanticColorSportFatBurning,
+    required this.semanticColorSportAerobic,
+    required this.semanticColorSportAnaerobic,
+    required this.semanticColorSportExtreme,
+    required this.semanticColorSportLow,
+    required this.semanticColorSportLowText,
+    required this.semanticColorSportFair,
+    required this.semanticColorSportGood,
+    required this.semanticColorSportExcellent,
+    required this.semanticColorSportElite,
+    required this.semanticColorSportBackground,
+    required this.semanticColorSportLayout,
+    required this.semanticColorSportContainer,
+    required this.semanticColorOsaNoAbnormalitiesDetected,
+    required this.semanticColorOsaSuspectedMild,
+    required this.semanticColorOsaSuspectedModerate,
+    required this.semanticColorOsaSuspectedSevere,
+    required this.semanticColorInsightsRadaroutline,
+    required this.semanticColorInsightsRadarfill,
+    required this.semanticColorInsightsRadaroutline2,
+    required this.semanticColorInsightsRadarfill2,
+    required this.semanticColorInsightsAvg7,
+    required this.semanticColorBloodpressureOnload,
+    required this.semanticColorBloodpressureUnderload,
+    required this.semanticColorMeBlue,
+    required this.semanticColorMeOrange,
+  });
+
+  final Color globalColorBlack;
+  final Color globalColorWhite;
+  final Color globalColorTransparent;
+
   /// 已用在fill.window
-  
-  Color get globalColorBluegray100;
+  final Color globalColorBluegray100;
+
   /// 已用在border.quaternary
-  
-  Color get globalColorBluegray200;
+  final Color globalColorBluegray200;
+
   /// 已用在border.tertiary
-  
-  Color get globalColorBluegray300;
+  final Color globalColorBluegray300;
+
   /// 已用在border.secondary
-  
-  Color get globalColorBluegray400;
+  final Color globalColorBluegray400;
+
   /// 已用在border.primary
-  
-  Color get globalColorBluegray500;
-  Color get globalColorBluegray600;
-  Color get globalColorBluegray700;
-  Color get globalColorBluegray800;
-  Color get globalColorBluegray900;
-  Color get globalColorBluegray1000;
-  Color get globalColorPureblue100;
-  Color get globalColorPureblue200;
+  final Color globalColorBluegray500;
+  final Color globalColorBluegray550;
+  final Color globalColorBluegray600;
+  final Color globalColorBluegray650;
+  final Color globalColorBluegray700;
+  final Color globalColorBluegray800;
+  final Color globalColorBluegray900;
+  final Color globalColorBluegray1000;
+  final Color globalColorPureblue100;
+  final Color globalColorPureblue200;
+
   /// 已用在activity.inactive
-  
-  Color get globalColorPureblue300;
-  Color get globalColorPureblue400;
-  Color get globalColorPureblue500;
+  final Color globalColorPureblue300;
+  final Color globalColorPureblue400;
+  final Color globalColorPureblue500;
+  final Color globalColorPureblue550;
+
   /// 已用作brand.primary
-  
-  Color get globalColorPureblue600;
-  Color get globalColorPureblue700;
-  Color get globalColorPureblue800;
-  Color get globalColorPureblue900;
-  Color get globalColorPureblue1000;
-  Color get globalColorPurple100;
-  Color get globalColorPurple200;
-  Color get globalColorPurple300;
+  final Color globalColorPureblue600;
+  final Color globalColorPureblue650;
+  final Color globalColorPureblue700;
+  final Color globalColorPureblue800;
+  final Color globalColorPureblue900;
+  final Color globalColorPureblue1000;
+  final Color globalColorPurple100;
+  final Color globalColorPurple200;
+  final Color globalColorPurple300;
+
   /// 已用作sleep.remsleep
-  
-  Color get globalColorPurple400;
-  Color get globalColorPurple500;
+  final Color globalColorPurple400;
+  final Color globalColorPurple450;
+  final Color globalColorPurple500;
+  final Color globalColorPurple550;
+
   /// 已用作sleep.lightsleep
-  
-  Color get globalColorPurple600;
-  Color get globalColorPurple700;
-  Color get globalColorPurple800;
+  final Color globalColorPurple600;
+  final Color globalColorPurple700;
+  final Color globalColorPurple800;
+  final Color globalColorPurple850;
+
   /// 已用作sleep.primary和sleep.deepsleep
-  
-  Color get globalColorPurple900;
-  Color get globalColorPurple1000;
-  Color get globalColorPinkred100;
-  Color get globalColorPinkred200;
-  Color get globalColorPinkred300;
-  Color get globalColorPinkred400;
-  Color get globalColorPinkred500;
-  Color get globalColorPinkred600;
-  Color get globalColorPinkred700;
-  Color get globalColorPinkred800;
-  Color get globalColorPinkred900;
-  Color get globalColorPinkred1000;
-  Color get globalColorCyanblue100;
-  Color get globalColorCyanblue200;
-  Color get globalColorCyanblue300;
-  Color get globalColorCyanblue400;
-  Color get globalColorCyanblue500;
-  Color get globalColorCyanblue600;
-  Color get globalColorCyanblue700;
-  Color get globalColorCyanblue800;
-  Color get globalColorCyanblue900;
-  Color get globalColorCyanblue1000;
-  Color get globalColorOrange100;
-  Color get globalColorOrange200;
-  Color get globalColorOrange300;
-  Color get globalColorOrange400;
-  Color get globalColorOrange500;
-  Color get globalColorOrange600;
-  Color get globalColorOrange700;
-  Color get globalColorOrange800;
-  Color get globalColorOrange900;
-  Color get globalColorOrange1000;
+  final Color globalColorPurple900;
+  final Color globalColorPurple1000;
+  final Color globalColorPinkred100;
+  final Color globalColorPinkred200;
+  final Color globalColorPinkred300;
+  final Color globalColorPinkred400;
+  final Color globalColorPinkred500;
+  final Color globalColorPinkred600;
+  final Color globalColorPinkred700;
+  final Color globalColorPinkred800;
+  final Color globalColorPinkred900;
+  final Color globalColorPinkred1000;
+  final Color globalColorCyanblue100;
+  final Color globalColorCyanblue200;
+  final Color globalColorCyanblue300;
+  final Color globalColorCyanblue350;
+  final Color globalColorCyanblue400;
+  final Color globalColorCyanblue440;
+  final Color globalColorCyanblue450;
+  final Color globalColorCyanblue500;
+  final Color globalColorCyanblue550;
+  final Color globalColorCyanblue600;
+  final Color globalColorCyanblue700;
+  final Color globalColorCyanblue750;
+  final Color globalColorCyanblue800;
+  final Color globalColorCyanblue900;
+  final Color globalColorCyanblue1000;
+  final Color globalColorOrange100;
+  final Color globalColorOrange200;
+  final Color globalColorOrange300;
+  final Color globalColorOrange400;
+  final Color globalColorOrange500;
+  final Color globalColorOrange550;
+  final Color globalColorOrange600;
+  final Color globalColorOrange700;
+  final Color globalColorOrange800;
+  final Color globalColorOrange900;
+  final Color globalColorOrange1000;
+
   /// 已用在fill.quaternary
-  
-  Color get globalColorBluegrayAlpha100;
+  final Color globalColorBluegrayAlpha100;
+
   /// 已用在fill.tertiary
-  
-  Color get globalColorBluegrayAlpha200;
+  final Color globalColorBluegrayAlpha200;
+
   /// 已用在fill.secondary
-  
-  Color get globalColorBluegrayAlpha300;
+  final Color globalColorBluegrayAlpha300;
+
   /// 已用在fill.primary
-  
-  Color get globalColorBluegrayAlpha400;
-  Color get globalColorBluegrayAlpha500;
+  final Color globalColorBluegrayAlpha400;
+  final Color globalColorBluegrayAlpha500;
+
   /// 已用在text.quaternary
-  
-  Color get globalColorBluegrayAlpha600;
+  final Color globalColorBluegrayAlpha600;
+
   /// 已用在text.tertiary 和 icon.secondary
-  
-  Color get globalColorBluegrayAlpha700;
-  Color get globalColorBluegrayAlpha800;
-  Color get globalColorBluegrayAlpha900;
-  Color get globalColorBluegrayAlpha1000;
-  Color get globalColorBlackAlpha100;
-  Color get globalColorBlackAlpha200;
-  Color get globalColorBlackAlpha300;
-  Color get globalColorBlackAlpha400;
+  final Color globalColorBluegrayAlpha700;
+  final Color globalColorBluegrayAlpha800;
+  final Color globalColorBluegrayAlpha900;
+  final Color globalColorBluegrayAlpha1000;
+  final Color globalColorBlackAlpha100;
+  final Color globalColorBlackAlpha200;
+  final Color globalColorBlackAlpha300;
+  final Color globalColorBlackAlpha400;
+
   /// 已用在background.mask
-  
-  Color get globalColorBlackAlpha500;
-  Color get globalColorBlackAlpha600;
-  Color get globalColorBlackAlpha700;
-  Color get globalColorBlackAlpha800;
-  Color get globalColorBlackAlpha900;
+  final Color globalColorBlackAlpha500;
+  final Color globalColorBlackAlpha600;
+  final Color globalColorBlackAlpha700;
+  final Color globalColorBlackAlpha800;
+  final Color globalColorBlackAlpha900;
+
   /// 已用在background.soptlight
-  
-  Color get globalColorBlackAlpha1000;
-  Color get globalColorWhiteAlpha100;
-  Color get globalColorWhiteAlpha200;
-  Color get globalColorWhiteAlpha300;
-  Color get globalColorWhiteAlpha400;
-  Color get globalColorWhiteAlpha500;
-  Color get globalColorWhiteAlpha600;
-  Color get globalColorWhiteAlpha700;
-  Color get globalColorWhiteAlpha800;
-  Color get globalColorWhiteAlpha900;
-  Color get globalColorWhiteAlpha1000;
-  Color get globalColorRadicalRed100;
-  Color get globalColorRadicalRed200;
-  Color get globalColorRadicalRed300;
-  Color get globalColorRadicalRed400;
-  Color get globalColorRadicalRed500;
-  Color get globalColorRadicalRed600;
-  Color get globalColorRadicalRed700;
-  Color get globalColorRadicalRed800;
-  Color get globalColorRadicalRed900;
-  Color get globalColorRadicalRed1000;
-  Color get globalColorPuertoRico100;
-  Color get globalColorPuertoRico200;
-  Color get globalColorPuertoRico300;
-  Color get globalColorPuertoRico400;
-  Color get globalColorPuertoRico500;
-  Color get globalColorPuertoRico600;
-  Color get globalColorPuertoRico700;
-  Color get globalColorPuertoRico800;
-  Color get globalColorPuertoRico900;
-  Color get globalColorPuertoRico1000;
-  Color get globalColorTuna100;
-  Color get globalColorTuna200;
-  Color get globalColorTuna300;
-  Color get globalColorTuna400;
-  Color get globalColorTuna500;
-  Color get globalColorTuna600;
-  Color get globalColorTuna700;
-  Color get globalColorTuna800;
-  Color get globalColorTuna900;
-  Color get globalColorTuna1000;
-  Color get globalColorYellow100;
-  Color get globalColorYellow200;
-  Color get globalColorYellow300;
-  Color get globalColorYellow400;
-  Color get globalColorYellow500;
-  Color get globalColorYellow600;
-  Color get globalColorYellow700;
-  Color get globalColorYellow800;
-  Color get globalColorYellow900;
-  Color get globalColorYellow1000;
+  final Color globalColorBlackAlpha1000;
+  final Color globalColorWhiteAlpha100;
+  final Color globalColorWhiteAlpha200;
+  final Color globalColorWhiteAlpha300;
+  final Color globalColorWhiteAlpha400;
+  final Color globalColorWhiteAlpha500;
+  final Color globalColorWhiteAlpha600;
+  final Color globalColorWhiteAlpha700;
+  final Color globalColorWhiteAlpha800;
+  final Color globalColorWhiteAlpha900;
+  final Color globalColorWhiteAlpha1000;
+  final Color globalColorRadicalRed100;
+  final Color globalColorRadicalRed200;
+  final Color globalColorRadicalRed300;
+  final Color globalColorRadicalRed400;
+  final Color globalColorRadicalRed450;
+  final Color globalColorRadicalRed500;
+  final Color globalColorRadicalRed550;
+  final Color globalColorRadicalRed560;
+  final Color globalColorRadicalRed600;
+  final Color globalColorRadicalRed700;
+  final Color globalColorRadicalRed800;
+  final Color globalColorRadicalRed900;
+  final Color globalColorRadicalRed1000;
+  final Color globalColorPuertoRico100;
+  final Color globalColorPuertoRico200;
+  final Color globalColorPuertoRico300;
+  final Color globalColorPuertoRico400;
+  final Color globalColorPuertoRico500;
+  final Color globalColorPuertoRico600;
+  final Color globalColorPuertoRico700;
+  final Color globalColorPuertoRico800;
+  final Color globalColorPuertoRico900;
+  final Color globalColorPuertoRico1000;
+  final Color globalColorTuna100;
+  final Color globalColorTuna200;
+  final Color globalColorTuna300;
+  final Color globalColorTuna400;
+  final Color globalColorTuna500;
+  final Color globalColorTuna600;
+  final Color globalColorTuna700;
+  final Color globalColorTuna800;
+  final Color globalColorTuna900;
+  final Color globalColorTuna1000;
+  final Color globalColorYellow100;
+  final Color globalColorYellow200;
+  final Color globalColorYellow300;
+  final Color globalColorYellow400;
+  final Color globalColorYellow500;
+  final Color globalColorYellow600;
+  final Color globalColorYellow700;
+  final Color globalColorYellow800;
+  final Color globalColorYellow900;
+  final Color globalColorYellow1000;
+  final Color globalColorPureblueAlpha700;
+  final Color globalColorCyanblueAlpha100;
+  final Color globalColorCyanblueAlpha300;
+  final Color globalColorLavenderpurple500;
+
   /// 1级文本色
-  
-  Color get semanticColorGreyTextPrimary;
+  final Color semanticColorGreyTextPrimary;
+
   /// 2级文本色
-  
-  Color get semanticColorGreyTextSecondary;
+  final Color semanticColorGreyTextSecondary;
+
   /// 3级文本色
-  
-  Color get semanticColorGreyTextTertiary;
+  final Color semanticColorGreyTextTertiary;
+
   /// 4级文本色
-  
-  Color get semanticColorGreyTextQuaternary;
+  final Color semanticColorGreyTextQuaternary;
+  final Color semanticColorGreyTextWhite;
+
   /// 文本反色
-  
-  Color get semanticColorGreyTextInverse;
+  final Color semanticColorGreyTextInverse;
+
+  /// 文本反色
+  final Color semanticColorGreyTextInverse2;
+
+  /// 文本反色
+  final Color semanticColorGreyTextInverse3;
+
+  /// 文本黑色
+  final Color semanticColorGreyTextBlack;
+
   /// 文本品牌色
-  
-  Color get semanticColorGreyTextBrand;
+  final Color semanticColorGreyTextBrand;
+
   /// 文本链接色
-  
-  Color get semanticColorGreyTextLink;
+  final Color semanticColorGreyTextLink;
+
   /// 常规背景色
-  
-  Color get semanticColorGreyBackgroundLayout;
+  final Color semanticColorGreyBackgroundLayout;
+
   /// 背景容器层填充色
-  
-  Color get semanticColorGreyBackgroundContainer;
+  final Color semanticColorGreyBackgroundContainer;
+
   /// 背景弹出层填充色
-  
-  Color get semanticColorGreyBackgroundElevated;
+  final Color semanticColorGreyBackgroundElevated;
+
+  /// 背景弹出层填充色
+  final Color semanticColorGreyBackgroundElevated2;
+
   /// 遮罩填充色
-  
-  Color get semanticColorGreyBackgroundMask;
+  final Color semanticColorGreyBackgroundMask;
+
   /// toast填充色
-  
-  Color get semanticColorGreyBackgroundSpotlight;
+  final Color semanticColorGreyBackgroundSpotlight;
+
   /// 1级填充灰色
-  
-  Color get semanticColorGreyFillPrimary;
+  final Color semanticColorGreyFillPrimary;
+
   /// 2级填充灰色
-  
-  Color get semanticColorGreyFillSecondary;
+  final Color semanticColorGreyFillSecondary;
+
   /// 3级填充灰色
-  
-  Color get semanticColorGreyFillTertiary;
+  final Color semanticColorGreyFillTertiary;
+
   /// 4级填充灰色
-  
-  Color get semanticColorGreyFillQuaternary;
+  final Color semanticColorGreyFillQuaternary;
+
   /// 图表点按填充色
-  
-  Color get semanticColorGreyFillWindow;
+  final Color semanticColorGreyFillWindow;
+
   /// 填充反色
-  
-  Color get semanticColorGreyFillInverse;
+  final Color semanticColorGreyFillInverse;
+
   /// 1级线条色
-  
-  Color get semanticColorGreyBorderPrimary;
+  final Color semanticColorGreyBorderPrimary;
+
   /// 2级线条色
-  
-  Color get semanticColorGreyBorderSecondary;
+  final Color semanticColorGreyBorderSecondary;
+
   /// 3级线条色
-  
-  Color get semanticColorGreyBorderTertiary;
+  final Color semanticColorGreyBorderTertiary;
+
   /// 4级线条色
-  
-  Color get semanticColorGreyBorderQuaternary;
+  final Color semanticColorGreyBorderQuaternary;
+
   /// 黑色线条色
-  
-  Color get semanticColorGreyBorderBlack;
+  final Color semanticColorGreyBorderBlack;
+  final Color semanticColorGreyBorderInverse;
+  final Color semanticColorGreyBorderInverseAlpha;
+
   /// 1级图标色
-  
-  Color get semanticColorGreyIconPrimary;
+  final Color semanticColorGreyIconPrimary;
+
   /// 2级图标色
-  
-  Color get semanticColorGreyIconSecondary;
+  final Color semanticColorGreyIconSecondary;
+
   /// 3级图表色
-  
-  Color get semanticColorGreyIconTertiary;
+  final Color semanticColorGreyIconTertiary;
+
   /// 图标反色
-  
-  Color get semanticColorGreyIconInverse;
+  final Color semanticColorGreyIconInverse;
+  final Color semanticColorGreyIconWhite;
+
+  /// 图表数据默认色
+  final Color semanticColorGreyChartPrimary;
+  final Color semanticColorGreyChartNotselect;
+
   /// 品牌主色
-  
-  Color get semanticColorBrandPrimary;
-  Color get semanticColorTagGood;
+  final Color semanticColorBrandPrimary;
+  final Color semanticColorTagGood;
+
   /// 可提升标签色
-  
-  Color get semanticColorTagImprovable;
+  final Color semanticColorTagImprovable;
+
   /// 危险标签色
-  
-  Color get semanticColorTagWarning;
+  final Color semanticColorTagWarning;
+
   /// 睡眠主色
-  
-  Color get semanticColorSleepPrimary;
+  final Color semanticColorSleepPrimary;
+
   /// 睡眠分期_清醒色
-  
-  Color get semanticColorSleepAwake;
+  final Color semanticColorSleepAwake;
+
   /// 睡眠分期_REM色
-  
-  Color get semanticColorSleepRemsleep;
+  final Color semanticColorSleepRemsleep;
+
   /// 睡眠分期_浅睡色
-  
-  Color get semanticColorSleepLightsleep;
+  final Color semanticColorSleepLightsleep;
+
   /// 睡眠分期_深睡色
-  
-  Color get semanticColorSleepDeepsleep;
+  final Color semanticColorSleepDeepsleep;
+
+  /// 弱体动
+  final Color semanticColorSleepBodymovement1;
+
+  /// 中等体动
+  final Color semanticColorSleepBodymovement2;
+
+  /// 强体动
+  final Color semanticColorSleepBodymovement3;
+  final Color semanticColorSleepText;
+
   /// 活动主色
-  
-  Color get semanticColorActivityPrimary;
+  final Color semanticColorActivityPrimary;
+
   /// 活动_步数主色、低强度主色
-  
-  Color get semanticColorActivityStep;
+  final Color semanticColorActivityStep;
+
   /// 活动_卡路里主色、中强度主色
-  
-  Color get semanticColorActivityCalories;
+  final Color semanticColorActivityCalories;
+
   /// 活动_活动时长主色、高强度主色
-  
-  Color get semanticColorActivityActivityTime;
+  final Color semanticColorActivityActivityTime;
+
   /// 不活跃主色
-  
-  Color get semanticColorActivityInactive;
+  final Color semanticColorActivityInactive;
+
   /// 压力主色
-  
-  Color get semanticColorStressPrimary;
+  final Color semanticColorStressPrimary;
+
   /// 压力分级_轻松
-  
-  Color get semanticColorStressRelaxed;
+  final Color semanticColorStressRelaxed;
+
   /// 压力分级_正常
-  
-  Color get semanticColorStressNormal;
+  final Color semanticColorStressNormal;
+
   /// 压力分级_中等
-  
-  Color get semanticColorStressMedium;
+  final Color semanticColorStressMedium;
+
   /// 压力分级_高压
-  
-  Color get semanticColorStressHigh;
+  final Color semanticColorStressHigh;
+
   /// 生命体征主色
-  
-  Color get semanticColorVitalPrimary;
-  Color get semanticColorFemaleMenstrual;
-  Color get semanticColorFemaleFollicular;
-  Color get semanticColorFemaleOvulation;
-  Color get semanticColorFemaleLuteal;
+  final Color semanticColorVitalPrimary;
+  final Color semanticColorVitalBaseline;
+  final Color semanticColorVitalRemind;
+
+  /// 生理期主色
+  ///
+  final Color semanticColorFemaleMenstrual;
+
+  /// 卵泡期
+  final Color semanticColorFemaleFollicular;
+
+  /// 排卵期
+  final Color semanticColorFemaleOvulation;
+
+  /// 黄体期
+  final Color semanticColorFemaleLuteal;
+
+  /// 非月经期
+  final Color semanticColorFemaleNonMenstrual;
+
   /// 运动强调色
-  
-  Color get semanticColorSportGo;
+  final Color semanticColorSportGo;
+
   /// 运动主色
-  
-  Color get semanticColorSportPrimary;
+  final Color semanticColorSportPrimary;
+
   /// 热身色
-  /// 
-  
-  Color get semanticColorSportWarmUp;
+  ///
+  final Color semanticColorSportWarmUp;
+
   /// 燃脂色
-  /// 
-  
-  Color get semanticColorSportFatBurning;
+  ///
+  final Color semanticColorSportFatBurning;
+
   /// 有氧色
-  
-  Color get semanticColorSportAerobic;
+  final Color semanticColorSportAerobic;
+
   /// 无氧色
-  
-  Color get semanticColorSportAnaerobic;
+  final Color semanticColorSportAnaerobic;
+
   /// 极限色
-  
-  Color get semanticColorSportExtreme;
-  Color get semanticColorSportLow;
-  Color get semanticColorSportFair;
-  Color get semanticColorSportGood;
-  Color get semanticColorSportExcellent;
-  Color get semanticColorSportElite;
-  Color get semanticColorSportBackground;
-  Color get semanticColorOsaNoAbnormalitiesDetected;
-  Color get semanticColorOsaSuspectedMild;
-  Color get semanticColorOsaSuspectedModerate;
-  Color get semanticColorOsaSuspectedSevere;
+  final Color semanticColorSportExtreme;
+  final Color semanticColorSportLow;
+  final Color semanticColorSportLowText;
+  final Color semanticColorSportFair;
+  final Color semanticColorSportGood;
+  final Color semanticColorSportExcellent;
+  final Color semanticColorSportElite;
+  final Color semanticColorSportBackground;
+  final Color semanticColorSportLayout;
+  final Color semanticColorSportContainer;
+  final Color semanticColorOsaNoAbnormalitiesDetected;
+  final Color semanticColorOsaSuspectedMild;
+  final Color semanticColorOsaSuspectedModerate;
+  final Color semanticColorOsaSuspectedSevere;
+  final Color semanticColorInsightsRadaroutline;
+  final Color semanticColorInsightsRadarfill;
+  final Color semanticColorInsightsRadaroutline2;
+  final Color semanticColorInsightsRadarfill2;
+  final Color semanticColorInsightsAvg7;
+
+  /// 血压上负荷色彩
+  final Color semanticColorBloodpressureOnload;
+
+  /// 血压下负荷
+  final Color semanticColorBloodpressureUnderload;
+
+  /// 我的页面，蓝色
+  final Color semanticColorMeBlue;
+  final Color semanticColorMeOrange;
 }
 
-abstract class SpacingTokens {
-  double get globalSpacing25;
-  double get globalSpacing50;
-  double get globalSpacing100;
-  double get globalSpacing150;
-  double get globalSpacing200;
-  double get globalSpacing250;
-  double get globalSpacing300;
-  double get globalSpacing350;
-  double get globalSpacing400;
-  double get globalSpacing500;
-  double get globalSpacing600;
-  double get globalSpacingBase;
-  double get semanticSpacingGapCompXs;
-  double get semanticSpacingGapCompS;
-  double get semanticSpacingGapCompSm;
-  double get semanticSpacingGapCompM;
-  double get semanticSpacingGapCompL;
-  double get semanticSpacingGapPatternXxs;
-  double get semanticSpacingGapPatternXs;
-  double get semanticSpacingGapPatternS;
-  double get semanticSpacingGapPatternM;
-  double get semanticSpacingGapPatternMd;
-  double get semanticSpacingGapPatternL;
-  double get semanticSpacingGapPatternXl;
-  double get semanticSpacingGapPatternXxl;
-  double get semanticSpacingAroundCompXxs;
-  double get semanticSpacingAroundCompXs;
-  double get semanticSpacingAroundCompS;
-  double get semanticSpacingAroundCompM;
-  double get semanticSpacingAroundCompL;
-  double get semanticSpacingAroundPatternXs;
-  double get semanticSpacingAroundPatternS;
-  double get semanticSpacingAroundPatternSm;
-  double get semanticSpacingAroundPatternM;
-  double get semanticSpacingAroundPatternL;
-  double get semanticSpacingAroundPatternXl;
-  double get semanticSpacingAroundSectionS;
-  double get semanticSpacingAroundSectionM;
-  double get semanticSpacingAroundSectionL;
-  double get semanticSpacingAroundSectionXl;
-  double get semanticSpacingAroundSectionXxl;
+class SpacingTokens {
+  const SpacingTokens({
+    required this.globalSpacing25,
+    required this.globalSpacing50,
+    required this.globalSpacing100,
+    required this.globalSpacing150,
+    required this.globalSpacing200,
+    required this.globalSpacing250,
+    required this.globalSpacing300,
+    required this.globalSpacing350,
+    required this.globalSpacing400,
+    required this.globalSpacing500,
+    required this.globalSpacing600,
+    required this.globalSpacing700,
+    required this.globalSpacing800,
+    required this.globalSpacing900,
+    required this.globalSpacing1000,
+    required this.globalSpacingBase,
+    required this.semanticSpacingGapCompXs,
+    required this.semanticSpacingGapCompS,
+    required this.semanticSpacingGapCompSm,
+    required this.semanticSpacingGapCompM,
+    required this.semanticSpacingGapCompL,
+    required this.semanticSpacingGapPatternXxs,
+    required this.semanticSpacingGapPatternXs,
+    required this.semanticSpacingGapPatternS,
+    required this.semanticSpacingGapPatternM,
+    required this.semanticSpacingGapPatternMd,
+    required this.semanticSpacingGapPatternL,
+    required this.semanticSpacingGapPatternXl,
+    required this.semanticSpacingGapPatternXxl,
+    required this.semanticSpacingGapPattern3xl,
+    required this.semanticSpacingAroundCompXxs,
+    required this.semanticSpacingAroundCompXs,
+    required this.semanticSpacingAroundCompS,
+    required this.semanticSpacingAroundCompM,
+    required this.semanticSpacingAroundCompL,
+    required this.semanticSpacingAroundPatternXs,
+    required this.semanticSpacingAroundPatternS,
+    required this.semanticSpacingAroundPatternSm,
+    required this.semanticSpacingAroundPatternM,
+    required this.semanticSpacingAroundPatternL,
+    required this.semanticSpacingAroundPatternXl,
+    required this.semanticSpacingAroundSectionS,
+    required this.semanticSpacingAroundSectionM,
+    required this.semanticSpacingAroundSectionL,
+    required this.semanticSpacingAroundSectionXl,
+    required this.semanticSpacingAroundSectionXxl,
+  });
+
+  final double globalSpacing25;
+  final double globalSpacing50;
+  final double globalSpacing100;
+  final double globalSpacing150;
+  final double globalSpacing200;
+  final double globalSpacing250;
+  final double globalSpacing300;
+  final double globalSpacing350;
+  final double globalSpacing400;
+  final double globalSpacing500;
+  final double globalSpacing600;
+  final double globalSpacing700;
+  final double globalSpacing800;
+  final double globalSpacing900;
+  final double globalSpacing1000;
+  final double globalSpacingBase;
+  final double semanticSpacingGapCompXs;
+  final double semanticSpacingGapCompS;
+  final double semanticSpacingGapCompSm;
+  final double semanticSpacingGapCompM;
+  final double semanticSpacingGapCompL;
+  final double semanticSpacingGapPatternXxs;
+  final double semanticSpacingGapPatternXs;
+  final double semanticSpacingGapPatternS;
+  final double semanticSpacingGapPatternM;
+  final double semanticSpacingGapPatternMd;
+  final double semanticSpacingGapPatternL;
+  final double semanticSpacingGapPatternXl;
+  final double semanticSpacingGapPatternXxl;
+  final double semanticSpacingGapPattern3xl;
+  final double semanticSpacingAroundCompXxs;
+  final double semanticSpacingAroundCompXs;
+  final double semanticSpacingAroundCompS;
+  final double semanticSpacingAroundCompM;
+  final double semanticSpacingAroundCompL;
+  final double semanticSpacingAroundPatternXs;
+  final double semanticSpacingAroundPatternS;
+  final double semanticSpacingAroundPatternSm;
+  final double semanticSpacingAroundPatternM;
+  final double semanticSpacingAroundPatternL;
+  final double semanticSpacingAroundPatternXl;
+  final double semanticSpacingAroundSectionS;
+  final double semanticSpacingAroundSectionM;
+  final double semanticSpacingAroundSectionL;
+  final double semanticSpacingAroundSectionXl;
+  final double semanticSpacingAroundSectionXxl;
 }
 
-abstract class RadiiTokens {
-  double get globalBoderRadii25;
-  double get globalBoderRadii50;
-  double get globalBoderRadii75;
-  double get globalBoderRadii100;
-  double get globalBoderRadii125;
-  double get globalBoderRadii150;
-  double get globalBoderRadii200;
-  double get globalBoderRadii250;
-  double get globalBoderRadii300;
-  double get globalBoderRadiiBase;
-  double get globalBoderRadiiNone;
-  double get globalBoderRadiiRound;
-  double get semanticBoderRadiiXxs;
-  double get semanticBoderRadiiXs;
-  double get semanticBoderRadiiS;
-  double get semanticBoderRadiiSm;
-  double get semanticBoderRadiiM;
-  double get semanticBoderRadiiMd;
-  double get semanticBoderRadiiL;
-  double get semanticBoderRadiiXl;
+class RadiiTokens {
+  const RadiiTokens({
+    required this.globalBoderRadii25,
+    required this.globalBoderRadii50,
+    required this.globalBoderRadii75,
+    required this.globalBoderRadii100,
+    required this.globalBoderRadii125,
+    required this.globalBoderRadii150,
+    required this.globalBoderRadii200,
+    required this.globalBoderRadii250,
+    required this.globalBoderRadii300,
+    required this.globalBoderRadiiBase,
+    required this.globalBoderRadiiNone,
+    required this.globalBoderRadiiRound,
+    required this.semanticBoderRadiiXxs,
+    required this.semanticBoderRadiiXs,
+    required this.semanticBoderRadiiS,
+    required this.semanticBoderRadiiSm,
+    required this.semanticBoderRadiiM,
+    required this.semanticBoderRadiiMd,
+    required this.semanticBoderRadiiL,
+    required this.semanticBoderRadiiXl,
+    required this.semanticBoderRadiiXxl,
+    required this.semanticBoderRadiiRound,
+  });
+
+  final double globalBoderRadii25;
+  final double globalBoderRadii50;
+  final double globalBoderRadii75;
+  final double globalBoderRadii100;
+  final double globalBoderRadii125;
+  final double globalBoderRadii150;
+  final double globalBoderRadii200;
+  final double globalBoderRadii250;
+  final double globalBoderRadii300;
+  final double globalBoderRadiiBase;
+  final double globalBoderRadiiNone;
+  final double globalBoderRadiiRound;
+  final double semanticBoderRadiiXxs;
+  final double semanticBoderRadiiXs;
+  final double semanticBoderRadiiS;
+  final double semanticBoderRadiiSm;
+  final double semanticBoderRadiiM;
+  final double semanticBoderRadiiMd;
+  final double semanticBoderRadiiL;
+  final double semanticBoderRadiiXl;
+
   /// 大卡片圆角
-  
-  double get semanticBoderRadiiXxl;
-  double get semanticBoderRadiiRound;
+  final double semanticBoderRadiiXxl;
+  final double semanticBoderRadiiRound;
 }
 
-abstract class TextStyleTokens {
-  TextStyle get semanticTypographyLabel10;
-  TextStyle get semanticTypographyLabel12;
-  TextStyle get semanticTypographyLabel14;
-  TextStyle get semanticTypographyBody12;
-  TextStyle get semanticTypographyBody14;
-  TextStyle get semanticTypographyBody16;
-  TextStyle get semanticTypographyTitle16;
-  TextStyle get semanticTypographyTitle18;
-  TextStyle get semanticTypographyTitle20;
-  TextStyle get semanticTypographyTitle22;
-  TextStyle get semanticTypographyDisplay24;
-  TextStyle get semanticTypographyDisplay28;
-  TextStyle get semanticTypographyNumberText12;
-  TextStyle get semanticTypographyNumberText14;
-  TextStyle get semanticTypographyNumberText16;
-  TextStyle get semanticTypographyNumber12;
-  TextStyle get semanticTypographyNumber20;
-  TextStyle get semanticTypographyNumber24;
-  TextStyle get semanticTypographyNumber28;
-  TextStyle get semanticTypographyNumber32;
-  TextStyle get semanticTypographyNumber64;
+class TextStyleTokens {
+  const TextStyleTokens({
+    required this.semanticTypographyLabel10,
+    required this.semanticTypographyLabel12,
+    required this.semanticTypographyLabel14,
+    required this.semanticTypographyBody12,
+    required this.semanticTypographyBody14,
+    required this.semanticTypographyBody16,
+    required this.semanticTypographyTitle16,
+    required this.semanticTypographyTitle18,
+    required this.semanticTypographyTitle20,
+    required this.semanticTypographyTitle22,
+    required this.semanticTypographyDisplay22,
+    required this.semanticTypographyDisplay24,
+    required this.semanticTypographyDisplay28,
+    required this.semanticTypographyDisplay32,
+    required this.semanticTypographyNumberText12,
+    required this.semanticTypographyNumberText14,
+    required this.semanticTypographyNumberText16,
+    required this.semanticTypographyNumber12,
+    required this.semanticTypographyNumber16,
+    required this.semanticTypographyNumber18,
+    required this.semanticTypographyNumber20,
+    required this.semanticTypographyNumber24,
+    required this.semanticTypographyNumber28,
+    required this.semanticTypographyNumber32,
+    required this.semanticTypographyNumber40,
+    required this.semanticTypographyNumber60,
+    required this.semanticTypographyNumber64,
+  });
+
+  final TextStyle semanticTypographyLabel10;
+  final TextStyle semanticTypographyLabel12;
+  final TextStyle semanticTypographyLabel14;
+  final TextStyle semanticTypographyBody12;
+  final TextStyle semanticTypographyBody14;
+  final TextStyle semanticTypographyBody16;
+  final TextStyle semanticTypographyTitle16;
+  final TextStyle semanticTypographyTitle18;
+  final TextStyle semanticTypographyTitle20;
+  @deprecated
+  final TextStyle semanticTypographyTitle22;
+  final TextStyle semanticTypographyDisplay22;
+  final TextStyle semanticTypographyDisplay24;
+  final TextStyle semanticTypographyDisplay28;
+  final TextStyle semanticTypographyDisplay32;
+  final TextStyle semanticTypographyNumberText12;
+  final TextStyle semanticTypographyNumberText14;
+  final TextStyle semanticTypographyNumberText16;
+  final TextStyle semanticTypographyNumber12;
+  final TextStyle semanticTypographyNumber16;
+  final TextStyle semanticTypographyNumber18;
+  final TextStyle semanticTypographyNumber20;
+  final TextStyle semanticTypographyNumber24;
+  final TextStyle semanticTypographyNumber28;
+  final TextStyle semanticTypographyNumber32;
+  final TextStyle semanticTypographyNumber40;
+  final TextStyle semanticTypographyNumber60;
+  @deprecated
+  final TextStyle semanticTypographyNumber64;
 }
 
 class SharedSpacingTokens extends SpacingTokens {
-  @override
-  double get globalSpacing25 => 2.0;
-  @override
-  double get globalSpacing50 => 4.0;
-  @override
-  double get globalSpacing100 => 8.0;
-  @override
-  double get globalSpacing150 => 12.0;
-  @override
-  double get globalSpacing200 => 16.0;
-  @override
-  double get globalSpacing250 => 20.0;
-  @override
-  double get globalSpacing300 => 24.0;
-  @override
-  double get globalSpacing350 => 28.0;
-  @override
-  double get globalSpacing400 => 32.0;
-  @override
-  double get globalSpacing500 => 40.0;
-  @override
-  double get globalSpacing600 => 48.0;
-  @override
-  double get globalSpacingBase => 8.0;
-  @override
-  double get semanticSpacingGapCompXs => 2.0;
-  @override
-  double get semanticSpacingGapCompS => 4.0;
-  @override
-  double get semanticSpacingGapCompSm => 8.0;
-  @override
-  double get semanticSpacingGapCompM => 12.0;
-  @override
-  double get semanticSpacingGapCompL => 16.0;
-  @override
-  double get semanticSpacingGapPatternXxs => 4.0;
-  @override
-  double get semanticSpacingGapPatternXs => 8.0;
-  @override
-  double get semanticSpacingGapPatternS => 12.0;
-  @override
-  double get semanticSpacingGapPatternM => 16.0;
-  @override
-  double get semanticSpacingGapPatternMd => 20.0;
-  @override
-  double get semanticSpacingGapPatternL => 24.0;
-  @override
-  double get semanticSpacingGapPatternXl => 32.0;
-  @override
-  double get semanticSpacingGapPatternXxl => 40.0;
-  @override
-  double get semanticSpacingAroundCompXxs => 2.0;
-  @override
-  double get semanticSpacingAroundCompXs => 4.0;
-  @override
-  double get semanticSpacingAroundCompS => 8.0;
-  @override
-  double get semanticSpacingAroundCompM => 12.0;
-  @override
-  double get semanticSpacingAroundCompL => 16.0;
-  @override
-  double get semanticSpacingAroundPatternXs => 4.0;
-  @override
-  double get semanticSpacingAroundPatternS => 8.0;
-  @override
-  double get semanticSpacingAroundPatternSm => 12.0;
-  @override
-  double get semanticSpacingAroundPatternM => 16.0;
-  @override
-  double get semanticSpacingAroundPatternL => 20.0;
-  @override
-  double get semanticSpacingAroundPatternXl => 32.0;
-  @override
-  double get semanticSpacingAroundSectionS => 12.0;
-  @override
-  double get semanticSpacingAroundSectionM => 20.0;
-  @override
-  double get semanticSpacingAroundSectionL => 32.0;
-  @override
-  double get semanticSpacingAroundSectionXl => 40.0;
-  @override
-  double get semanticSpacingAroundSectionXxl => 48.0;
+  const SharedSpacingTokens()
+      : super(
+            globalSpacing25: 2.0,
+            globalSpacing50: 4.0,
+            globalSpacing100: 8.0,
+            globalSpacing150: 12.0,
+            globalSpacing200: 16.0,
+            globalSpacing250: 20.0,
+            globalSpacing300: 24.0,
+            globalSpacing350: 28.0,
+            globalSpacing400: 32.0,
+            globalSpacing500: 40.0,
+            globalSpacing600: 48.0,
+            globalSpacing700: 56.0,
+            globalSpacing800: 64.0,
+            globalSpacing900: 72.0,
+            globalSpacing1000: 80.0,
+            globalSpacingBase: 8.0,
+            semanticSpacingGapCompXs: 2.0,
+            semanticSpacingGapCompS: 4.0,
+            semanticSpacingGapCompSm: 8.0,
+            semanticSpacingGapCompM: 12.0,
+            semanticSpacingGapCompL: 16.0,
+            semanticSpacingGapPatternXxs: 4.0,
+            semanticSpacingGapPatternXs: 8.0,
+            semanticSpacingGapPatternS: 12.0,
+            semanticSpacingGapPatternM: 16.0,
+            semanticSpacingGapPatternMd: 20.0,
+            semanticSpacingGapPatternL: 24.0,
+            semanticSpacingGapPatternXl: 32.0,
+            semanticSpacingGapPatternXxl: 40.0,
+            semanticSpacingGapPattern3xl: 48.0,
+            semanticSpacingAroundCompXxs: 2.0,
+            semanticSpacingAroundCompXs: 4.0,
+            semanticSpacingAroundCompS: 8.0,
+            semanticSpacingAroundCompM: 12.0,
+            semanticSpacingAroundCompL: 16.0,
+            semanticSpacingAroundPatternXs: 4.0,
+            semanticSpacingAroundPatternS: 8.0,
+            semanticSpacingAroundPatternSm: 12.0,
+            semanticSpacingAroundPatternM: 16.0,
+            semanticSpacingAroundPatternL: 20.0,
+            semanticSpacingAroundPatternXl: 32.0,
+            semanticSpacingAroundSectionS: 12.0,
+            semanticSpacingAroundSectionM: 20.0,
+            semanticSpacingAroundSectionL: 32.0,
+            semanticSpacingAroundSectionXl: 40.0,
+            semanticSpacingAroundSectionXxl: 48.0);
 }
 
 class SharedRadiiTokens extends RadiiTokens {
-  @override
-  double get globalBoderRadii25 => 2.0;
-  @override
-  double get globalBoderRadii50 => 4.0;
-  @override
-  double get globalBoderRadii75 => 6.0;
-  @override
-  double get globalBoderRadii100 => 8.0;
-  @override
-  double get globalBoderRadii125 => 10.0;
-  @override
-  double get globalBoderRadii150 => 12.0;
-  @override
-  double get globalBoderRadii200 => 16.0;
-  @override
-  double get globalBoderRadii250 => 20.0;
-  @override
-  double get globalBoderRadii300 => 24.0;
-  @override
-  double get globalBoderRadiiBase => 8.0;
-  @override
-  double get globalBoderRadiiNone => 0.0;
-  @override
-  double get globalBoderRadiiRound => 9999.0;
-  @override
-  double get semanticBoderRadiiXxs => 2.0;
-  @override
-  double get semanticBoderRadiiXs => 4.0;
-  @override
-  double get semanticBoderRadiiS => 6.0;
-  @override
-  double get semanticBoderRadiiSm => 8.0;
-  @override
-  double get semanticBoderRadiiM => 10.0;
-  @override
-  double get semanticBoderRadiiMd => 12.0;
-  @override
-  double get semanticBoderRadiiL => 16.0;
-  @override
-  double get semanticBoderRadiiXl => 20.0;
-  /// 大卡片圆角
-  @override
-  double get semanticBoderRadiiXxl => 24.0;
-  @override
-  double get semanticBoderRadiiRound => 9999.0;
+  const SharedRadiiTokens()
+      : super(
+            globalBoderRadii25: 2.0,
+            globalBoderRadii50: 4.0,
+            globalBoderRadii75: 6.0,
+            globalBoderRadii100: 8.0,
+            globalBoderRadii125: 10.0,
+            globalBoderRadii150: 12.0,
+            globalBoderRadii200: 16.0,
+            globalBoderRadii250: 20.0,
+            globalBoderRadii300: 24.0,
+            globalBoderRadiiBase: 8.0,
+            globalBoderRadiiNone: 0.0,
+            globalBoderRadiiRound: 9999.0,
+            semanticBoderRadiiXxs: 2.0,
+            semanticBoderRadiiXs: 4.0,
+            semanticBoderRadiiS: 6.0,
+            semanticBoderRadiiSm: 8.0,
+            semanticBoderRadiiM: 10.0,
+            semanticBoderRadiiMd: 12.0,
+            semanticBoderRadiiL: 16.0,
+            semanticBoderRadiiXl: 20.0,
+            semanticBoderRadiiXxl: 24.0,
+            semanticBoderRadiiRound: 9999.0);
 }
 
 class LightTokens extends ITokens {
   @override
   TextStyleTokens get textStyle => AdaptiveTextStyleTokens();
   @override
-  ColorTokens get color => LightColorTokens();
+  ColorTokens get color => const LightColorTokens();
   @override
-  SpacingTokens get spacing => SharedSpacingTokens();
+  SpacingTokens get spacing => const SharedSpacingTokens();
   @override
-  RadiiTokens get radii => SharedRadiiTokens();
+  RadiiTokens get radii => const SharedRadiiTokens();
 }
 
 class LightColorTokens extends ColorTokens {
-  @override
-  Color get globalColorBlack => const Color(0xFF0C0C0E);
-  @override
-  Color get globalColorWhite => const Color(0xFFFFFFFF);
-  @override
-  Color get globalColorTransparent => const Color(0x00000000);
-  /// 已用在fill.window
-  @override
-  Color get globalColorBluegray100 => const Color(0xFFEFEFF0);
-  /// 已用在border.quaternary
-  @override
-  Color get globalColorBluegray200 => const Color(0xFFECEDEE);
-  /// 已用在border.tertiary
-  @override
-  Color get globalColorBluegray300 => const Color(0xFFDFE0E2);
-  /// 已用在border.secondary
-  @override
-  Color get globalColorBluegray400 => const Color(0xFFD4D5D8);
-  /// 已用在border.primary
-  @override
-  Color get globalColorBluegray500 => const Color(0xFFB7B9BE);
-  @override
-  Color get globalColorBluegray600 => const Color(0xFF000000);
-  @override
-  Color get globalColorBluegray700 => const Color(0xFF46464E);
-  @override
-  Color get globalColorBluegray800 => const Color(0xFF1E1E1F);
-  @override
-  Color get globalColorBluegray900 => const Color(0xFF000000);
-  @override
-  Color get globalColorBluegray1000 => const Color(0xFF111112);
-  @override
-  Color get globalColorPureblue100 => const Color(0xFFF6F6F8);
-  @override
-  Color get globalColorPureblue200 => const Color(0xFF000000);
-  /// 已用在activity.inactive
-  @override
-  Color get globalColorPureblue300 => const Color(0xFFB4CBFE);
-  @override
-  Color get globalColorPureblue400 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue500 => const Color(0xFF000000);
-  /// 已用作brand.primary
-  @override
-  Color get globalColorPureblue600 => const Color(0xFF3F70F8);
-  @override
-  Color get globalColorPureblue700 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue800 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue900 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple100 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple200 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple300 => const Color(0xFF000000);
-  /// 已用作sleep.remsleep
-  @override
-  Color get globalColorPurple400 => const Color(0xFFBBACFB);
-  @override
-  Color get globalColorPurple500 => const Color(0xFF000000);
-  /// 已用作sleep.lightsleep
-  @override
-  Color get globalColorPurple600 => const Color(0xFF8265F6);
-  @override
-  Color get globalColorPurple700 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple800 => const Color(0xFF000000);
-  /// 已用作sleep.primary和sleep.deepsleep
-  @override
-  Color get globalColorPurple900 => const Color(0xFF4D12BF);
-  @override
-  Color get globalColorPurple1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred100 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred200 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred300 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred400 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred500 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred600 => const Color(0xFFFA3372);
-  @override
-  Color get globalColorPinkred700 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred800 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred900 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue100 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue200 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue300 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue400 => const Color(0xFFC9E4FF);
-  @override
-  Color get globalColorCyanblue500 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue600 => const Color(0xFF51A6FA);
-  @override
-  Color get globalColorCyanblue700 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue800 => const Color(0xFF3E5EBF);
-  @override
-  Color get globalColorCyanblue900 => const Color(0xFF024A92);
-  @override
-  Color get globalColorCyanblue1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange100 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange200 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange300 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange400 => const Color(0xFFFFBC8A);
-  @override
-  Color get globalColorOrange500 => const Color(0xFFFFA35F);
-  @override
-  Color get globalColorOrange600 => const Color(0xFFFF8F3D);
-  @override
-  Color get globalColorOrange700 => const Color(0xFFFB7D23);
-  @override
-  Color get globalColorOrange800 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange900 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange1000 => const Color(0xFF000000);
-  /// 已用在fill.quaternary
-  @override
-  Color get globalColorBluegrayAlpha100 => const Color(0x081E222E);
-  /// 已用在fill.tertiary
-  @override
-  Color get globalColorBluegrayAlpha200 => const Color(0x121E222E);
-  /// 已用在fill.secondary
-  @override
-  Color get globalColorBluegrayAlpha300 => const Color(0x1A1E222E);
-  /// 已用在fill.primary
-  @override
-  Color get globalColorBluegrayAlpha400 => const Color(0x2E1E222E);
-  @override
-  Color get globalColorBluegrayAlpha500 => const Color(0x381E222E);
-  /// 已用在text.quaternary
-  @override
-  Color get globalColorBluegrayAlpha600 => const Color(0x4D1E222E);
-  /// 已用在text.tertiary 和 icon.secondary
-  @override
-  Color get globalColorBluegrayAlpha700 => const Color(0x801E222E);
-  @override
-  Color get globalColorBluegrayAlpha800 => const Color(0x991E222E);
-  @override
-  Color get globalColorBluegrayAlpha900 => const Color(0xBF1E222E);
-  @override
-  Color get globalColorBluegrayAlpha1000 => const Color(0xE61E222E);
-  @override
-  Color get globalColorBlackAlpha100 => const Color(0x1A000000);
-  @override
-  Color get globalColorBlackAlpha200 => const Color(0x33000000);
-  @override
-  Color get globalColorBlackAlpha300 => const Color(0x4D000000);
-  @override
-  Color get globalColorBlackAlpha400 => const Color(0x66000000);
-  /// 已用在background.mask
-  @override
-  Color get globalColorBlackAlpha500 => const Color(0x73000000);
-  @override
-  Color get globalColorBlackAlpha600 => const Color(0x99000000);
-  @override
-  Color get globalColorBlackAlpha700 => const Color(0x99000000);
-  @override
-  Color get globalColorBlackAlpha800 => const Color(0xB3000000);
-  @override
-  Color get globalColorBlackAlpha900 => const Color(0xCC000000);
-  /// 已用在background.soptlight
-  @override
-  Color get globalColorBlackAlpha1000 => const Color(0xE6000000);
-  @override
-  Color get globalColorWhiteAlpha100 => const Color(0x0DFFFFFF);
-  @override
-  Color get globalColorWhiteAlpha200 => const Color(0x1AFFFFFF);
-  @override
-  Color get globalColorWhiteAlpha300 => const Color(0x26FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha400 => const Color(0x33FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha500 => const Color(0x80FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha600 => const Color(0x99FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha700 => const Color(0xB3FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha800 => const Color(0xCCFFFFFF);
-  @override
-  Color get globalColorWhiteAlpha900 => const Color(0xE6FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha1000 => const Color(0xF2FFFFFF);
-  @override
-  Color get globalColorRadicalRed100 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed200 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed300 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed400 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed500 => const Color(0xFFFF6254);
-  @override
-  Color get globalColorRadicalRed600 => const Color(0xFFF56447);
-  @override
-  Color get globalColorRadicalRed700 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed800 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed900 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorPuertoRico100 => const Color(0xFFD8FBF5);
-  @override
-  Color get globalColorPuertoRico200 => const Color(0xFF88EFE0);
-  @override
-  Color get globalColorPuertoRico300 => const Color(0xFF60E7B5);
-  @override
-  Color get globalColorPuertoRico400 => const Color(0xFF2ED3E9);
-  @override
-  Color get globalColorPuertoRico500 => const Color(0xFF24C9B6);
-  @override
-  Color get globalColorPuertoRico600 => const Color(0xFF48C8BD);
-  @override
-  Color get globalColorPuertoRico700 => const Color(0xFF43CF9B);
-  @override
-  Color get globalColorPuertoRico800 => const Color(0xFF000000);
-  @override
-  Color get globalColorPuertoRico900 => const Color(0xFF000000);
-  @override
-  Color get globalColorPuertoRico1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna100 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna200 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna300 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna400 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna500 => const Color(0xFF33394A);
-  @override
-  Color get globalColorTuna600 => const Color(0xFF21242B);
-  @override
-  Color get globalColorTuna700 => const Color(0xFF1F212E);
-  @override
-  Color get globalColorTuna800 => const Color(0xFF151620);
-  @override
-  Color get globalColorTuna900 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow100 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow200 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow300 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow400 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow500 => const Color(0xFFFBDC5E);
-  @override
-  Color get globalColorYellow600 => const Color(0xFFFBC250);
-  @override
-  Color get globalColorYellow700 => const Color(0xFFBF8C25);
-  @override
-  Color get globalColorYellow800 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow900 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow1000 => const Color(0xFF000000);
-  /// 1级文本色
-  @override
-  Color get semanticColorGreyTextPrimary => const Color(0xFF0C0C0E);
-  /// 2级文本色
-  @override
-  Color get semanticColorGreyTextSecondary => const Color(0xBF1E222E);
-  /// 3级文本色
-  @override
-  Color get semanticColorGreyTextTertiary => const Color(0x801E222E);
-  /// 4级文本色
-  @override
-  Color get semanticColorGreyTextQuaternary => const Color(0x4D1E222E);
-  /// 文本反色
-  @override
-  Color get semanticColorGreyTextInverse => const Color(0xFFFFFFFF);
-  /// 文本品牌色
-  @override
-  Color get semanticColorGreyTextBrand => const Color(0xFF3F70F8);
-  /// 文本链接色
-  @override
-  Color get semanticColorGreyTextLink => const Color(0xFF3F70F8);
-  /// 常规背景色
-  @override
-  Color get semanticColorGreyBackgroundLayout => const Color(0xFFF6F6F8);
-  /// 背景容器层填充色
-  @override
-  Color get semanticColorGreyBackgroundContainer => const Color(0xFFFFFFFF);
-  /// 背景弹出层填充色
-  @override
-  Color get semanticColorGreyBackgroundElevated => const Color(0xFFFFFFFF);
-  /// 遮罩填充色
-  @override
-  Color get semanticColorGreyBackgroundMask => const Color(0x73000000);
-  /// toast填充色
-  @override
-  Color get semanticColorGreyBackgroundSpotlight => const Color(0xE6000000);
-  /// 1级填充灰色
-  @override
-  Color get semanticColorGreyFillPrimary => const Color(0x2E1E222E);
-  /// 2级填充灰色
-  @override
-  Color get semanticColorGreyFillSecondary => const Color(0x1A1E222E);
-  /// 3级填充灰色
-  @override
-  Color get semanticColorGreyFillTertiary => const Color(0x121E222E);
-  /// 4级填充灰色
-  @override
-  Color get semanticColorGreyFillQuaternary => const Color(0x081E222E);
-  /// 图表点按填充色
-  @override
-  Color get semanticColorGreyFillWindow => const Color(0xFFEFEFF0);
-  /// 填充反色
-  @override
-  Color get semanticColorGreyFillInverse => const Color(0xFFFFFFFF);
-  /// 1级线条色
-  @override
-  Color get semanticColorGreyBorderPrimary => const Color(0xFFB7B9BE);
-  /// 2级线条色
-  @override
-  Color get semanticColorGreyBorderSecondary => const Color(0xFFD4D5D8);
-  /// 3级线条色
-  @override
-  Color get semanticColorGreyBorderTertiary => const Color(0xFFDFE0E2);
-  /// 4级线条色
-  @override
-  Color get semanticColorGreyBorderQuaternary => const Color(0xFFECEDEE);
-  /// 黑色线条色
-  @override
-  Color get semanticColorGreyBorderBlack => const Color(0xFF0C0C0E);
-  /// 1级图标色
-  @override
-  Color get semanticColorGreyIconPrimary => const Color(0xFF0C0C0E);
-  /// 2级图标色
-  @override
-  Color get semanticColorGreyIconSecondary => const Color(0x801E222E);
-  /// 3级图表色
-  @override
-  Color get semanticColorGreyIconTertiary => const Color(0x381E222E);
-  /// 图标反色
-  @override
-  Color get semanticColorGreyIconInverse => const Color(0xFFFFFFFF);
-  /// 品牌主色
-  @override
-  Color get semanticColorBrandPrimary => const Color(0xFF3F70F8);
-  @override
-  Color get semanticColorTagGood => const Color(0xFF48C8BD);
-  /// 可提升标签色
-  @override
-  Color get semanticColorTagImprovable => const Color(0xFFFFA35F);
-  /// 危险标签色
-  @override
-  Color get semanticColorTagWarning => const Color(0xFFF56447);
-  /// 睡眠主色
-  @override
-  Color get semanticColorSleepPrimary => const Color(0xFF4D12BF);
-  /// 睡眠分期_清醒色
-  @override
-  Color get semanticColorSleepAwake => const Color(0xFFFFBC8A);
-  /// 睡眠分期_REM色
-  @override
-  Color get semanticColorSleepRemsleep => const Color(0xFFBBACFB);
-  /// 睡眠分期_浅睡色
-  @override
-  Color get semanticColorSleepLightsleep => const Color(0xFF8265F6);
-  /// 睡眠分期_深睡色
-  @override
-  Color get semanticColorSleepDeepsleep => const Color(0xFF4D12BF);
-  /// 活动主色
-  @override
-  Color get semanticColorActivityPrimary => const Color(0xFFFF8F3D);
-  /// 活动_步数主色、低强度主色
-  @override
-  Color get semanticColorActivityStep => const Color(0xFFFBC250);
-  /// 活动_卡路里主色、中强度主色
-  @override
-  Color get semanticColorActivityCalories => const Color(0xFFFF8F3D);
-  /// 活动_活动时长主色、高强度主色
-  @override
-  Color get semanticColorActivityActivityTime => const Color(0xFFF56447);
-  /// 不活跃主色
-  @override
-  Color get semanticColorActivityInactive => const Color(0xFFB4CBFE);
-  /// 压力主色
-  @override
-  Color get semanticColorStressPrimary => const Color(0xFF51A6FA);
-  /// 压力分级_轻松
-  @override
-  Color get semanticColorStressRelaxed => const Color(0xFFC9E4FF);
-  /// 压力分级_正常
-  @override
-  Color get semanticColorStressNormal => const Color(0xFF51A6FA);
-  /// 压力分级_中等
-  @override
-  Color get semanticColorStressMedium => const Color(0xFF3E5EBF);
-  /// 压力分级_高压
-  @override
-  Color get semanticColorStressHigh => const Color(0xFFFF6254);
-  /// 生命体征主色
-  @override
-  Color get semanticColorVitalPrimary => const Color(0xFFFA3372);
-  @override
-  Color get semanticColorFemaleMenstrual => const Color(0xFFFF5190);
-  @override
-  Color get semanticColorFemaleFollicular => const Color(0xFFBB8EC2);
-  @override
-  Color get semanticColorFemaleOvulation => const Color(0xFF846CE5);
-  @override
-  Color get semanticColorFemaleLuteal => const Color(0xFFFFA852);
-  /// 运动强调色
-  @override
-  Color get semanticColorSportGo => const Color(0xFF24C9B6);
-  /// 运动主色
-  @override
-  Color get semanticColorSportPrimary => const Color(0xFF33394A);
-  /// 热身色
-  /// 
-  @override
-  Color get semanticColorSportWarmUp => const Color(0xFFC9E4FF);
-  /// 燃脂色
-  /// 
-  @override
-  Color get semanticColorSportFatBurning => const Color(0xFF88EFE0);
-  /// 有氧色
-  @override
-  Color get semanticColorSportAerobic => const Color(0xFFFBC250);
-  /// 无氧色
-  @override
-  Color get semanticColorSportAnaerobic => const Color(0xFFFF8F3D);
-  /// 极限色
-  @override
-  Color get semanticColorSportExtreme => const Color(0xFFF56447);
-  @override
-  Color get semanticColorSportLow => const Color(0xFFFBDC5E);
-  @override
-  Color get semanticColorSportFair => const Color(0xFF60E7B5);
-  @override
-  Color get semanticColorSportGood => const Color(0xFF2ED3E9);
-  @override
-  Color get semanticColorSportExcellent => const Color(0xFF3E5EBF);
-  @override
-  Color get semanticColorSportElite => const Color(0xFF024A92);
-  @override
-  Color get semanticColorSportBackground => const Color(0xFF21242B);
-  @override
-  Color get semanticColorOsaNoAbnormalitiesDetected => const Color(0xFF24C9B6);
-  @override
-  Color get semanticColorOsaSuspectedMild => const Color(0xFFBF8C25);
-  @override
-  Color get semanticColorOsaSuspectedModerate => const Color(0xFFFFA35F);
-  @override
-  Color get semanticColorOsaSuspectedSevere => const Color(0xFFF56447);
+  const LightColorTokens()
+      : super(
+            globalColorBlack: const Color(0xFF0C0C0E),
+            globalColorWhite: const Color(0xFFFFFFFF),
+            globalColorTransparent: const Color(0x00000000),
+            globalColorBluegray100: const Color(0xFFEFEFF0),
+            globalColorBluegray200: const Color(0xFFECEDEE),
+            globalColorBluegray300: const Color(0xFFDFE0E2),
+            globalColorBluegray400: const Color(0xFFD4D5D8),
+            globalColorBluegray500: const Color(0xFFB7B9BE),
+            globalColorBluegray550: const Color(0xFF4C4E51),
+            globalColorBluegray600: const Color(0xFF35373B),
+            globalColorBluegray650: const Color(0xFF323234),
+            globalColorBluegray700: const Color(0xFF222224),
+            globalColorBluegray800: const Color(0xFF1B1B1C),
+            globalColorBluegray900: const Color(0xFF000000),
+            globalColorBluegray1000: const Color(0xFF0F0F0F),
+            globalColorPureblue100: const Color(0xFFF6F6F8),
+            globalColorPureblue200: const Color(0xFFFF00FF),
+            globalColorPureblue300: const Color(0xFFB4CBFE),
+            globalColorPureblue400: const Color(0xFFFF00FF),
+            globalColorPureblue500: const Color(0xFFFF00FF),
+            globalColorPureblue550: const Color(0xFF6F94FB),
+            globalColorPureblue600: const Color(0xFF3F70F8),
+            globalColorPureblue650: const Color(0xFF558AF6),
+            globalColorPureblue700: const Color(0xFF306BE2),
+            globalColorPureblue800: const Color(0xFFFF00FF),
+            globalColorPureblue900: const Color(0xFFFF00FF),
+            globalColorPureblue1000: const Color(0xFF000000),
+            globalColorPurple100: const Color(0xFFFF00FF),
+            globalColorPurple200: const Color(0xFFFF00FF),
+            globalColorPurple300: const Color(0xFFAE9AFC),
+            globalColorPurple400: const Color(0xFFBBACFB),
+            globalColorPurple450: const Color(0xFF9986BC),
+            globalColorPurple500: const Color(0xFF846CE5),
+            globalColorPurple550: const Color(0xFF8657FF),
+            globalColorPurple600: const Color(0xFF8C65F6),
+            globalColorPurple700: const Color(0xFF865EFF),
+            globalColorPurple800: const Color(0xFF60498E),
+            globalColorPurple850: const Color(0xFF6227D9),
+            globalColorPurple900: const Color(0xFF4D12BF),
+            globalColorPurple1000: const Color(0xFF2F0581),
+            globalColorPinkred100: const Color(0xFFFF00FF),
+            globalColorPinkred200: const Color(0xFFFF00FF),
+            globalColorPinkred300: const Color(0xFFFF00FF),
+            globalColorPinkred400: const Color(0xFFFF5190),
+            globalColorPinkred500: const Color(0xFFFF4781),
+            globalColorPinkred600: const Color(0xFFFA3372),
+            globalColorPinkred700: const Color(0xFFFF00FF),
+            globalColorPinkred800: const Color(0xFFFF00FF),
+            globalColorPinkred900: const Color(0xFFFF00FF),
+            globalColorPinkred1000: const Color(0xFF782842),
+            globalColorCyanblue100: const Color(0xFFFF00FF),
+            globalColorCyanblue200: const Color(0xFFFF00FF),
+            globalColorCyanblue300: const Color(0xFFFF00FF),
+            globalColorCyanblue350: const Color(0xFF8FC0F1),
+            globalColorCyanblue400: const Color(0xFF92C7FC),
+            globalColorCyanblue440: const Color(0xFF65B7EB),
+            globalColorCyanblue450: const Color(0xFF35B5F5),
+            globalColorCyanblue500: const Color(0xFF6BBAFF),
+            globalColorCyanblue550: const Color(0xFF5295ED),
+            globalColorCyanblue600: const Color(0xFF51A6FA),
+            globalColorCyanblue700: const Color(0xFF0E98CF),
+            globalColorCyanblue750: const Color(0xFF5174DF),
+            globalColorCyanblue800: const Color(0xFF3E5EBF),
+            globalColorCyanblue900: const Color(0xFF103B61),
+            globalColorCyanblue1000: const Color(0xFFFF00FF),
+            globalColorOrange100: const Color(0xFFF2D5B8),
+            globalColorOrange200: const Color(0xFFFF00FF),
+            globalColorOrange300: const Color(0xFFFF00FF),
+            globalColorOrange400: const Color(0xFFFFBC8A),
+            globalColorOrange500: const Color(0xFFFFA35F),
+            globalColorOrange550: const Color(0xFFFC9E5A),
+            globalColorOrange600: const Color(0xFFFF8F3D),
+            globalColorOrange700: const Color(0xFFFC9850),
+            globalColorOrange800: const Color(0xFFFF00FF),
+            globalColorOrange900: const Color(0xFFFF00FF),
+            globalColorOrange1000: const Color(0xFF82674B),
+            globalColorBluegrayAlpha100: const Color(0x081E222E),
+            globalColorBluegrayAlpha200: const Color(0x0F1E222E),
+            globalColorBluegrayAlpha300: const Color(0x1A1E222E),
+            globalColorBluegrayAlpha400: const Color(0x2E1E222E),
+            globalColorBluegrayAlpha500: const Color(0x381E222E),
+            globalColorBluegrayAlpha600: const Color(0x4D1E222E),
+            globalColorBluegrayAlpha700: const Color(0x801E222E),
+            globalColorBluegrayAlpha800: const Color(0x991E222E),
+            globalColorBluegrayAlpha900: const Color(0xD91E222E),
+            globalColorBluegrayAlpha1000: const Color(0xE61E222E),
+            globalColorBlackAlpha100: const Color(0x1A000000),
+            globalColorBlackAlpha200: const Color(0x33000000),
+            globalColorBlackAlpha300: const Color(0x4D000000),
+            globalColorBlackAlpha400: const Color(0x66000000),
+            globalColorBlackAlpha500: const Color(0x73000000),
+            globalColorBlackAlpha600: const Color(0x99000000),
+            globalColorBlackAlpha700: const Color(0x99000000),
+            globalColorBlackAlpha800: const Color(0xB3000000),
+            globalColorBlackAlpha900: const Color(0xCC000000),
+            globalColorBlackAlpha1000: const Color(0xE6000000),
+            globalColorWhiteAlpha100: const Color(0x0DFFFFFF),
+            globalColorWhiteAlpha200: const Color(0x14FFFFFF),
+            globalColorWhiteAlpha300: const Color(0x26FFFFFF),
+            globalColorWhiteAlpha400: const Color(0x33FFFFFF),
+            globalColorWhiteAlpha500: const Color(0x80FFFFFF),
+            globalColorWhiteAlpha600: const Color(0x99FFFFFF),
+            globalColorWhiteAlpha700: const Color(0xB3FFFFFF),
+            globalColorWhiteAlpha800: const Color(0xCCFFFFFF),
+            globalColorWhiteAlpha900: const Color(0xE6FFFFFF),
+            globalColorWhiteAlpha1000: const Color(0xF2FFFFFF),
+            globalColorRadicalRed100: const Color(0xFFFF00FF),
+            globalColorRadicalRed200: const Color(0xFFFF00FF),
+            globalColorRadicalRed300: const Color(0xFFFF00FF),
+            globalColorRadicalRed400: const Color(0xFFFF00FF),
+            globalColorRadicalRed450: const Color(0xFFE35E52),
+            globalColorRadicalRed500: const Color(0xFFFF6254),
+            globalColorRadicalRed550: const Color(0xFFF4694E),
+            globalColorRadicalRed560: const Color(0xFFF46F5B),
+            globalColorRadicalRed600: const Color(0xFFF56447),
+            globalColorRadicalRed700: const Color(0xFFFF00FF),
+            globalColorRadicalRed800: const Color(0xFFFF00FF),
+            globalColorRadicalRed900: const Color(0xFFFF00FF),
+            globalColorRadicalRed1000: const Color(0xFFFF00FF),
+            globalColorPuertoRico100: const Color(0xFFD8FBF5),
+            globalColorPuertoRico200: const Color(0xFF88EFE0),
+            globalColorPuertoRico300: const Color(0xFF60E7B5),
+            globalColorPuertoRico400: const Color(0xFF2ED3E9),
+            globalColorPuertoRico500: const Color(0xFF24C9B6),
+            globalColorPuertoRico600: const Color(0xFF48C8BD),
+            globalColorPuertoRico700: const Color(0xFF43CF9B),
+            globalColorPuertoRico800: const Color(0xFFFF00FF),
+            globalColorPuertoRico900: const Color(0xFFFF00FF),
+            globalColorPuertoRico1000: const Color(0xFFFF00FF),
+            globalColorTuna100: const Color(0xFFFF00FF),
+            globalColorTuna200: const Color(0xFFFF00FF),
+            globalColorTuna300: const Color(0xFFFF00FF),
+            globalColorTuna400: const Color(0xFF576078),
+            globalColorTuna500: const Color(0xFF33394A),
+            globalColorTuna600: const Color(0xFF21242B),
+            globalColorTuna700: const Color(0xFFFF00FF),
+            globalColorTuna800: const Color(0xFFFF00FF),
+            globalColorTuna900: const Color(0xFFFF00FF),
+            globalColorTuna1000: const Color(0xFFFF00FF),
+            globalColorYellow100: const Color(0xFFFF00FF),
+            globalColorYellow200: const Color(0xFFFF00FF),
+            globalColorYellow300: const Color(0xFFFFC66E),
+            globalColorYellow400: const Color(0xFFFCC26B),
+            globalColorYellow500: const Color(0xFFFBDC5E),
+            globalColorYellow600: const Color(0xFFFBC250),
+            globalColorYellow700: const Color(0xFFFFA852),
+            globalColorYellow800: const Color(0xFFE0C142),
+            globalColorYellow900: const Color(0xFFFF00FF),
+            globalColorYellow1000: const Color(0xFFFF00FF),
+            globalColorPureblueAlpha700: const Color(0xB33F70F8),
+            globalColorCyanblueAlpha100: const Color(0x1A6BBAFF),
+            globalColorCyanblueAlpha300: const Color(0x4D6BBAFF),
+            globalColorLavenderpurple500: const Color(0xFFBB8EC2),
+            semanticColorGreyTextPrimary: const Color(0xFF0C0C0E),
+            semanticColorGreyTextSecondary: const Color(0xD91E222E),
+            semanticColorGreyTextTertiary: const Color(0x801E222E),
+            semanticColorGreyTextQuaternary: const Color(0x4D1E222E),
+            semanticColorGreyTextWhite: const Color(0xFFFFFFFF),
+            semanticColorGreyTextInverse: const Color(0xFFFFFFFF),
+            semanticColorGreyTextInverse2: const Color(0xB3FFFFFF),
+            semanticColorGreyTextInverse3: const Color(0x80FFFFFF),
+            semanticColorGreyTextBlack: const Color(0xFF0C0C0E),
+            semanticColorGreyTextBrand: const Color(0xFF3F70F8),
+            semanticColorGreyTextLink: const Color(0xFF3F70F8),
+            semanticColorGreyBackgroundLayout: const Color(0xFFF6F6F8),
+            semanticColorGreyBackgroundContainer: const Color(0xFFFFFFFF),
+            semanticColorGreyBackgroundElevated: const Color(0xFFFFFFFF),
+            semanticColorGreyBackgroundElevated2: const Color(0xFFF6F6F8),
+            semanticColorGreyBackgroundMask: const Color(0x73000000),
+            semanticColorGreyBackgroundSpotlight: const Color(0xE6000000),
+            semanticColorGreyFillPrimary: const Color(0x2E1E222E),
+            semanticColorGreyFillSecondary: const Color(0x1A1E222E),
+            semanticColorGreyFillTertiary: const Color(0x0F1E222E),
+            semanticColorGreyFillQuaternary: const Color(0x081E222E),
+            semanticColorGreyFillWindow: const Color(0xFFEFEFF0),
+            semanticColorGreyFillInverse: const Color(0xFFFFFFFF),
+            semanticColorGreyBorderPrimary: const Color(0xFFB7B9BE),
+            semanticColorGreyBorderSecondary: const Color(0xFFD4D5D8),
+            semanticColorGreyBorderTertiary: const Color(0xFFDFE0E2),
+            semanticColorGreyBorderQuaternary: const Color(0xFFECEDEE),
+            semanticColorGreyBorderBlack: const Color(0xFF0C0C0E),
+            semanticColorGreyBorderInverse: const Color(0xFF0C0C0E),
+            semanticColorGreyBorderInverseAlpha: const Color(0x0DFFFFFF),
+            semanticColorGreyIconPrimary: const Color(0xFF0C0C0E),
+            semanticColorGreyIconSecondary: const Color(0x801E222E),
+            semanticColorGreyIconTertiary: const Color(0x381E222E),
+            semanticColorGreyIconInverse: const Color(0xFFFFFFFF),
+            semanticColorGreyIconWhite: const Color(0xFFFFFFFF),
+            semanticColorGreyChartPrimary: const Color(0xFFDFE0E2),
+            semanticColorGreyChartNotselect: const Color(0xFFECEDEE),
+            semanticColorBrandPrimary: const Color(0xFF3F70F8),
+            semanticColorTagGood: const Color(0xFF48C8BD),
+            semanticColorTagImprovable: const Color(0xFFFFA35F),
+            semanticColorTagWarning: const Color(0xFFF56447),
+            semanticColorSleepPrimary: const Color(0xFF4D12BF),
+            semanticColorSleepAwake: const Color(0xFFFFBC8A),
+            semanticColorSleepRemsleep: const Color(0xFFBBACFB),
+            semanticColorSleepLightsleep: const Color(0xFF8C65F6),
+            semanticColorSleepDeepsleep: const Color(0xFF4D12BF),
+            semanticColorSleepBodymovement1: const Color(0xFF9986BC),
+            semanticColorSleepBodymovement2: const Color(0xFF60498E),
+            semanticColorSleepBodymovement3: const Color(0xFF2F0581),
+            semanticColorSleepText: const Color(0xFF4D12BF),
+            semanticColorActivityPrimary: const Color(0xFFFF8F3D),
+            semanticColorActivityStep: const Color(0xFFFBC250),
+            semanticColorActivityCalories: const Color(0xFFFF8F3D),
+            semanticColorActivityActivityTime: const Color(0xFFF56447),
+            semanticColorActivityInactive: const Color(0xFFB4CBFE),
+            semanticColorStressPrimary: const Color(0xFF51A6FA),
+            semanticColorStressRelaxed: const Color(0xFF92C7FC),
+            semanticColorStressNormal: const Color(0xFF51A6FA),
+            semanticColorStressMedium: const Color(0xFF3E5EBF),
+            semanticColorStressHigh: const Color(0xFFFF6254),
+            semanticColorVitalPrimary: const Color(0xFFFA3372),
+            semanticColorVitalBaseline: const Color(0xFFFF00FF),
+            semanticColorVitalRemind: const Color(0xFFF2D5B8),
+            semanticColorFemaleMenstrual: const Color(0xFFFF5190),
+            semanticColorFemaleFollicular: const Color(0xFFBB8EC2),
+            semanticColorFemaleOvulation: const Color(0xFF846CE5),
+            semanticColorFemaleLuteal: const Color(0xFFFFA852),
+            semanticColorFemaleNonMenstrual: const Color(0xFFFFC66E),
+            semanticColorSportGo: const Color(0xFF24C9B6),
+            semanticColorSportPrimary: const Color(0xFF33394A),
+            semanticColorSportWarmUp: const Color(0xFF92C7FC),
+            semanticColorSportFatBurning: const Color(0xFF88EFE0),
+            semanticColorSportAerobic: const Color(0xFFFBC250),
+            semanticColorSportAnaerobic: const Color(0xFFFF8F3D),
+            semanticColorSportExtreme: const Color(0xFFF56447),
+            semanticColorSportLow: const Color(0xFFFBDC5E),
+            semanticColorSportLowText: const Color(0xFFFBDC5E),
+            semanticColorSportFair: const Color(0xFF60E7B5),
+            semanticColorSportGood: const Color(0xFF2ED3E9),
+            semanticColorSportExcellent: const Color(0xFF0E98CF),
+            semanticColorSportElite: const Color(0xFF103B61),
+            semanticColorSportBackground: const Color(0xFF21242B),
+            semanticColorSportLayout: const Color(0xFF0F0F0F),
+            semanticColorSportContainer: const Color(0xFF1B1B1C),
+            semanticColorOsaNoAbnormalitiesDetected: const Color(0xFF24C9B6),
+            semanticColorOsaSuspectedMild: const Color(0xFFFCC26B),
+            semanticColorOsaSuspectedModerate: const Color(0xFFFFA35F),
+            semanticColorOsaSuspectedSevere: const Color(0xFFF56447),
+            semanticColorInsightsRadaroutline: const Color(0xFF3F70F8),
+            semanticColorInsightsRadarfill: const Color(0xB33F70F8),
+            semanticColorInsightsRadaroutline2: const Color(0x1A6BBAFF),
+            semanticColorInsightsRadarfill2: const Color(0x4D6BBAFF),
+            semanticColorInsightsAvg7: const Color(0xFF6BBAFF),
+            semanticColorBloodpressureOnload: const Color(0xFF35B5F5),
+            semanticColorBloodpressureUnderload: const Color(0xFF306BE2),
+            semanticColorMeBlue: const Color(0xFF5174DF),
+            semanticColorMeOrange: const Color(0xFFFFC66E));
 }
-
 
 class DarkTokens extends ITokens {
   @override
   TextStyleTokens get textStyle => AdaptiveTextStyleTokens();
   @override
-  ColorTokens get color => DarkColorTokens();
+  ColorTokens get color => const DarkColorTokens();
   @override
-  SpacingTokens get spacing => SharedSpacingTokens();
+  SpacingTokens get spacing => const SharedSpacingTokens();
   @override
-  RadiiTokens get radii => SharedRadiiTokens();
+  RadiiTokens get radii => const SharedRadiiTokens();
 }
 
 class DarkColorTokens extends ColorTokens {
-  @override
-  Color get globalColorBlack => const Color(0xFF0C0C0E);
-  @override
-  Color get globalColorWhite => const Color(0xFFFFFFFF);
-  @override
-  Color get globalColorTransparent => const Color(0x00000000);
-  /// 已用在fill.window
-  @override
-  Color get globalColorBluegray100 => const Color(0xFFEFEFF0);
-  /// 已用在border.quaternary
-  @override
-  Color get globalColorBluegray200 => const Color(0xFFECEDEE);
-  /// 已用在border.tertiary
-  @override
-  Color get globalColorBluegray300 => const Color(0xFFDFE0E2);
-  /// 已用在border.secondary
-  @override
-  Color get globalColorBluegray400 => const Color(0xFFD4D5D8);
-  /// 已用在border.primary
-  @override
-  Color get globalColorBluegray500 => const Color(0xFFB7B9BE);
-  @override
-  Color get globalColorBluegray600 => const Color(0xFF000000);
-  @override
-  Color get globalColorBluegray700 => const Color(0xFF46464E);
-  @override
-  Color get globalColorBluegray800 => const Color(0xFF1E1E1F);
-  @override
-  Color get globalColorBluegray900 => const Color(0xFF000000);
-  @override
-  Color get globalColorBluegray1000 => const Color(0xFF111112);
-  @override
-  Color get globalColorPureblue100 => const Color(0xFFF6F6F8);
-  @override
-  Color get globalColorPureblue200 => const Color(0xFF000000);
-  /// 已用在activity.inactive
-  @override
-  Color get globalColorPureblue300 => const Color(0xFFB4CBFE);
-  @override
-  Color get globalColorPureblue400 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue500 => const Color(0xFF000000);
-  /// 已用作brand.primary
-  @override
-  Color get globalColorPureblue600 => const Color(0xFF3F70F8);
-  @override
-  Color get globalColorPureblue700 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue800 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue900 => const Color(0xFF000000);
-  @override
-  Color get globalColorPureblue1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple100 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple200 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple300 => const Color(0xFF000000);
-  /// 已用作sleep.remsleep
-  @override
-  Color get globalColorPurple400 => const Color(0xFFBBACFB);
-  @override
-  Color get globalColorPurple500 => const Color(0xFF000000);
-  /// 已用作sleep.lightsleep
-  @override
-  Color get globalColorPurple600 => const Color(0xFF8265F6);
-  @override
-  Color get globalColorPurple700 => const Color(0xFF000000);
-  @override
-  Color get globalColorPurple800 => const Color(0xFF000000);
-  /// 已用作sleep.primary和sleep.deepsleep
-  @override
-  Color get globalColorPurple900 => const Color(0xFF4D12BF);
-  @override
-  Color get globalColorPurple1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred100 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred200 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred300 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred400 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred500 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred600 => const Color(0xFFFA3372);
-  @override
-  Color get globalColorPinkred700 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred800 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred900 => const Color(0xFF000000);
-  @override
-  Color get globalColorPinkred1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue100 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue200 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue300 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue400 => const Color(0xFFC9E4FF);
-  @override
-  Color get globalColorCyanblue500 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue600 => const Color(0xFF51A6FA);
-  @override
-  Color get globalColorCyanblue700 => const Color(0xFF000000);
-  @override
-  Color get globalColorCyanblue800 => const Color(0xFF3E5EBF);
-  @override
-  Color get globalColorCyanblue900 => const Color(0xFF024A92);
-  @override
-  Color get globalColorCyanblue1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange100 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange200 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange300 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange400 => const Color(0xFFFFBC8A);
-  @override
-  Color get globalColorOrange500 => const Color(0xFFFFA35F);
-  @override
-  Color get globalColorOrange600 => const Color(0xFFFF8F3D);
-  @override
-  Color get globalColorOrange700 => const Color(0xFFFB7D23);
-  @override
-  Color get globalColorOrange800 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange900 => const Color(0xFF000000);
-  @override
-  Color get globalColorOrange1000 => const Color(0xFF000000);
-  /// 已用在fill.quaternary
-  @override
-  Color get globalColorBluegrayAlpha100 => const Color(0x081E222E);
-  /// 已用在fill.tertiary
-  @override
-  Color get globalColorBluegrayAlpha200 => const Color(0x121E222E);
-  /// 已用在fill.secondary
-  @override
-  Color get globalColorBluegrayAlpha300 => const Color(0x1A1E222E);
-  /// 已用在fill.primary
-  @override
-  Color get globalColorBluegrayAlpha400 => const Color(0x2E1E222E);
-  @override
-  Color get globalColorBluegrayAlpha500 => const Color(0x381E222E);
-  /// 已用在text.quaternary
-  @override
-  Color get globalColorBluegrayAlpha600 => const Color(0x4D1E222E);
-  /// 已用在text.tertiary 和 icon.secondary
-  @override
-  Color get globalColorBluegrayAlpha700 => const Color(0x801E222E);
-  @override
-  Color get globalColorBluegrayAlpha800 => const Color(0x991E222E);
-  @override
-  Color get globalColorBluegrayAlpha900 => const Color(0xBF1E222E);
-  @override
-  Color get globalColorBluegrayAlpha1000 => const Color(0xE61E222E);
-  @override
-  Color get globalColorBlackAlpha100 => const Color(0x1A000000);
-  @override
-  Color get globalColorBlackAlpha200 => const Color(0x33000000);
-  @override
-  Color get globalColorBlackAlpha300 => const Color(0x4D000000);
-  @override
-  Color get globalColorBlackAlpha400 => const Color(0x66000000);
-  /// 已用在background.mask
-  @override
-  Color get globalColorBlackAlpha500 => const Color(0x73000000);
-  @override
-  Color get globalColorBlackAlpha600 => const Color(0x99000000);
-  @override
-  Color get globalColorBlackAlpha700 => const Color(0x99000000);
-  @override
-  Color get globalColorBlackAlpha800 => const Color(0xB3000000);
-  @override
-  Color get globalColorBlackAlpha900 => const Color(0xCC000000);
-  /// 已用在background.soptlight
-  @override
-  Color get globalColorBlackAlpha1000 => const Color(0xE6000000);
-  @override
-  Color get globalColorWhiteAlpha100 => const Color(0x0DFFFFFF);
-  @override
-  Color get globalColorWhiteAlpha200 => const Color(0x1AFFFFFF);
-  @override
-  Color get globalColorWhiteAlpha300 => const Color(0x26FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha400 => const Color(0x33FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha500 => const Color(0x80FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha600 => const Color(0x99FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha700 => const Color(0xB3FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha800 => const Color(0xCCFFFFFF);
-  @override
-  Color get globalColorWhiteAlpha900 => const Color(0xE6FFFFFF);
-  @override
-  Color get globalColorWhiteAlpha1000 => const Color(0xF2FFFFFF);
-  @override
-  Color get globalColorRadicalRed100 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed200 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed300 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed400 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed500 => const Color(0xFFFF6254);
-  @override
-  Color get globalColorRadicalRed600 => const Color(0xFFF56447);
-  @override
-  Color get globalColorRadicalRed700 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed800 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed900 => const Color(0xFF000000);
-  @override
-  Color get globalColorRadicalRed1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorPuertoRico100 => const Color(0xFFD8FBF5);
-  @override
-  Color get globalColorPuertoRico200 => const Color(0xFF88EFE0);
-  @override
-  Color get globalColorPuertoRico300 => const Color(0xFF60E7B5);
-  @override
-  Color get globalColorPuertoRico400 => const Color(0xFF2ED3E9);
-  @override
-  Color get globalColorPuertoRico500 => const Color(0xFF24C9B6);
-  @override
-  Color get globalColorPuertoRico600 => const Color(0xFF48C8BD);
-  @override
-  Color get globalColorPuertoRico700 => const Color(0xFF43CF9B);
-  @override
-  Color get globalColorPuertoRico800 => const Color(0xFF000000);
-  @override
-  Color get globalColorPuertoRico900 => const Color(0xFF000000);
-  @override
-  Color get globalColorPuertoRico1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna100 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna200 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna300 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna400 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna500 => const Color(0xFF33394A);
-  @override
-  Color get globalColorTuna600 => const Color(0xFF21242B);
-  @override
-  Color get globalColorTuna700 => const Color(0xFF1F212E);
-  @override
-  Color get globalColorTuna800 => const Color(0xFF151620);
-  @override
-  Color get globalColorTuna900 => const Color(0xFF000000);
-  @override
-  Color get globalColorTuna1000 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow100 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow200 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow300 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow400 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow500 => const Color(0xFFFBDC5E);
-  @override
-  Color get globalColorYellow600 => const Color(0xFFFBC250);
-  @override
-  Color get globalColorYellow700 => const Color(0xFFBF8C25);
-  @override
-  Color get globalColorYellow800 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow900 => const Color(0xFF000000);
-  @override
-  Color get globalColorYellow1000 => const Color(0xFF000000);
-  /// 1级文本色
-  @override
-  Color get semanticColorGreyTextPrimary => const Color(0xF2FFFFFF);
-  /// 2级文本色
-  @override
-  Color get semanticColorGreyTextSecondary => const Color(0x99FFFFFF);
-  /// 3级文本色
-  @override
-  Color get semanticColorGreyTextTertiary => const Color(0x80FFFFFF);
-  /// 4级文本色
-  @override
-  Color get semanticColorGreyTextQuaternary => const Color(0x33FFFFFF);
-  /// 文本反色
-  @override
-  Color get semanticColorGreyTextInverse => const Color(0xFFFFFFFF);
-  /// 文本品牌色
-  @override
-  Color get semanticColorGreyTextBrand => const Color(0xFF3F70F8);
-  /// 文本链接色
-  @override
-  Color get semanticColorGreyTextLink => const Color(0xFF3F70F8);
-  /// 常规背景色
-  @override
-  Color get semanticColorGreyBackgroundLayout => const Color(0xFF111112);
-  /// 背景容器层填充色
-  @override
-  Color get semanticColorGreyBackgroundContainer => const Color(0xFF1E1E1F);
-  /// 背景弹出层填充色
-  @override
-  Color get semanticColorGreyBackgroundElevated => const Color(0xFF46464E);
-  /// 遮罩填充色
-  @override
-  Color get semanticColorGreyBackgroundMask => const Color(0x73000000);
-  /// toast填充色
-  @override
-  Color get semanticColorGreyBackgroundSpotlight => const Color(0xE6000000);
-  /// 1级填充灰色
-  @override
-  Color get semanticColorGreyFillPrimary => const Color(0x33FFFFFF);
-  /// 2级填充灰色
-  @override
-  Color get semanticColorGreyFillSecondary => const Color(0x26FFFFFF);
-  /// 3级填充灰色
-  @override
-  Color get semanticColorGreyFillTertiary => const Color(0x1AFFFFFF);
-  /// 4级填充灰色
-  @override
-  Color get semanticColorGreyFillQuaternary => const Color(0x0DFFFFFF);
-  /// 图表点按填充色
-  @override
-  Color get semanticColorGreyFillWindow => const Color(0xFFEFEFF0);
-  /// 填充反色
-  @override
-  Color get semanticColorGreyFillInverse => const Color(0x1AFFFFFF);
-  /// 1级线条色
-  @override
-  Color get semanticColorGreyBorderPrimary => const Color(0x1AFFFFFF);
-  /// 2级线条色
-  @override
-  Color get semanticColorGreyBorderSecondary => const Color(0x26FFFFFF);
-  /// 3级线条色
-  @override
-  Color get semanticColorGreyBorderTertiary => const Color(0x1AFFFFFF);
-  /// 4级线条色
-  @override
-  Color get semanticColorGreyBorderQuaternary => const Color(0x0DFFFFFF);
-  /// 黑色线条色
-  @override
-  Color get semanticColorGreyBorderBlack => const Color(0xFF0C0C0E);
-  /// 1级图标色
-  @override
-  Color get semanticColorGreyIconPrimary => const Color(0xF2FFFFFF);
-  /// 2级图标色
-  @override
-  Color get semanticColorGreyIconSecondary => const Color(0x99FFFFFF);
-  /// 3级图表色
-  @override
-  Color get semanticColorGreyIconTertiary => const Color(0x80FFFFFF);
-  /// 图标反色
-  @override
-  Color get semanticColorGreyIconInverse => const Color(0xFFFFFFFF);
-  /// 品牌主色
-  @override
-  Color get semanticColorBrandPrimary => const Color(0xFF3F70F8);
-  /// 优秀标签色
-  @override
-  Color get semanticColorTagGood => const Color(0xFF48C8BD);
-  /// 可提升标签色
-  @override
-  Color get semanticColorTagImprovable => const Color(0xFFFFA35F);
-  @override
-  Color get semanticColorTagWarning => const Color(0xFFF56447);
-  /// 睡眠主色
-  @override
-  Color get semanticColorSleepPrimary => const Color(0xFF4D12BF);
-  /// 睡眠分期_清醒色
-  @override
-  Color get semanticColorSleepAwake => const Color(0xFFFAB979);
-  /// 睡眠分期_REM色
-  @override
-  Color get semanticColorSleepRemsleep => const Color(0xFFBBACFB);
-  /// 睡眠分期_浅睡色
-  @override
-  Color get semanticColorSleepLightsleep => const Color(0xFF8265F6);
-  /// 睡眠分期_深睡色
-  @override
-  Color get semanticColorSleepDeepsleep => const Color(0xFF4D12BF);
-  /// 活动主色
-  @override
-  Color get semanticColorActivityPrimary => const Color(0xFFFB7D23);
-  /// 活动_步数主色、低强度主色
-  @override
-  Color get semanticColorActivityStep => const Color(0xFFFBC250);
-  /// 活动_卡路里主色、中强度主色
-  @override
-  Color get semanticColorActivityCalories => const Color(0xFFFF8F3D);
-  /// 活动_活动时长主色、高强度主色
-  @override
-  Color get semanticColorActivityActivityTime => const Color(0xFFF56447);
-  /// 不活跃主色
-  @override
-  Color get semanticColorActivityInactive => const Color(0xFFB4CBFE);
-  /// 压力主色
-  @override
-  Color get semanticColorStressPrimary => const Color(0xFF51A6FA);
-  /// 压力分级_轻松
-  @override
-  Color get semanticColorStressRelaxed => const Color(0xFFC9E4FF);
-  /// 压力分级_正常
-  @override
-  Color get semanticColorStressNormal => const Color(0xFF51A6FA);
-  /// 压力分级_中等
-  @override
-  Color get semanticColorStressMedium => const Color(0xFF3E5EBF);
-  /// 压力分级_高压
-  @override
-  Color get semanticColorStressHigh => const Color(0xFFFF6254);
-  /// 生命体征主色
-  @override
-  Color get semanticColorVitalPrimary => const Color(0xFFFA3372);
-  @override
-  Color get semanticColorFemaleMenstrual => const Color(0xFFFF5190);
-  @override
-  Color get semanticColorFemaleFollicular => const Color(0xFFBB8EC2);
-  @override
-  Color get semanticColorFemaleOvulation => const Color(0xFF846CE5);
-  @override
-  Color get semanticColorFemaleLuteal => const Color(0xFFFFA852);
-  /// 运动强调色
-  @override
-  Color get semanticColorSportGo => const Color(0xFF24C9B6);
-  /// 运动主色
-  @override
-  Color get semanticColorSportPrimary => const Color(0xFF33394A);
-  /// 热身色
-  /// 
-  @override
-  Color get semanticColorSportWarmUp => const Color(0xFFC9E4FF);
-  /// 燃脂色
-  /// 
-  @override
-  Color get semanticColorSportFatBurning => const Color(0xFF88EFE0);
-  /// 有氧色
-  @override
-  Color get semanticColorSportAerobic => const Color(0xFFFBC250);
-  /// 无氧色
-  @override
-  Color get semanticColorSportAnaerobic => const Color(0xFFFF8F3D);
-  /// 极限色
-  @override
-  Color get semanticColorSportExtreme => const Color(0xFFF56447);
-  @override
-  Color get semanticColorSportLow => const Color(0xFFFBDC5E);
-  @override
-  Color get semanticColorSportFair => const Color(0xFF60E7B5);
-  @override
-  Color get semanticColorSportGood => const Color(0xFF2ED3E9);
-  @override
-  Color get semanticColorSportExcellent => const Color(0xFF3E5EBF);
-  @override
-  Color get semanticColorSportElite => const Color(0xFF024A92);
-  @override
-  Color get semanticColorSportBackground => const Color(0xFF21242B);
-  /// 当前主题 (dark) 未定义此 token，使用 light 主题的值作为默认值。
-  @override
-  Color get semanticColorOsaNoAbnormalitiesDetected => LightColorTokens().semanticColorOsaNoAbnormalitiesDetected;
-  /// 当前主题 (dark) 未定义此 token，使用 light 主题的值作为默认值。
-  @override
-  Color get semanticColorOsaSuspectedMild => LightColorTokens().semanticColorOsaSuspectedMild;
-  /// 当前主题 (dark) 未定义此 token，使用 light 主题的值作为默认值。
-  @override
-  Color get semanticColorOsaSuspectedModerate => LightColorTokens().semanticColorOsaSuspectedModerate;
-  /// 当前主题 (dark) 未定义此 token，使用 light 主题的值作为默认值。
-  @override
-  Color get semanticColorOsaSuspectedSevere => LightColorTokens().semanticColorOsaSuspectedSevere;
+  const DarkColorTokens()
+      : super(
+            globalColorBlack: const Color(0xFF0C0C0E),
+            globalColorWhite: const Color(0xFFFFFFFF),
+            globalColorTransparent: const Color(0x00000000),
+            globalColorBluegray100: const Color(0xFFEFEFF0),
+            globalColorBluegray200: const Color(0xFFECEDEE),
+            globalColorBluegray300: const Color(0xFFDFE0E2),
+            globalColorBluegray400: const Color(0xFFD4D5D8),
+            globalColorBluegray500: const Color(0xFFB7B9BE),
+            globalColorBluegray550: const Color(0xFF4C4E51),
+            globalColorBluegray600: const Color(0xFF35373B),
+            globalColorBluegray650: const Color(0xFF323234),
+            globalColorBluegray700: const Color(0xFF222224),
+            globalColorBluegray800: const Color(0xFF1B1B1C),
+            globalColorBluegray900: const Color(0xFF000000),
+            globalColorBluegray1000: const Color(0xFF0F0F0F),
+            globalColorPureblue100: const Color(0xFFF6F6F8),
+            globalColorPureblue200: const Color(0xFFFF00FF),
+            globalColorPureblue300: const Color(0xFFB4CBFE),
+            globalColorPureblue400: const Color(0xFFFF00FF),
+            globalColorPureblue500: const Color(0xFFFF00FF),
+            globalColorPureblue550: const Color(0xFF6F94FB),
+            globalColorPureblue600: const Color(0xFF3F70F8),
+            globalColorPureblue650: const Color(0xFF558AF6),
+            globalColorPureblue700: const Color(0xFF306BE2),
+            globalColorPureblue800: const Color(0xFFFF00FF),
+            globalColorPureblue900: const Color(0xFFFF00FF),
+            globalColorPureblue1000: const Color(0xFF000000),
+            globalColorPurple100: const Color(0xFFFF00FF),
+            globalColorPurple200: const Color(0xFFFF00FF),
+            globalColorPurple300: const Color(0xFFAE9AFC),
+            globalColorPurple400: const Color(0xFFBBACFB),
+            globalColorPurple450: const Color(0xFF9986BC),
+            globalColorPurple500: const Color(0xFF846CE5),
+            globalColorPurple550: const Color(0xFF8657FF),
+            globalColorPurple600: const Color(0xFF8C65F6),
+            globalColorPurple700: const Color(0xFF865EFF),
+            globalColorPurple800: const Color(0xFF60498E),
+            globalColorPurple850: const Color(0xFF6227D9),
+            globalColorPurple900: const Color(0xFF4D12BF),
+            globalColorPurple1000: const Color(0xFF2F0581),
+            globalColorPinkred100: const Color(0xFFFF00FF),
+            globalColorPinkred200: const Color(0xFFFF00FF),
+            globalColorPinkred300: const Color(0xFFFF00FF),
+            globalColorPinkred400: const Color(0xFFFF5190),
+            globalColorPinkred500: const Color(0xFFFF4781),
+            globalColorPinkred600: const Color(0xFFFA3372),
+            globalColorPinkred700: const Color(0xFFFF00FF),
+            globalColorPinkred800: const Color(0xFFFF00FF),
+            globalColorPinkred900: const Color(0xFFFF00FF),
+            globalColorPinkred1000: const Color(0xFF782842),
+            globalColorCyanblue100: const Color(0xFFFF00FF),
+            globalColorCyanblue200: const Color(0xFFFF00FF),
+            globalColorCyanblue300: const Color(0xFFFF00FF),
+            globalColorCyanblue350: const Color(0xFF8FC0F1),
+            globalColorCyanblue400: const Color(0xFF92C7FC),
+            globalColorCyanblue440: const Color(0xFF65B7EB),
+            globalColorCyanblue450: const Color(0xFF35B5F5),
+            globalColorCyanblue500: const Color(0xFF6BBAFF),
+            globalColorCyanblue550: const Color(0xFF5295ED),
+            globalColorCyanblue600: const Color(0xFF51A6FA),
+            globalColorCyanblue700: const Color(0xFF0E98CF),
+            globalColorCyanblue750: const Color(0xFF5174DF),
+            globalColorCyanblue800: const Color(0xFF3E5EBF),
+            globalColorCyanblue900: const Color(0xFF103B61),
+            globalColorCyanblue1000: const Color(0xFFFF00FF),
+            globalColorOrange100: const Color(0xFFF2D5B8),
+            globalColorOrange200: const Color(0xFFFF00FF),
+            globalColorOrange300: const Color(0xFFFF00FF),
+            globalColorOrange400: const Color(0xFFFFBC8A),
+            globalColorOrange500: const Color(0xFFFFA35F),
+            globalColorOrange550: const Color(0xFFFC9E5A),
+            globalColorOrange600: const Color(0xFFFF8F3D),
+            globalColorOrange700: const Color(0xFFFC9850),
+            globalColorOrange800: const Color(0xFFFF00FF),
+            globalColorOrange900: const Color(0xFFFF00FF),
+            globalColorOrange1000: const Color(0xFF82674B),
+            globalColorBluegrayAlpha100: const Color(0x081E222E),
+            globalColorBluegrayAlpha200: const Color(0x0F1E222E),
+            globalColorBluegrayAlpha300: const Color(0x1A1E222E),
+            globalColorBluegrayAlpha400: const Color(0x2E1E222E),
+            globalColorBluegrayAlpha500: const Color(0x381E222E),
+            globalColorBluegrayAlpha600: const Color(0x4D1E222E),
+            globalColorBluegrayAlpha700: const Color(0x801E222E),
+            globalColorBluegrayAlpha800: const Color(0x991E222E),
+            globalColorBluegrayAlpha900: const Color(0xD91E222E),
+            globalColorBluegrayAlpha1000: const Color(0xE61E222E),
+            globalColorBlackAlpha100: const Color(0x1A000000),
+            globalColorBlackAlpha200: const Color(0x33000000),
+            globalColorBlackAlpha300: const Color(0x4D000000),
+            globalColorBlackAlpha400: const Color(0x66000000),
+            globalColorBlackAlpha500: const Color(0x73000000),
+            globalColorBlackAlpha600: const Color(0x99000000),
+            globalColorBlackAlpha700: const Color(0x99000000),
+            globalColorBlackAlpha800: const Color(0xB3000000),
+            globalColorBlackAlpha900: const Color(0xCC000000),
+            globalColorBlackAlpha1000: const Color(0xE6000000),
+            globalColorWhiteAlpha100: const Color(0x0DFFFFFF),
+            globalColorWhiteAlpha200: const Color(0x14FFFFFF),
+            globalColorWhiteAlpha300: const Color(0x26FFFFFF),
+            globalColorWhiteAlpha400: const Color(0x33FFFFFF),
+            globalColorWhiteAlpha500: const Color(0x80FFFFFF),
+            globalColorWhiteAlpha600: const Color(0x99FFFFFF),
+            globalColorWhiteAlpha700: const Color(0xB3FFFFFF),
+            globalColorWhiteAlpha800: const Color(0xCCFFFFFF),
+            globalColorWhiteAlpha900: const Color(0xE6FFFFFF),
+            globalColorWhiteAlpha1000: const Color(0xF2FFFFFF),
+            globalColorRadicalRed100: const Color(0xFFFF00FF),
+            globalColorRadicalRed200: const Color(0xFFFF00FF),
+            globalColorRadicalRed300: const Color(0xFFFF00FF),
+            globalColorRadicalRed400: const Color(0xFFFF00FF),
+            globalColorRadicalRed450: const Color(0xFFE35E52),
+            globalColorRadicalRed500: const Color(0xFFFF6254),
+            globalColorRadicalRed550: const Color(0xFFF4694E),
+            globalColorRadicalRed560: const Color(0xFFF46F5B),
+            globalColorRadicalRed600: const Color(0xFFF56447),
+            globalColorRadicalRed700: const Color(0xFFFF00FF),
+            globalColorRadicalRed800: const Color(0xFFFF00FF),
+            globalColorRadicalRed900: const Color(0xFFFF00FF),
+            globalColorRadicalRed1000: const Color(0xFFFF00FF),
+            globalColorPuertoRico100: const Color(0xFFD8FBF5),
+            globalColorPuertoRico200: const Color(0xFF88EFE0),
+            globalColorPuertoRico300: const Color(0xFF60E7B5),
+            globalColorPuertoRico400: const Color(0xFF2ED3E9),
+            globalColorPuertoRico500: const Color(0xFF24C9B6),
+            globalColorPuertoRico600: const Color(0xFF48C8BD),
+            globalColorPuertoRico700: const Color(0xFF43CF9B),
+            globalColorPuertoRico800: const Color(0xFFFF00FF),
+            globalColorPuertoRico900: const Color(0xFFFF00FF),
+            globalColorPuertoRico1000: const Color(0xFFFF00FF),
+            globalColorTuna100: const Color(0xFFFF00FF),
+            globalColorTuna200: const Color(0xFFFF00FF),
+            globalColorTuna300: const Color(0xFFFF00FF),
+            globalColorTuna400: const Color(0xFF576078),
+            globalColorTuna500: const Color(0xFF33394A),
+            globalColorTuna600: const Color(0xFF21242B),
+            globalColorTuna700: const Color(0xFFFF00FF),
+            globalColorTuna800: const Color(0xFFFF00FF),
+            globalColorTuna900: const Color(0xFFFF00FF),
+            globalColorTuna1000: const Color(0xFFFF00FF),
+            globalColorYellow100: const Color(0xFFFF00FF),
+            globalColorYellow200: const Color(0xFFFF00FF),
+            globalColorYellow300: const Color(0xFFFFC66E),
+            globalColorYellow400: const Color(0xFFFCC26B),
+            globalColorYellow500: const Color(0xFFFBDC5E),
+            globalColorYellow600: const Color(0xFFFBC250),
+            globalColorYellow700: const Color(0xFFFFA852),
+            globalColorYellow800: const Color(0xFFE0C142),
+            globalColorYellow900: const Color(0xFFFF00FF),
+            globalColorYellow1000: const Color(0xFFFF00FF),
+            globalColorPureblueAlpha700: const Color(0xB33F70F8),
+            globalColorCyanblueAlpha100: const Color(0x1A6BBAFF),
+            globalColorCyanblueAlpha300: const Color(0x4D6BBAFF),
+            globalColorLavenderpurple500: const Color(0xFFBB8EC2),
+            semanticColorGreyTextPrimary: const Color(0xF2FFFFFF),
+            semanticColorGreyTextSecondary: const Color(0x99FFFFFF),
+            semanticColorGreyTextTertiary: const Color(0x80FFFFFF),
+            semanticColorGreyTextQuaternary: const Color(0x33FFFFFF),
+            semanticColorGreyTextWhite: const Color(0xFFFFFFFF),
+            semanticColorGreyTextInverse: const Color(0xFF0C0C0E),
+            semanticColorGreyTextInverse2: const Color(0x99000000),
+            semanticColorGreyTextInverse3: const Color(0x73000000),
+            semanticColorGreyTextBlack: const Color(0xFF0C0C0E),
+            semanticColorGreyTextBrand: const Color(0xFF6F94FB),
+            semanticColorGreyTextLink: const Color(0xFF6F94FB),
+            semanticColorGreyBackgroundLayout: const Color(0xFF0F0F0F),
+            semanticColorGreyBackgroundContainer: const Color(0xFF1B1B1C),
+            semanticColorGreyBackgroundElevated2: const Color(0xFF1B1B1C),
+            semanticColorGreyBackgroundElevated: const Color(0xFF222224),
+            semanticColorGreyBackgroundMask: const Color(0x73000000),
+            semanticColorGreyBackgroundSpotlight: const Color(0xFF4C4E51),
+            semanticColorGreyFillPrimary: const Color(0x33FFFFFF),
+            semanticColorGreyFillSecondary: const Color(0x26FFFFFF),
+            semanticColorGreyFillTertiary: const Color(0x14FFFFFF),
+            semanticColorGreyFillQuaternary: const Color(0x0DFFFFFF),
+            semanticColorGreyFillWindow: const Color(0xFF35373B),
+            semanticColorGreyFillInverse: const Color(0x14FFFFFF),
+            semanticColorGreyBorderPrimary: const Color(0x33FFFFFF),
+            semanticColorGreyBorderSecondary: const Color(0x26FFFFFF),
+            semanticColorGreyBorderTertiary: const Color(0x14FFFFFF),
+            semanticColorGreyBorderQuaternary: const Color(0x0DFFFFFF),
+            semanticColorGreyBorderBlack: const Color(0xFF0C0C0E),
+            semanticColorGreyBorderInverse: const Color(0xFFFFFFFF),
+            semanticColorGreyBorderInverseAlpha: const Color(0x1A000000),
+            semanticColorGreyIconPrimary: const Color(0xF2FFFFFF),
+            semanticColorGreyIconSecondary: const Color(0x99FFFFFF),
+            semanticColorGreyIconTertiary: const Color(0x80FFFFFF),
+            semanticColorGreyIconInverse: const Color(0xE6000000),
+            semanticColorGreyIconWhite: const Color(0xF2FFFFFF),
+            semanticColorGreyChartPrimary: const Color(0xFF4C4E51),
+            semanticColorGreyChartNotselect: const Color(0xFF323234),
+            semanticColorBrandPrimary: const Color(0xFF6F94FB),
+            semanticColorTagGood: const Color(0xFF48C8BD),
+            semanticColorTagImprovable: const Color(0xFFFFA35F),
+            semanticColorTagWarning: const Color(0xFFF46F5B),
+            semanticColorSleepPrimary: const Color(0xFF865EFF),
+            semanticColorSleepAwake: const Color(0xFFF2D5B8),
+            semanticColorSleepRemsleep: const Color(0xFFAE9AFC),
+            semanticColorSleepLightsleep: const Color(0xFF8657FF),
+            semanticColorSleepDeepsleep: const Color(0xFF6227D9),
+            semanticColorSleepBodymovement1: const Color(0xFF9986BC),
+            semanticColorSleepBodymovement2: const Color(0xFF60498E),
+            semanticColorSleepBodymovement3: const Color(0xFF2F0581),
+            semanticColorSleepText: const Color(0xFFAE9AFC),
+            semanticColorActivityPrimary: const Color(0xFFFC9850),
+            semanticColorActivityStep: const Color(0xFFFBC250),
+            semanticColorActivityCalories: const Color(0xFFFC9E5A),
+            semanticColorActivityActivityTime: const Color(0xFFF4694E),
+            semanticColorActivityInactive: const Color(0xFFB4CBFE),
+            semanticColorStressPrimary: const Color(0xFF5295ED),
+            semanticColorStressRelaxed: const Color(0xFF8FC0F1),
+            semanticColorStressNormal: const Color(0xFF5295ED),
+            semanticColorStressMedium: const Color(0xFF5174DF),
+            semanticColorStressHigh: const Color(0xFFE35E52),
+            semanticColorVitalPrimary: const Color(0xFFFF4781),
+            semanticColorVitalBaseline: const Color(0xFF782842),
+            semanticColorVitalRemind: const Color(0xFF82674B),
+            semanticColorSportGo: const Color(0xFF24C9B6),
+            semanticColorSportPrimary: const Color(0xFFFFFFFF),
+            semanticColorSportWarmUp: const Color(0xFF92C7FC),
+            semanticColorSportFatBurning: const Color(0xFF88EFE0),
+            semanticColorSportAerobic: const Color(0xFFFBC250),
+            semanticColorSportAnaerobic: const Color(0xFFFF8F3D),
+            semanticColorSportExtreme: const Color(0xFFF56447),
+            semanticColorSportLow: const Color(0xFFFBDC5E),
+            semanticColorSportLowText: const Color(0xFFE0C142),
+            semanticColorSportFair: const Color(0xFF60E7B5),
+            semanticColorSportGood: const Color(0xFF2ED3E9),
+            semanticColorSportExcellent: const Color(0xFF0E98CF),
+            semanticColorSportElite: const Color(0xFF103B61),
+            semanticColorSportBackground: const Color(0xFF21242B),
+            semanticColorSportLayout: const Color(0xFF0F0F0F),
+            semanticColorSportContainer: const Color(0xFF1B1B1C),
+            semanticColorOsaNoAbnormalitiesDetected: const Color(0xFF24C9B6),
+            semanticColorOsaSuspectedMild: const Color(0xFFFCC26B),
+            semanticColorOsaSuspectedModerate: const Color(0xFFFFA35F),
+            semanticColorOsaSuspectedSevere: const Color(0xFFF56447),
+            semanticColorInsightsRadaroutline: const Color(0xFF3F70F8),
+            semanticColorInsightsRadarfill: const Color(0xB33F70F8),
+            semanticColorInsightsRadaroutline2: const Color(0x1A6BBAFF),
+            semanticColorInsightsRadarfill2: const Color(0x4D6BBAFF),
+            semanticColorInsightsAvg7: const Color(0xFF6BBAFF),
+            semanticColorBloodpressureOnload: const Color(0xFF65B7EB),
+            semanticColorBloodpressureUnderload: const Color(0xFF558AF6),
+            semanticColorFemaleMenstrual: const Color(0xFFFF5190),
+            semanticColorFemaleFollicular: const Color(0xFFBB8EC2),
+            semanticColorFemaleOvulation: const Color(0xFF846CE5),
+            semanticColorFemaleLuteal: const Color(0xFFFFA852),
+            semanticColorFemaleNonMenstrual: const Color(0xFFFFC66E),
+            semanticColorMeBlue: const Color(0xFF5174DF),
+            semanticColorMeOrange: const Color(0xFFFFC66E));
 }
-
 
 class IosChTextStyleTokens extends TextStyleTokens {
-  @override
-  TextStyle get semanticTypographyLabel10 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 10.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel12 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel14 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody12 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyBody14 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody16 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle16 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle18 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 18.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle20 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle22 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 22.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyDisplay24 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyDisplay28 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumberText12 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.7,
-);
-  @override
-  TextStyle get semanticTypographyNumberText14 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.7,
-);
-  @override
-  TextStyle get semanticTypographyNumberText16 => const TextStyle(
-  fontFamily: 'PingFang SC',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.7,
-);
-  @override
-  TextStyle get semanticTypographyNumber12 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.25,
-);
-  @override
-  TextStyle get semanticTypographyNumber20 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber24 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber28 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber32 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 32.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber64 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 60.0,
-  fontWeight: FontWeight.w600,
-  height: 1.0,
-);
+  const IosChTextStyleTokens()
+      : super(
+            semanticTypographyLabel10: const TextStyle(
+              fontFamily: '',
+              fontSize: 10.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel12: const TextStyle(
+              fontFamily: '',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel14: const TextStyle(
+              fontFamily: '',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+            semanticTypographyBody12: const TextStyle(
+              fontFamily: '',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+            semanticTypographyBody14: const TextStyle(
+              fontFamily: '',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+            ),
+            semanticTypographyBody16: const TextStyle(
+              fontFamily: '',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+            ),
+            semanticTypographyTitle16: const TextStyle(
+              fontFamily: '',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+            semanticTypographyTitle18: const TextStyle(
+              fontFamily: '',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+            semanticTypographyTitle20: const TextStyle(
+              fontFamily: '',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+            semanticTypographyTitle22: const TextStyle(
+              fontFamily: '',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+            semanticTypographyDisplay22: const TextStyle(
+              fontFamily: '',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay24: const TextStyle(
+              fontFamily: '',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay28: const TextStyle(
+              fontFamily: '',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay32: const TextStyle(
+              fontFamily: '',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyNumberText12: const TextStyle(
+              fontFamily: '',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w600,
+              height: 1.7,
+            ),
+            semanticTypographyNumberText14: const TextStyle(
+              fontFamily: '',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              height: 1.7,
+            ),
+            semanticTypographyNumberText16: const TextStyle(
+              fontFamily: '',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.7,
+            ),
+            semanticTypographyNumber12: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.25,
+            ),
+            semanticTypographyNumber16: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber18: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber20: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber24: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber28: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber32: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber40: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 40.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber60: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber64: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+            ));
 }
-
 
 class IosEngTextStyleTokens extends TextStyleTokens {
-  @override
-  TextStyle get semanticTypographyLabel10 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 10.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel12 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel14 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody12 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyBody14 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody16 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle16 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyTitle18 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 18.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle20 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle22 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 22.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyDisplay24 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyDisplay28 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumberText12 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyNumberText14 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyNumberText16 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyNumber12 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.25,
-);
-  @override
-  TextStyle get semanticTypographyNumber20 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber24 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber28 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber32 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 32.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber64 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 60.0,
-  fontWeight: FontWeight.w600,
-  height: 1.0,
-);
+  const IosEngTextStyleTokens()
+      : super(
+            semanticTypographyLabel10: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 10.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel12: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel14: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+            semanticTypographyBody12: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+            semanticTypographyBody14: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+            ),
+            semanticTypographyBody16: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+            ),
+            semanticTypographyTitle16: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.5,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyTitle18: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              height: 1.4,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyTitle20: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600,
+              height: 1.4,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyTitle22: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              height: 1.4,
+            ),
+            semanticTypographyDisplay22: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyDisplay24: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyDisplay28: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyDisplay32: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumberText12: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyNumberText14: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyNumberText16: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyNumber12: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.25,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber16: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber18: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber20: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber24: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber28: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber32: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber40: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 40.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber60: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber64: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+            ));
 }
-
 
 class AndroidChTextStyleTokens extends TextStyleTokens {
-  @override
-  TextStyle get semanticTypographyLabel10 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 10.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel12 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel14 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody12 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyBody14 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody16 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle16 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle18 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 18.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle20 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle22 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 22.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyDisplay24 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyDisplay28 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumberText12 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.7,
-);
-  @override
-  TextStyle get semanticTypographyNumberText14 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.7,
-);
-  @override
-  TextStyle get semanticTypographyNumberText16 => const TextStyle(
-  fontFamily: 'HarmonyOS Sans SC',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.7,
-);
-  @override
-  TextStyle get semanticTypographyNumber12 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.25,
-);
-  @override
-  TextStyle get semanticTypographyNumber20 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber24 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber28 => const TextStyle(
-  fontFamily: 'Inter',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber32 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 32.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber64 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 60.0,
-  fontWeight: FontWeight.w600,
-  height: 1.0,
-);
+  const AndroidChTextStyleTokens()
+      : super(
+            semanticTypographyLabel10: const TextStyle(
+              fontFamily: '',
+              fontSize: 10.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel12: const TextStyle(
+              fontFamily: '',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel14: const TextStyle(
+              fontFamily: '',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+            semanticTypographyBody12: const TextStyle(
+              fontFamily: '',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+            semanticTypographyBody14: const TextStyle(
+              fontFamily: '',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+            ),
+            semanticTypographyBody16: const TextStyle(
+              fontFamily: '',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+            ),
+            semanticTypographyTitle16: const TextStyle(
+              fontFamily: '',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+            semanticTypographyTitle18: const TextStyle(
+              fontFamily: '',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+            semanticTypographyTitle20: const TextStyle(
+              fontFamily: '',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+            semanticTypographyTitle22: const TextStyle(
+              fontFamily: '',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+            semanticTypographyDisplay22: const TextStyle(
+              fontFamily: '',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay24: const TextStyle(
+              fontFamily: '',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay28: const TextStyle(
+              fontFamily: '',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay32: const TextStyle(
+              fontFamily: '',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyNumberText12: const TextStyle(
+              fontFamily: '',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w600,
+              height: 1.7,
+            ),
+            semanticTypographyNumberText14: const TextStyle(
+              fontFamily: '',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              height: 1.7,
+            ),
+            semanticTypographyNumberText16: const TextStyle(
+              fontFamily: '',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.7,
+            ),
+            semanticTypographyNumber12: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.25,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber16: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber18: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber20: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber24: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber28: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber32: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber40: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 40.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber60: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber64: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+            ));
 }
 
-
 class AndroidEngTextStyleTokens extends TextStyleTokens {
-  @override
-  TextStyle get semanticTypographyLabel10 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 10.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel12 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyLabel14 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody12 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.5,
-);
-  @override
-  TextStyle get semanticTypographyBody14 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyBody16 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w400,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle16 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyTitle18 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 18.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle20 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyTitle22 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 22.0,
-  fontWeight: FontWeight.w500,
-  height: 1.4,
-);
-  @override
-  TextStyle get semanticTypographyDisplay24 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyDisplay28 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumberText12 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyNumberText14 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 14.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyNumberText16 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 16.0,
-  fontWeight: FontWeight.w500,
-  height: 1.6,
-);
-  @override
-  TextStyle get semanticTypographyNumber12 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 12.0,
-  fontWeight: FontWeight.w400,
-  height: 1.25,
-);
-  @override
-  TextStyle get semanticTypographyNumber20 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 20.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber24 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 24.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber28 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 28.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber32 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 32.0,
-  fontWeight: FontWeight.w600,
-  height: 1.2,
-);
-  @override
-  TextStyle get semanticTypographyNumber64 => const TextStyle(
-  fontFamily: 'SF Pro',
-  fontSize: 60.0,
-  fontWeight: FontWeight.w600,
-  height: 1.0,
-);
+  const AndroidEngTextStyleTokens()
+      : super(
+            semanticTypographyLabel10: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 10.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel12: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            semanticTypographyLabel14: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+            semanticTypographyBody12: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+            semanticTypographyBody14: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+              letterSpacing: -0.3,
+            ),
+            semanticTypographyBody16: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w400,
+              height: 1.6,
+              letterSpacing: -0.3,
+            ),
+            semanticTypographyTitle16: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyTitle18: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              height: 1.4,
+            ),
+            semanticTypographyTitle20: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600,
+              height: 1.4,
+            ),
+            semanticTypographyTitle22: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              height: 1.4,
+            ),
+            semanticTypographyDisplay22: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay24: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay28: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyDisplay32: const TextStyle(
+              fontFamily: 'SF Pro Display',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
+            semanticTypographyNumberText12: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyNumberText14: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyNumberText16: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
+            ),
+            semanticTypographyNumber12: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              height: 1.25,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber16: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber18: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber20: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber24: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber28: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber32: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 32.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber40: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 40.0,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber60: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+              letterSpacing: -0.5,
+            ),
+            semanticTypographyNumber64: const TextStyle(
+              fontFamily: 'SF Pro',
+              fontSize: 60.0,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+            ));
 }

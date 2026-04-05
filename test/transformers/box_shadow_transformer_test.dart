@@ -39,7 +39,7 @@ void main() {
       transformer.lines.first,
       contains(
         '''
-List<BoxShadow> get defaultShadow => const [
+static const List<BoxShadow> defaultShadow = const [
   BoxShadow(
     offset: Offset(0.0, 8.0),
     blurRadius: 16.0,
@@ -103,7 +103,7 @@ List<BoxShadow> get defaultShadow => const [
       transformer.lines.first,
       contains(
         '''
-List<BoxShadow> get myShadowTokensDefault => const [
+static const List<BoxShadow> myShadowTokensDefault = const [
   BoxShadow(
     offset: Offset(5.0, 5.0),
     blurRadius: 5.0,

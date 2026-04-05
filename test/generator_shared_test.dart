@@ -81,12 +81,12 @@ void main() {
       final lightTokensMatch = RegExp(r'class LightTokens[^}]+}').firstMatch(output);
       expect(lightTokensMatch, isNotNull);
       final lightTokensContent = lightTokensMatch!.group(0)!;
-      expect(lightTokensContent, contains('ColorTokens get color => LightColorTokens()'));
+      expect(lightTokensContent, contains('ColorTokens get color => const LightColorTokens()'));
       
       final darkTokensMatch = RegExp(r'class DarkTokens[^}]+}').firstMatch(output);
       expect(darkTokensMatch, isNotNull);
       final darkTokensContent = darkTokensMatch!.group(0)!;
-      expect(darkTokensContent, contains('ColorTokens get color => DarkColorTokens()'));
+      expect(darkTokensContent, contains('ColorTokens get color => const DarkColorTokens()'));
     });
 
     test('should generate theme-specific class when transformer content differs', () {

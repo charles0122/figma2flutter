@@ -75,7 +75,7 @@ void main() {
     expect(
       transformer.lines[0],
       contains(
-        '''TextStyle get bold => const TextStyle(
+        '''static const TextStyle bold = const TextStyle(
   fontFamily: 'Roboto',
   fontSize: 12.0,
   fontWeight: FontWeight.w800,
@@ -86,7 +86,7 @@ void main() {
     expect(
       transformer.lines[1],
       contains(
-        '''TextStyle get regular => const TextStyle(
+        '''static const TextStyle regular = const TextStyle(
   fontFamily: 'Roboto',
   fontSize: 16.0,
   fontWeight: FontWeight.w400,
