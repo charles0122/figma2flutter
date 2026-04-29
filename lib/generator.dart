@@ -168,6 +168,14 @@ import 'package:flutter/material.dart';''';
     final androidEngClassName =
         '${androidEngTheme.name.pascalCase}TextStyleTokens';
 
+    final jpFontThemes = themes
+        .where((t) => _isFontTheme(t.name) && t.name.toLowerCase() == 'jp')
+        .toList();
+    final jpTheme = jpFontThemes.isEmpty ? null : jpFontThemes.first;
+    final jpClassName = jpTheme != null
+        ? '${jpTheme.name.pascalCase}TextStyleTokens'
+        : null;
+
     final textStyleTransformer = iosChTheme.transformers.firstWhere(
       (t) => t.name == 'textStyle',
     );
@@ -179,24 +187,35 @@ import 'package:flutter/material.dart';''';
   @override
   ${e.type} get ${e.name} => _platformTokens.${e.name};''').join('\n');
 
+    final jpField = jpClassName != null
+        ? '  final TextStyleTokens _jpTokens = const $jpClassName();\n\n'
+        : '';
+    final jpBranch = jpClassName != null
+        ? '''    if (locale.languageCode == 'ja') {
+      return _jpTokens;
+    }
+
+'''
+        : '';
+
     return '''
-/// 自适应 TextStyleTokens，根据平台和地区自动选择对应的 tokens
+/// 自适应 TextStyleTokens，根据平台、地区与语言自动选择对应的 tokens
 class AdaptiveTextStyleTokens implements TextStyleTokens {
   static final AdaptiveTextStyleTokens _instance = AdaptiveTextStyleTokens._();
   factory AdaptiveTextStyleTokens() => _instance;
 
   AdaptiveTextStyleTokens._();
 
-  final TextStyleTokens _iosChTokens = const $iosChClassName();
+$jpField  final TextStyleTokens _iosChTokens = const $iosChClassName();
   final TextStyleTokens _iosEngTokens = const $iosEngClassName();
   final TextStyleTokens _androidChTokens = const $androidChClassName();
   final TextStyleTokens _androidEngTokens = const $androidEngClassName();
 
-  /// 根据平台和地区获取对应的 tokens
+  /// 根据平台、地区与语言获取对应的 tokens
   TextStyleTokens get _platformTokens {
     // 判断是否为中文地区（中国大陆、台湾、香港、澳门）
     final locale = PlatformDispatcher.instance.locale;
-    final isChina = locale.languageCode == 'zh' &&
+$jpBranch    final isChina = locale.languageCode == 'zh' &&
         (locale.countryCode == 'CN' ||
             locale.countryCode == 'TW' ||
             locale.countryCode == 'HK' ||
@@ -749,15 +768,16 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
   }
 
   /// Checks if a theme is a font theme (only contains textStyle transformer).
-  /// Font themes are: ios_ch, ios_eng, android_ch, android_eng (or IosCh, IosEng, AndroidCh, AndroidEng)
+  /// Font themes are: ios_ch, ios_eng, android_ch, android_eng, jp (or camelCase)
   bool _isFontTheme(String themeName) {
     final lowerName = themeName.toLowerCase();
-    // 支持带下划线的名称 (ios_ch, ios_eng, android_ch, android_eng)
-    // 也支持驼峰命名 (IosCh, IosEng, AndroidCh, AndroidEng)
+    // 支持带下划线的名称 (ios_ch, ios_eng, android_ch, android_eng, jp)
+    // 也支持驼峰命名 (IosCh, IosEng, AndroidCh, AndroidEng, Jp)
     return lowerName == 'ios_ch' ||
         lowerName == 'ios_eng' ||
         lowerName == 'android_ch' ||
         lowerName == 'android_eng' ||
+        lowerName == 'jp' ||
         lowerName.contains('iosch') ||
         lowerName.contains('ioseng') ||
         lowerName.contains('androidch') ||
