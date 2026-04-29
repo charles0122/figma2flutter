@@ -172,9 +172,8 @@ import 'package:flutter/material.dart';''';
         .where((t) => _isFontTheme(t.name) && t.name.toLowerCase() == 'jp')
         .toList();
     final jpTheme = jpFontThemes.isEmpty ? null : jpFontThemes.first;
-    final jpClassName = jpTheme != null
-        ? '${jpTheme.name.pascalCase}TextStyleTokens'
-        : null;
+    final jpClassName =
+        jpTheme != null ? '${jpTheme.name.pascalCase}TextStyleTokens' : null;
 
     final textStyleTransformer = iosChTheme.transformers.firstWhere(
       (t) => t.name == 'textStyle',
@@ -183,23 +182,127 @@ import 'package:flutter/material.dart';''';
     final textStyleEntries =
         Transformer.parseGetterEntries(textStyleTransformer.lines);
 
-    final getterMethods = textStyleEntries.map((e) => '''
+    final getterMethods = textStyleEntries
+        .map(
+          (e) => '''
   @override
-  ${e.type} get ${e.name} => _platformTokens.${e.name};''').join('\n');
+  ${e.type} get ${e.name} => _platformTokens.${e.name};''',
+        )
+        .join('\n');
 
     final jpField = jpClassName != null
         ? '  final TextStyleTokens _jpTokens = const $jpClassName();\n\n'
         : '';
-    final jpBranch = jpClassName != null
-        ? '''    if (locale.languageCode == 'ja') {
-      return _jpTokens;
+    final jpParam = jpClassName != null ? '\n    this.jp,' : '';
+    final jpFieldDoc =
+        jpClassName != null ? '\n  /// 日语字体 tokens；无 jp 主题时为 null。' : '';
+    final jpMember =
+        jpClassName != null ? '\n  final TextStyleTokens? jp;' : '';
+    final jpArg = jpClassName != null ? '\n      jp: _jpTokens,' : '';
+    final defaultResolveJp = jpClassName != null
+        ? '''    if (input.jp != null && input.locale.languageCode == 'ja') {
+      return input.jp!;
     }
-
 '''
         : '';
 
+    final iosChId = _enumVariantForThemeName(iosChTheme.name);
+    final iosEngId = _enumVariantForThemeName(iosEngTheme.name);
+    final androidChId = _enumVariantForThemeName(androidChTheme.name);
+    final androidEngId = _enumVariantForThemeName(androidEngTheme.name);
+    final jpId =
+        jpClassName != null ? _enumVariantForThemeName(jpTheme!.name) : null;
+
+    final tokenSetBlock = (jpId == null)
+        ? '''
+  /// 主题 `${iosChTheme.name}` → [$iosChClassName]
+  $iosChId,
+  /// 主题 `${iosEngTheme.name}` → [$iosEngClassName]
+  $iosEngId,
+  /// 主题 `${androidChTheme.name}` → [$androidChClassName]
+  $androidChId,
+  /// 主题 `${androidEngTheme.name}` → [$androidEngClassName]
+  $androidEngId'''
+        : '''
+  /// 主题 `${iosChTheme.name}` → [$iosChClassName]
+  $iosChId,
+  /// 主题 `${iosEngTheme.name}` → [$iosEngClassName]
+  $iosEngId,
+  /// 主题 `${androidChTheme.name}` → [$androidChClassName]
+  $androidChId,
+  /// 主题 `${androidEngTheme.name}` → [$androidEngClassName]
+  $androidEngId,
+  /// 主题 `${jpTheme!.name}` → [$jpClassName]
+  $jpId''';
+
+    final switchCases = StringBuffer()
+      ..writeln('    switch (set) {')
+      ..writeln('      case TextStyleTokenSet.$iosChId:')
+      ..writeln('        return _iosChTokens;')
+      ..writeln('      case TextStyleTokenSet.$iosEngId:')
+      ..writeln('        return _iosEngTokens;')
+      ..writeln('      case TextStyleTokenSet.$androidChId:')
+      ..writeln('        return _androidChTokens;')
+      ..writeln('      case TextStyleTokenSet.$androidEngId:')
+      ..writeln('        return _androidEngTokens;');
+    if (jpId != null) {
+      switchCases
+        ..writeln('      case TextStyleTokenSet.$jpId:')
+        ..writeln('        return _jpTokens;');
+    }
+    switchCases.writeln('    }');
+
     return '''
-/// 自适应 TextStyleTokens，根据平台、地区与语言自动选择对应的 tokens
+/// 与当前工程字体主题一一对应；[AdaptiveTextStyleOverride.tokenSet] 可强制使用其中一套。
+enum TextStyleTokenSet {
+$tokenSetBlock
+}
+
+/// 供 [AdaptiveTextStyleOverride.select] 使用的输入；[locale] 为**有效**择套语言（见 [AdaptiveTextStyleOverride.appLocale]），[platform] 为当前平台，其余为各套 [TextStyleTokens]。
+class AdaptiveTextStyleInputs {
+  const AdaptiveTextStyleInputs({
+    required this.locale,
+    required this.platform,
+    required this.iosCh,
+    required this.iosEng,
+    required this.androidCh,
+    required this.androidEng,$jpParam
+  });
+
+  /// 用于默认规则与 [select] 的择套：优先来自 [AdaptiveTextStyleOverride.appLocale]（若已设置），否则为系统 [PlatformDispatcher.instance.locale]。
+  final Locale locale;
+  final TargetPlatform platform;
+  final TextStyleTokens iosCh;
+  final TextStyleTokens iosEng;
+  final TextStyleTokens androidCh;
+  final TextStyleTokens androidEng;$jpFieldDoc$jpMember
+}
+
+/// 由调用方完全控制使用哪一套 [TextStyleTokens]；为 null 时再看 [AdaptiveTextStyleOverride.tokenSet] 与 [AdaptiveTextStyleTokens.defaultResolve]。
+typedef AdaptiveTextStyleSelect = TextStyleTokens Function(
+    AdaptiveTextStyleInputs input);
+
+class AdaptiveTextStyleOverride {
+  AdaptiveTextStyleOverride._();
+
+  static AdaptiveTextStyleSelect? select;
+
+  /// 应用内语言。非 null 时，默认择套以该 [Locale] 为准，**不**再使用 [PlatformDispatcher.instance.locale]。
+  /// 为 null 时与系统语言一致。应在启动或用户切换语言时赋值；变更后如未改 [select] 的引用，可自增 [resolutionStamp] 或调用 [AdaptiveTextStyleTokens.clearResolutionCache]。
+  static Locale? appLocale;
+
+  /// 显式使用 [TextStyleTokenSet] 中的某一套。非 null 时忽略 [defaultResolve] 的按语言/平台规则，直到置回 null。
+  /// 优先级：若 [select] 非 null，仍以 [select] 为准。与 [appLocale] 无强制关联（由业务自行用枚举表达策略）。
+  static TextStyleTokenSet? tokenSet;
+
+  /// 当 [select] 内依赖的状态与缓存键不同步时，在变更后自增以重算择套（与 [AdaptiveTextStyleTokens.clearResolutionCache] 二选一）。
+  static int resolutionStamp = 0;
+}
+
+/// 自适应 TextStyleTokens；[locale] 以 [AdaptiveTextStyleOverride.appLocale] 优先，否则为系统 [PlatformDispatcher.instance.locale]；[platform] 为 [defaultTargetPlatform]。
+/// 择套优先级：[AdaptiveTextStyleOverride.select] > [AdaptiveTextStyleOverride.tokenSet] > [defaultResolve]。
+///
+/// 对当前应使用的那一套 [TextStyleTokens] 做实例级缓存，避免在单次布局中多次读样式时重复 [AdaptiveTextStyleInputs] 与解析。
 class AdaptiveTextStyleTokens implements TextStyleTokens {
   static final AdaptiveTextStyleTokens _instance = AdaptiveTextStyleTokens._();
   factory AdaptiveTextStyleTokens() => _instance;
@@ -211,21 +314,86 @@ $jpField  final TextStyleTokens _iosChTokens = const $iosChClassName();
   final TextStyleTokens _androidChTokens = const $androidChClassName();
   final TextStyleTokens _androidEngTokens = const $androidEngClassName();
 
-  /// 根据平台、地区与语言获取对应的 tokens
-  TextStyleTokens get _platformTokens {
-    // 判断是否为中文地区（中国大陆、台湾、香港、澳门）
-    final locale = PlatformDispatcher.instance.locale;
-$jpBranch    final isChina = locale.languageCode == 'zh' &&
-        (locale.countryCode == 'CN' ||
-            locale.countryCode == 'TW' ||
-            locale.countryCode == 'HK' ||
-            locale.countryCode == 'MO');
+  Locale? _cacheLocale;
+  TargetPlatform? _cachePlatform;
+  AdaptiveTextStyleSelect? _cacheSelect;
+  TextStyleTokenSet? _cacheTokenSet;
+  int? _cacheStamp;
+  TextStyleTokens? _cacheResolved;
 
-    if (defaultTargetPlatform == TargetPlatform.iOS) {
-      return isChina ? _iosChTokens : _iosEngTokens;
+  /// 丢弃择套缓存；例如 [AdaptiveTextStyleOverride.appLocale] 或 [select] / [tokenSet] 已变但想避免自增 [AdaptiveTextStyleOverride.resolutionStamp] 时调用。
+  static void clearResolutionCache() {
+    final o = _instance;
+    o._cacheResolved = null;
+    o._cacheLocale = null;
+    o._cachePlatform = null;
+    o._cacheSelect = null;
+    o._cacheTokenSet = null;
+    o._cacheStamp = null;
+  }
+
+  /// 与生成器内置规则一致：按 [input.locale]（已含 app 优先逻辑）判断日语/中文区，日语 → jp（若有）、中文区 → *Ch、否则 → *Eng；[input.platform] 区分 iOS / Android。
+  static TextStyleTokens defaultResolve(AdaptiveTextStyleInputs input) {
+$defaultResolveJp    final isChina = input.locale.languageCode == 'zh' &&
+        (input.locale.countryCode == 'CN' ||
+            input.locale.countryCode == 'TW' ||
+            input.locale.countryCode == 'HK' ||
+            input.locale.countryCode == 'MO');
+
+    if (input.platform == TargetPlatform.iOS) {
+      return isChina ? input.iosCh : input.iosEng;
     } else {
-      return isChina ? _androidChTokens : _androidEngTokens;
+      return isChina ? input.androidCh : input.androidEng;
     }
+  }
+
+  /// 按枚举取与单例内 `const` 实现一致的那一套，便于在业务或测试中直接使用。
+  TextStyleTokens textStyleForSet(TextStyleTokenSet set) => _textStyleForSet(set);
+
+  TextStyleTokens _textStyleForSet(TextStyleTokenSet set) {
+$switchCases
+  }
+
+  TextStyleTokens get _platformTokens {
+    final systemLocale = PlatformDispatcher.instance.locale;
+    final app = AdaptiveTextStyleOverride.appLocale;
+    final effectiveLocale = app ?? systemLocale;
+    final platform = defaultTargetPlatform;
+    final select = AdaptiveTextStyleOverride.select;
+    final explicit = AdaptiveTextStyleOverride.tokenSet;
+    final stamp = AdaptiveTextStyleOverride.resolutionStamp;
+    final c = _cacheResolved;
+    if (c != null &&
+        _cacheLocale == effectiveLocale &&
+        _cachePlatform == platform &&
+        identical(_cacheSelect, select) &&
+        _cacheTokenSet == explicit &&
+        _cacheStamp == stamp) {
+      return c;
+    }
+    final input = AdaptiveTextStyleInputs(
+      locale: effectiveLocale,
+      platform: platform,
+      iosCh: _iosChTokens,
+      iosEng: _iosEngTokens,
+      androidCh: _androidChTokens,
+      androidEng: _androidEngTokens,$jpArg
+    );
+    final TextStyleTokens resolved;
+    if (select != null) {
+      resolved = select(input);
+    } else if (explicit != null) {
+      resolved = _textStyleForSet(explicit);
+    } else {
+      resolved = AdaptiveTextStyleTokens.defaultResolve(input);
+    }
+    _cacheLocale = effectiveLocale;
+    _cachePlatform = platform;
+    _cacheSelect = select;
+    _cacheTokenSet = explicit;
+    _cacheStamp = stamp;
+    _cacheResolved = resolved;
+    return resolved;
   }
 
 $getterMethods
@@ -264,7 +432,8 @@ $getterMethods
         return 'final ${e.type} ${e.name};';
       }
       final theme = themes[ti];
-      final tri = theme.transformers.indexWhere((t) => t.name == transformerName);
+      final tri =
+          theme.transformers.indexWhere((t) => t.name == transformerName);
       if (tri < 0) {
         return 'final ${e.type} ${e.name};';
       }
@@ -328,9 +497,8 @@ $getterMethods
       unionGetters[transformerName] = orderedEntries;
       fallbackThemePerGetter[transformerName] = fallbackForTransformer;
 
-      final params = orderedEntries
-          .map((e) => 'required this.${e.name},')
-          .join('\n    ');
+      final params =
+          orderedEntries.map((e) => 'required this.${e.name},').join('\n    ');
       final fields = _tokenGroupFieldDeclarations(
         entries: orderedEntries,
         fallbackThemePerToken: fallbackForTransformer,
@@ -645,8 +813,7 @@ class $sharedClassName extends ${transformer.className} {
                 final fallbackTheme = fallbackMap[e.name] ?? theme.name;
                 final fallbackClassName =
                     '${fallbackTheme.pascalCase}${transformer.className}';
-                superParts.add(
-                    '${e.name}: $fallbackClassName().${e.name}');
+                superParts.add('${e.name}: $fallbackClassName().${e.name}');
               }
             }
             if (missingTokenNames.isNotEmpty) {
@@ -654,8 +821,7 @@ class $sharedClassName extends ${transformer.className} {
                 'Warning: 主题 "${theme.name}" 的 ${transformer.className} 中以下 token 未提供，已使用默认主题的值: ${missingTokenNames.join(', ')}',
               );
             }
-            final implName =
-                '${theme.name.pascalCase}${transformer.className}';
+            final implName = '${theme.name.pascalCase}${transformer.className}';
             classes.add('''
 class $implName extends ${transformer.className} {
   $implName() : super(
@@ -765,6 +931,18 @@ class ${theme.name.pascalCase}Tokens extends ITokens {
     }
 
     return sharedMap;
+  }
+
+  /// 将主题名（如 `ios_ch`、`jp`）转为合法 Dart 枚举值标识符。
+  String _enumVariantForThemeName(String themeName) {
+    final id = themeName.replaceAll('-', '_').camelCase;
+    if (id.isEmpty) {
+      return 'fontTheme';
+    }
+    if (RegExp(r'^[0-9]').hasMatch(id)) {
+      return 'n$id';
+    }
+    return id;
   }
 
   /// Checks if a theme is a font theme (only contains textStyle transformer).
