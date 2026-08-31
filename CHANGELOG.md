@@ -1,3 +1,7 @@
+## 0.3.10-alpha
+
+- Inline fallback color values for partial themes, preventing recursive `ColorTokens` construction when themes omit each other's tokens.
+
 ## 0.3.9-alpha
 
 - Generate AdaptiveTextStyleTokens for every non-font theme when all platform font themes are available, including Halloween.

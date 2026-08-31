@@ -812,6 +812,30 @@ class $sharedClassName extends ${transformer.className} {
                   (candidate) => candidate.name == fallbackTheme,
                   orElse: () => theme,
                 );
+
+                // Color values are immutable literals.  Referencing another
+                // theme's ColorTokens here constructs that theme while this
+                // constructor is still running; if both themes have missing
+                // colors, that creates an infinite constructor recursion.
+                // Reuse the fallback transformer's already-generated literal
+                // instead, so the fallback remains entirely local.
+                if (transformerName == 'color') {
+                  final fallbackTransformer = fallbackThemeObject.transformers
+                      .where((candidate) => candidate.name == transformerName)
+                      .firstOrNull;
+                  final fallbackBlock = fallbackTransformer == null
+                      ? null
+                      : Transformer.getterNameToLineBlock(
+                          fallbackTransformer.lines)[e.name];
+                  final fallbackArg = fallbackBlock == null
+                      ? null
+                      : Transformer.toSuperInitializerArg(fallbackBlock);
+                  if (fallbackArg != null) {
+                    superParts.add(fallbackArg);
+                    continue;
+                  }
+                }
+
                 final fallbackSignature =
                     themeContentMap[fallbackThemeObject]?[transformerName];
                 final fallbackClassName = fallbackSignature == null
