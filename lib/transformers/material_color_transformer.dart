@@ -49,11 +49,16 @@ class MaterialColorTransformer extends MultiTokenTransformer {
     final name = token.variableName
         .substring(0, token.variableName.length - digit.toString().length);
 
+    final color = ColorValue.maybeParse(token.value);
+
+    // Gradients and other non-solid color values cannot form a MaterialColor.
+    if (color == null) return;
+
     // Add the token to the list of tokens with the same name
     colorTokensByName.putIfAbsent(name, () => []).add(
           _MaterialColorEntry(
             digit,
-            ColorValue.maybeParse(token.value)!,
+            color,
           ),
         );
   }

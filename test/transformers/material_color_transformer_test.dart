@@ -44,6 +44,28 @@ MaterialColor get primary => const MaterialColor(0xFF0EA5E9, {
 '''),
     );
   });
+
+  test('does not treat a numeric-suffixed gradient as a material color', () {
+    final raw = json.decode('''
+{
+  "linear": {
+    "50": {
+      "value": "linear-gradient(61deg, #7D85FF 0%, #6C6BFF 50%, #3A71FF 100%)",
+      "type": "color"
+    }
+  }
+}
+''') as Map<String, dynamic>;
+    final parser = TokenParser()..parse(raw);
+    final tokens = parser.resolvedTokens();
+    final transformer = MaterialColorTransformer(tokens);
+
+    expect(
+      () => tokens.forEach(transformer.process),
+      returnsNormally,
+    );
+    expect(transformer.colorTokensByName, isEmpty);
+  });
 }
 
 final input = '''

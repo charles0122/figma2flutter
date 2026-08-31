@@ -1,3 +1,7 @@
+## 0.3.7-alpha
+
+- Skip non-solid color tokens when generating MaterialColor tokens, allowing numeric-suffixed linear gradients to generate normally.
+
 ## 0.3.1-alpha
 
 - [Throw exception if theme refers to token set that is not in metadata](https://github.com/mark-nicepants/figma2flutter/pull/28)
