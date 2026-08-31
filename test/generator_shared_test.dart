@@ -10,6 +10,49 @@ import 'package:test/test.dart';
 
 void main() {
   group('Generator shared classes', () {
+    test('adds adaptive text styles to a non-font theme without typography tokens', () {
+      final input = '''
+      {
+        "\$themes": {
+          "light": {"name": "light", "selectedTokenSets": {"empty": "enabled"}},
+          "dark": {"name": "dark", "selectedTokenSets": {"empty": "enabled"}},
+          "halloween": {"name": "halloween", "selectedTokenSets": {"empty": "enabled"}},
+          "ios_ch": {"name": "ios_ch", "selectedTokenSets": {"ios-ch": "enabled"}},
+          "ios_eng": {"name": "ios_eng", "selectedTokenSets": {"ios-eng": "enabled"}},
+          "android_ch": {"name": "android_ch", "selectedTokenSets": {"android-ch": "enabled"}},
+          "android_eng": {"name": "android_eng", "selectedTokenSets": {"android-eng": "enabled"}}
+        },
+        "empty": {},
+        "ios-ch": {"body": {"value": {"fontFamily": "Roboto", "fontSize": "14px", "fontWeight": "400"}, "type": "typography"}},
+        "ios-eng": {"body": {"value": {"fontFamily": "Roboto", "fontSize": "14px", "fontWeight": "400"}, "type": "typography"}},
+        "android-ch": {"body": {"value": {"fontFamily": "Roboto", "fontSize": "14px", "fontWeight": "400"}, "type": "typography"}},
+        "android-eng": {"body": {"value": {"fontFamily": "Roboto", "fontSize": "14px", "fontWeight": "400"}, "type": "typography"}}
+      }''';
+      final parsed = json.decode(input) as Map<String, dynamic>;
+      final allSets = ['empty', 'ios-ch', 'ios-eng', 'android-ch', 'android-eng'];
+      final parser = TokenParser()
+        ..themes = (parsed['\$themes'] as Map<String, dynamic>).values
+            .map((theme) => TokenTheme.fromJson(
+                  theme as Map<String, dynamic>,
+                  allSets,
+                ))
+            .toList()
+        ..parse(parsed);
+      final processor = Processor(
+        themes: parser.themes,
+        singleTokenTransformerFactories: [(_) => TypographyTransformer()],
+      )..process();
+
+      final output = Generator(processor.themes).output;
+
+      expect(
+        output,
+        contains('''class HalloweenTokens extends ITokens {
+  @override
+  TextStyleTokens get textStyle => AdaptiveTextStyleTokens();'''),
+      );
+    });
+
     test('should generate shared class when multiple themes have identical selectedTokenSets and transformer content', () {
       // Create input with two themes that use exactly the same token set
       // This simulates the case where light and dark themes share the same typography/font tokens

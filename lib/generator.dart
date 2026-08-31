@@ -729,10 +729,9 @@ class $sharedClassName extends ${transformer.className} {
       final properties = <String>[];
       final insertAt = classes.length;
 
-      // 对于 Light 和 Dark 主题，如果存在所有字体主题，添加 textStyle getter（使用 AdaptiveTextStyleTokens）
-      final isLightOrDark = theme.name.toLowerCase() == 'light' ||
-          theme.name.toLowerCase() == 'dark';
-      if (isLightOrDark && _hasAllFontThemes()) {
+      // 所有非字体主题在存在完整字体主题时，使用统一的自适应 textStyle。
+      final usesAdaptiveTextStyles = _hasAllFontThemes();
+      if (usesAdaptiveTextStyles) {
         // 查找 textStyle transformer（可能来自字体主题或其他主题）
         Transformer? textStyleTransformer;
         for (final t in themes) {
@@ -757,10 +756,8 @@ class $sharedClassName extends ${transformer.className} {
           continue;
         }
 
-        // 对于 Light 和 Dark 主题，如果已经添加了 textStyle getter（使用 AdaptiveTextStyleTokens），跳过
-        if (isLightOrDark &&
-            transformerName == 'textStyle' &&
-            _hasAllFontThemes()) {
+        // 已添加自适应 textStyle getter 时，跳过主题自身的 textStyle transformer。
+        if (usesAdaptiveTextStyles && transformerName == 'textStyle') {
           continue;
         }
 

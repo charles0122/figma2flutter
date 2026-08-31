@@ -1,3 +1,7 @@
+## 0.3.9-alpha
+
+- Generate AdaptiveTextStyleTokens for every non-font theme when all platform font themes are available, including Halloween.
+
 ## 0.3.8-alpha
 
 - Fall back to shared token classes when a partial theme omits tokens, preventing generated Halloween spacing tokens from referencing a missing LightSpacingTokens class.
