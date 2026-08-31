@@ -1,3 +1,7 @@
+## 0.3.8-alpha
+
+- Fall back to shared token classes when a partial theme omits tokens, preventing generated Halloween spacing tokens from referencing a missing LightSpacingTokens class.
+
 ## 0.3.7-alpha
 
 - Skip non-solid color tokens when generating MaterialColor tokens, allowing numeric-suffixed linear gradients to generate normally.

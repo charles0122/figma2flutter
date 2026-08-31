@@ -10,6 +10,61 @@ import 'package:test/test.dart';
 
 void main() {
   group('Generator shared classes based on selectedTokenSets', () {
+    test('uses a shared spacing class for getters missing from a partial theme', () {
+      final input = '''
+      {
+        "\$themes": {
+          "light": {
+            "name": "light",
+            "selectedTokenSets": {"spacing-full": "enabled"}
+          },
+          "dark": {
+            "name": "dark",
+            "selectedTokenSets": {"spacing-full": "enabled"}
+          },
+          "halloween": {
+            "name": "halloween",
+            "selectedTokenSets": {"spacing-halloween": "enabled"}
+          }
+        },
+        "spacing-full": {
+          "global": {"value": "8px", "type": "spacing"},
+          "semantic": {"value": "12px", "type": "spacing"}
+        },
+        "spacing-halloween": {
+          "global": {"value": "8px", "type": "spacing"}
+        }
+      }''';
+      final parsed = json.decode(input) as Map<String, dynamic>;
+      final allSets = ['spacing-full', 'spacing-halloween'];
+      final parser = TokenParser()
+        ..themes = (parsed['\$themes'] as Map<String, dynamic>).values
+            .map((theme) => TokenTheme.fromJson(
+                  theme as Map<String, dynamic>,
+                  allSets,
+                ))
+            .toList()
+        ..parse(parsed);
+      final processor = Processor(
+        themes: parser.themes,
+        singleTokenTransformerFactories: [(_) => SpacingTransformer()],
+      )..process();
+
+      final output = Generator(processor.themes).output;
+
+      expect(output, contains('class SharedSpacingTokens extends SpacingTokens'));
+      expect(
+        output,
+        contains(
+          'spacingFullSemantic: SharedSpacingTokens().spacingFullSemantic',
+        ),
+      );
+      expect(
+        output,
+        isNot(contains('spacingFullSemantic: LightSpacingTokens()')),
+      );
+    });
+
     test('should NOT generate shared class when themes have different selectedTokenSets even if content is identical', () {
       // Create input where two themes have different token sets but happen to have identical content
       final input = '''

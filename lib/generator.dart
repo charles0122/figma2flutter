@@ -811,9 +811,18 @@ class $sharedClassName extends ${transformer.className} {
               } else {
                 missingTokenNames.add(e.name);
                 final fallbackTheme = fallbackMap[e.name] ?? theme.name;
-                final fallbackClassName =
+                final fallbackThemeObject = themes.firstWhere(
+                  (candidate) => candidate.name == fallbackTheme,
+                  orElse: () => theme,
+                );
+                final fallbackSignature =
+                    themeContentMap[fallbackThemeObject]?[transformerName];
+                final fallbackClassName = fallbackSignature == null
+                    ? null
+                    : sharedClassNames[transformerName]?[fallbackSignature];
+                final className = fallbackClassName ??
                     '${fallbackTheme.pascalCase}${transformer.className}';
-                superParts.add('${e.name}: $fallbackClassName().${e.name}');
+                superParts.add('${e.name}: $className().${e.name}');
               }
             }
             if (missingTokenNames.isNotEmpty) {
