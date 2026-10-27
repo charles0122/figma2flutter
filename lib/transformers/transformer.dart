@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:figma2flutter/models/token.dart';
 import 'package:figma2flutter/models/token_theme.dart';
 import 'package:meta/meta.dart';
@@ -179,8 +181,8 @@ class ${theme.pascalCase}$className extends $className {
     var offset = 0;
     for (final raw in block.split('\n')) {
       final line = raw.trim();
-      final skipOnlyAnnotation = line.startsWith('@') && !line.contains('=');
-      if (line.isEmpty || line.startsWith('///') || skipOnlyAnnotation) {
+      final isAnnotation = line.startsWith('@');
+      if (line.isEmpty || line.startsWith('///') || isAnnotation) {
         offset += raw.length + 1;
         continue;
       }
@@ -208,8 +210,8 @@ class ${theme.pascalCase}$className extends $className {
   static GetterEntry? parseGetterFromLineBlock(String lineBlock) {
     for (final raw in lineBlock.split('\n')) {
       final line = raw.trim();
-      final skipOnlyAnnotation = line.startsWith('@') && !line.contains('=');
-      if (line.isEmpty || line.startsWith('///') || skipOnlyAnnotation) {
+      final isAnnotation = line.startsWith('@');
+      if (line.isEmpty || line.startsWith('///') || isAnnotation) {
         continue;
       }
       if (!line.contains('=')) continue;
@@ -274,8 +276,13 @@ abstract class SingleTokenTransformer extends Transformer {
       // Add deprecated annotation if available
       if (token.isDeprecated) {
         if (token.deprecated?.isNotEmpty == true) {
-          // Use @Deprecated with message when message is provided
-          parts.add("@Deprecated('${token.deprecated}')");
+          // JSON 负责控制字符与反斜杠，额外转义 Dart 单引号及插值符，消息保持单行源码。
+          final encoded = jsonEncode(token.deprecated!);
+          final message = encoded
+              .substring(1, encoded.length - 1)
+              .replaceAll("'", r"\'")
+              .replaceAll(r'$', r'\$');
+          parts.add("@Deprecated('$message')");
         } else {
           // Use @deprecated without message when deprecated is true
           parts.add('@deprecated');

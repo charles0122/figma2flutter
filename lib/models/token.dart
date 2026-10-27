@@ -52,6 +52,8 @@ class Token {
   /// If null, the token is not deprecated.
   /// If an empty string, the token is deprecated without a message.
   /// If a non-empty string, the token is deprecated with the given message.
+  /// Tokens Studio metadata is normalized into this message, including
+  /// replacement tokens, removal timing and an error severity when supplied.
   final String? deprecated;
 
   /// Returns true if the token is deprecated

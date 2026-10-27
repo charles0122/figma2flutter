@@ -267,13 +267,33 @@ class TokenParser {
   }
 
   /// Parses deprecated value from input map.
-  /// Returns empty string if true, the string value if string, null otherwise.
+  /// Supports legacy booleans/strings and Tokens Studio metadata objects.
+  /// Invalid objects are ignored; migration details become the Dart message.
   String? _parseDeprecated(Map<String, dynamic> input) {
     final deprecatedValue = _getValue(input, 'deprecated');
     if (deprecatedValue == true) {
       return '';
     } else if (deprecatedValue is String) {
       return deprecatedValue;
+    }
+    if (deprecatedValue is Map<String, dynamic>) {
+      // 只接受上游声明的严重度与字符串消息，避免把无效对象误标为弃用。
+      final severity = deprecatedValue['severity'];
+      final message = deprecatedValue['message'];
+      if ((severity != 'warning' && severity != 'error') || message is! String) {
+        return null;
+      }
+      // Dart 只有统一的弃用注解，将严重度、替代项和移除时间保留在提示中。
+      final replacement = deprecatedValue['replacementToken'];
+      final removeAfter = deprecatedValue['removeAfter'];
+      return <String>[
+        if (severity == 'error') 'Severity: error.',
+        if (message.isNotEmpty) message,
+        if (replacement is String && replacement.trim().isNotEmpty)
+          'Replacement: ${replacement.trim()}.',
+        if (removeAfter is String && removeAfter.trim().isNotEmpty)
+          'Scheduled removal: ${removeAfter.trim()}.',
+      ].join(' ');
     }
     return null;
   }

@@ -144,6 +144,26 @@ Now you can use your tokens in your app! 🎉
     - ✅ solid
     - ~~dashed~~ (not supported but PRs's are welcome)
 
+## Deprecated tokens
+
+Both `deprecated` and `$deprecated` accept the existing boolean/string values
+and Tokens Studio metadata objects:
+
+```json
+"$deprecated": {
+  "severity": "warning",
+  "message": "Use the new brand color instead",
+  "replacementToken": "{color.brand.new}",
+  "removeAfter": "v3.0"
+}
+```
+
+Migration details are included in the generated Dart `@Deprecated` message.
+`error` severity is retained in the message; Dart uses the same deprecation
+annotation for both severities. Empty warning messages produce `@deprecated`.
+The `$deprecated` key takes precedence when both forms are present, including
+when its value is `false` or `null`. Invalid metadata objects are ignored.
+
 ## Math expressions
 
 Tokens Studio supports math operations on tokens. This package supports the following math operations:
